@@ -2,21 +2,38 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';//根组件
 import { HelloNg2Component } from './hello-ng2/hello-ng2.component';
+import { HeroDetailComponentComponent } from './hero-detail-component/hero-detail-component.component';
+import { HomeComponentComponent } from './home-component/home-component.component';
+
+const appRoutes: Routes = [
+  { path:'hero/:id',
+    component: HeroDetailComponentComponent,
+    data: { //用来保存诸如 页标题、面包屑以及其它只读数据
+      title: '英雄详情' 
+    } 
+  },
+  { path: '', component: HomeComponentComponent },
+  { path: '**', component: HelloNg2Component }//需要显示404页面或者重定向到其它路由时，该特性非常有用
+]
 
 @NgModule({
   //声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。
   declarations: [
     AppComponent,
-    HelloNg2Component
+    HelloNg2Component,
+    HeroDetailComponentComponent,
+    HomeComponentComponent
   ],
   //本模块声明的组件模板需要的类所在的其它模块。
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   //服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [],

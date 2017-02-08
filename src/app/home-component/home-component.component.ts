@@ -1,13 +1,11 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  selector: 'app-home-component',
+  templateUrl: './home-component.component.html',
+  styleUrls: ['./home-component.component.css']
 })
-export class AppComponent implements OnInit  {//生命周期钩子
+export class HomeComponentComponent implements OnInit {
   heroes;
   title = 'ng2 works!';
   ngOnInit() {
@@ -26,4 +24,5 @@ export class AppComponent implements OnInit  {//生命周期钩子
       }
     ];
   }
+
 }
