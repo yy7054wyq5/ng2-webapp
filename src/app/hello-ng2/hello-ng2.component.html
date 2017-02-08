@@ -1,3 +1,15 @@
-<p>
-  hello-ng2 works!
-</p>
+<p>{{info.name}}</p>
+<input type="text" [(ngModel)]="info.name">
+<a (click)="look()">查看</a>
+<table *ngIf="info">
+  <tr>
+    <td>姓名：</td>
+    <td>年龄：</td>
+    <td>高度：</td>
+  </tr>
+  <tr>
+    <td>{{info.name}}</td>
+    <td>{{info.age}}</td>
+    <td>{{info.height}}</td>
+  </tr>
+</table>

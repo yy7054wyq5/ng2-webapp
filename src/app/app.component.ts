@@ -9,8 +9,7 @@ import { OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit  {//生命周期钩子
   heroes;
-  showHero;
-  title = 'app works!';
+  title = 'ng2 works!';
   ngOnInit() {
     this.heroes = [
       {
@@ -24,8 +23,5 @@ export class AppComponent implements OnInit  {//生命周期钩子
         height:'190'
       }
     ];
-    this.showHero = function (hero) {
-      alert('name:'+hero.name+',age:'+hero.age+',height:'+hero.height);
-    }
   }
 }

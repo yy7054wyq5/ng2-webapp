@@ -3,8 +3,6 @@
 </h1>
 <ul>
   <li *ngFor="let hero of heroes">
-    <input type="text" [(ngModel)]="hero.name">
-    <a (click)="showHero(hero)">展示信息</a>
+    <app-hello-ng2 [data]="hero"></app-hello-ng2>
   </li>
 </ul>
-<app-hello-ng2 [data]="heroes"></app-hello-ng2>
