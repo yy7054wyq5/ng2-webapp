@@ -11,16 +11,12 @@ export class HomeComponentComponent implements OnInit {
   ngOnInit() {
     this.heroes = [
       {
-        id: 1,
+        id:1,
         name:'chaoren',
-        age:'11',
-        height:'180'
       },
       {
-        id: 2,
+        id:2,
         name:'leishen',
-        age:'111',
-        height:'190'
       }
     ];
   }
