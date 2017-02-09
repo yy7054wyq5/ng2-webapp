@@ -6,8 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';//根组件
 import { HelloNg2Component } from './hello-ng2/hello-ng2.component';
-import { HeroDetailComponent } from './hero-detail-component/hero-detail.component';
-import { HomeComponent } from './home-component/home.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   { path:'hero/:id',
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
     AppComponent,
     HelloNg2Component,
     HeroDetailComponent,
-    HomeComponent
+    HomeComponent,
   ],
   //本模块声明的组件模板需要的类所在的其它模块。
   imports: [
