@@ -6,17 +6,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';//根组件
 import { HelloNg2Component } from './hello-ng2/hello-ng2.component';
-import { HeroDetailComponentComponent } from './hero-detail-component/hero-detail-component.component';
-import { HomeComponentComponent } from './home-component/home-component.component';
+import { HeroDetailComponent } from './hero-detail-component/hero-detail.component';
+import { HomeComponent } from './home-component/home.component';
 
 const appRoutes: Routes = [
   { path:'hero/:id',
-    component: HeroDetailComponentComponent,
+    component: HeroDetailComponent,
     data: { //用来保存诸如 页标题、面包屑以及其它只读数据
       title: '英雄详情' 
     } 
   },
-  { path: '', component: HomeComponentComponent },
+  { path: '', component: HomeComponent },
   { path: '**', component: HelloNg2Component }//需要显示404页面或者重定向到其它路由时，该特性非常有用
 ]
 
@@ -25,8 +25,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HelloNg2Component,
-    HeroDetailComponentComponent,
-    HomeComponentComponent
+    HeroDetailComponent,
+    HomeComponent
   ],
   //本模块声明的组件模板需要的类所在的其它模块。
   imports: [
