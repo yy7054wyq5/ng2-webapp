@@ -1,10 +1,11 @@
-<demo-breadcrumbs></demo-breadcrumbs>
 <h1>
   {{title}}
 </h1>
-<ul>
-  <li *ngFor="let hero of heroes">
-    姓名：{{hero.name}}
-    <a routerLink="hero/{{hero.id}}">详情</a>
-  </li>
-</ul>
+<md-list>
+  <md-list-item *ngFor="let hero of heroes">
+    <p md-line>
+      {{hero.name}}
+      <button md-button routerLink="hero/{{hero.id}}">详情</button>
+    </p>
+  </md-list-item>
+</md-list>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';//根组件
 import { HelloNg2Component } from './hello-ng2/hello-ng2.component';
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MaterialModule.forRoot()
   ],
   //服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [],
