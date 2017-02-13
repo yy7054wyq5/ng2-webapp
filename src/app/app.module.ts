@@ -3,13 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { NglModule } from 'ng-lightning/ng-lightning';//nglightning ui库
 
 import { AppComponent } from './app.component';//根组件
 import { HelloNg2Component } from './hello-ng2/hello-ng2.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HomeComponent } from './home/home.component';
-import { DemoBreadcrumbsComponent } from './demo-breadcrumbs/demo-breadcrumbs.component';
 
 const appRoutes: Routes = [
   { path:'hero/:id',
@@ -28,16 +26,14 @@ const appRoutes: Routes = [
     AppComponent,
     HelloNg2Component,
     HeroDetailComponent,
-    HomeComponent,
-    DemoBreadcrumbsComponent
+    HomeComponent
   ],
   //本模块声明的组件模板需要的类所在的其它模块。
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
-    NglModule.forRoot()
+    RouterModule.forRoot(appRoutes)
   ],
   //服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [],
