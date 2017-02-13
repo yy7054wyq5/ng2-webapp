@@ -8,22 +8,7 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit  {//生命周期钩子
-  heroes;
   title = 'ng2 works!';
   ngOnInit() {
-    this.heroes = [
-      {
-        id: 1,
-        name:'chaoren',
-        age:'11',
-        height:'180'
-      },
-      {
-        id: 2,
-        name:'leishen',
-        age:'111',
-        height:'190'
-      }
-    ];
   }
 }
