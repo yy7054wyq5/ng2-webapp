@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+import { MaterialModule } from '@angular/material';//ui库
+import 'hammerjs';////ui库所需
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';//虚拟请求用
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent } from './app.component';//根组件
