@@ -6,6 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
 import { AppComponent } from './app.component';//根组件
 import { HelloNg2Component } from './hello-ng2/hello-ng2.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -36,7 +40,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   //服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [],

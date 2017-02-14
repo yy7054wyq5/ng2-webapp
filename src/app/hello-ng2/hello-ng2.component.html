@@ -1,6 +1,6 @@
 <div *ngIf="info.name">
   <ul>
-    <li>姓名：{{info.name}}</li>
+    <li>姓名：{{info.name | uppercase}}</li>
   </ul>
   <input type="text" [(ngModel)]="info.name">
   <a (click)="look()">查看</a>
