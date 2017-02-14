@@ -1,8 +1,7 @@
-<ul>
-  <li>姓名：{{info.name}}</li>
-  <li>年龄：{{info.age}}</li>
-  <li>高度：{{info.height}}</li>
-</ul>
-<input type="text" [(ngModel)]="info.name">
-<a (click)="look()">查看</a>
-
+<div *ngIf="info.name">
+  <ul>
+    <li>姓名：{{info.name}}</li>
+  </ul>
+  <input type="text" [(ngModel)]="info.name">
+  <a (click)="look()">查看</a>
+</div>
