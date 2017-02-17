@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { RemService } from './rem.service';
+import { RemService } from './service/rem.service';
 
 @Component({
   selector: 'app-root',

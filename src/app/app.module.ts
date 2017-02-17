@@ -8,12 +8,12 @@ import 'hammerjs';////ui库所需
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';//虚拟请求用
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService }  from './service/in-memory-data.service';
 
 import { AppComponent } from './app.component';//根组件
-import { HelloNg2Component } from './hello-ng2/hello-ng2.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HomeComponent } from './home/home.component';
+import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
+import { HeroDetailComponent } from './view/hero-detail/hero-detail.component';
+import { HomeComponent } from './view/home/home.component';
 
 const appRoutes: Routes = [
   { path:'hero/:id',

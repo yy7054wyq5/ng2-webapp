@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../../service/hero.service';
 
 @Component({
   selector: 'app-home-component',
@@ -9,9 +9,9 @@ import { HeroService } from '../hero.service';
 })
 export class HomeComponent implements OnInit {
   heroes;
-  title = 'Heroes List!';
   folders;
   notes;
+  title = 'Heroes List!';
   constructor(
     private HeroService: HeroService,
   ){}

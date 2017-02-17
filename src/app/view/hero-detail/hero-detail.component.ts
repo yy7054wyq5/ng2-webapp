@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params ,Data } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../../service/hero.service';
 import { Location } from '@angular/common';
 
 @Component({
