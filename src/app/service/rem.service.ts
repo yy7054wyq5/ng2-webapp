@@ -7,18 +7,19 @@ export class RemService {
 
   dpr: number = window.devicePixelRatio || 1;
   docEl: any = document.documentElement;
-  rem: number = this.docEl.clientWidth * this.dpr / 10;
-  scale: number = 1 / this.dpr;
-  fontSize: number = this.rem/this.dpr;
+  rem: number;
+  fontSize: number;
   fontEl: any = document.createElement('style');
   metaEl: any = document.querySelector('meta[name="viewport"]');
   setDpr(): void{
+    this.rem = this.docEl.clientWidth * this.dpr / 10;
+    this.fontSize = this.rem/this.dpr;
     // 设置data-dpr属性，留作的css hack之用
     this.docEl.setAttribute('data-dpr', this.dpr);
     // 动态写入样式
     this.docEl.firstElementChild.appendChild(this.fontEl);
     if(this.docEl.clientWidth>=640){
-        this.fontSize = 64;
+      this.fontSize = 64;
     }
     this.fontEl.innerHTML = 'html{font-size:' + this.fontSize + 'px!important;}';
     // 设置viewport

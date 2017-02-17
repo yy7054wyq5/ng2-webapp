@@ -16,5 +16,8 @@ export class AppComponent implements OnInit  {//生命周期钩子
 
   ngOnInit() {
     this.rem.setDpr();
+    window.onresize = () => {
+      this.rem.setDpr();
+    }
   }
 }
