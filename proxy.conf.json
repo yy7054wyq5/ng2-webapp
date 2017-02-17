@@ -1,0 +1,6 @@
+{
+  "api/*": {
+    "target": "http://appbuilder.doboyu.com",
+    "secure": false
+  }
+}

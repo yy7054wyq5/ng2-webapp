@@ -11,9 +11,10 @@ export class HomeComponent implements OnInit {
   heroes;
   folders;
   notes;
+  res;
   title = 'Heroes List!';
   constructor(
-    private HeroService: HeroService,
+    private HeroService: HeroService
   ){}
   
   getHeroes(): void{//函数
@@ -21,6 +22,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.http.get('/api/app/info/11?sign=beb790d872f5b20202c7d4e98119c54d&timeout=5000')
+    //   .switchMap(res => res.text())
+    //   .subscribe(response => this.res = response);
     this.getHeroes();//调用函数
     //onselect(hero: Hero): void {}
     this.folders = [

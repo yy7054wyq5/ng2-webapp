@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     AppComponent,
     HelloNg2Component,
     HeroDetailComponent,
-    HomeComponent
+    HomeComponent,
   ],
   //本模块声明的组件模板需要的类所在的其它模块。
   imports: [
