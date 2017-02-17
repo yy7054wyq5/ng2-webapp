@@ -1,3 +1,6 @@
 h1{
   font-size: 1rem;
+  background: #000;
+  width: 5rem;
+  display: block;
 }

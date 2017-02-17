@@ -12,8 +12,10 @@ export class RemService {
   fontEl: any = document.createElement('style');
   metaEl: any = document.querySelector('meta[name="viewport"]');
   setDpr(): void{
+    // 假设在设计图宽度是375px，10rem等于375px，那么 1rem = 37.5px，;
     this.rem = this.docEl.clientWidth * this.dpr / 10;
-    this.fontSize = this.rem/this.dpr;
+    // 为了达到 1rem = 20px便于计算
+    this.fontSize = this.rem/this.dpr*(20/37.5);
     // 设置data-dpr属性，留作的css hack之用
     this.docEl.setAttribute('data-dpr', this.dpr);
     // 动态写入样式
