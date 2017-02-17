@@ -6,24 +6,21 @@ export class RemService {
   constructor() { }
 
   dpr: number = window.devicePixelRatio || 1;
-  docEl: any = document.documentElement;
+  docEl: any = document.documentElement;//根元素
   rem: number;
   fontSize: number;
-  fontEl: any = document.createElement('style');
   metaEl: any = document.querySelector('meta[name="viewport"]');
   setDpr(): void{
-    // 假设在设计图宽度是375px，10rem等于375px，那么 1rem = 37.5px，;
-    this.rem = this.docEl.clientWidth * this.dpr / 10;
+    // 假设在设计图宽度是375px，10rem等于375px，那么 1rem = 37.5px
+    this.rem = this.docEl.clientWidth*this.dpr/10;
     // 为了达到 1rem = 20px便于计算
-    this.fontSize = this.rem / this.dpr * (20 / 37.5);
+    this.fontSize = this.rem/this.dpr*(20/37.5);
     // 设置data-dpr属性，留作的css hack之用
     this.docEl.setAttribute('data-dpr', this.dpr);
-    // 动态写入样式
-    this.docEl.firstElementChild.appendChild(this.fontEl);
     if(this.docEl.clientWidth>=640){
       this.fontSize = 64;
     }
-    this.fontEl.innerHTML = 'html{font-size:' + this.fontSize + 'px!important;}';
+    this.docEl.setAttribute('style','font-size:' + this.fontSize + 'px!important;');
     // 设置viewport
     this.metaEl.setAttribute('content', 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0');
     // 给js调用的，某一dpr下rem和px之间的转换函数
