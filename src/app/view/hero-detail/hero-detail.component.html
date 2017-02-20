@@ -1,9 +1,18 @@
-<div *ngIf="hero">
-  <h2>{{title}}</h2>
-  {{hero.name}}
-  <!--路由回首页-->
-  <a [routerLink]="['']">使用路由回到首页</a><br>
-  <a (click)="goBack()">点击事件回到首页</a>
-  <p>以下是内部组件</p>
-  <app-hello-ng2 [data]="hero"></app-hello-ng2>
-</div>
+<md-card class="example-card" *ngIf="hero">
+  <md-card-header>
+    <md-card-title>{{title}}</md-card-title>
+    <md-card-subtitle>lalalala</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <a [routerLink]="['']">使用路由回到首页</a><br>
+    <a (click)="goBack()">点击事件回到首页</a>
+    <p>
+      {{hero.name}}
+    </p>
+    <app-hello-ng2 [data]="hero"></app-hello-ng2>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>
