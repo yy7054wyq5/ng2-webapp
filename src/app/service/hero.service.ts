@@ -18,7 +18,7 @@ export class HeroService {
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl)
             .toPromise()
-            .then(response => response.json().data)
+            .then(response => response.json().data as Hero[])
             .catch(this.handleError);
   };
   getHeroesSlowly(): Promise<Hero[]> {
