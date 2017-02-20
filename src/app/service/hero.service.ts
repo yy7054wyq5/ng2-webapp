@@ -7,7 +7,7 @@ import { Hero } from '../class/hero';
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = 'http://appbuilder.doboyu.com/api/app/info/11?sign=beb790d872f5b20202c7d4e98119c54d&timeout=5000';  // URL to web api
+  private heroesUrl = 'app/heroes';  // URL to web api
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
@@ -18,7 +18,7 @@ export class HeroService {
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl)
             .toPromise()
-            .then(response => response.json().data as Hero[])
+            .then(response => response.json().data)
             .catch(this.handleError);
   };
   getHeroesSlowly(): Promise<Hero[]> {

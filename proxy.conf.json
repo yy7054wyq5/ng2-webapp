@@ -1,6 +1,6 @@
 {
   "api/*": {
-    "target": "http://appbuilder.doboyu.com",
+    "target": "http://scmpurchase.loongjoy.com",
     "secure": false
   }
 }
