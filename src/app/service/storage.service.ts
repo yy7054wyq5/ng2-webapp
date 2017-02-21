@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class storageService {
 
   constructor() { }
+
   put(param: any): void{
     let data: any = param.data;//数据
     let key: string = param.key;//约定的key
@@ -16,6 +17,7 @@ export class storageService {
     }
     sessionStorage.setItem(key,data);
   };
+
   get(key: string): any{
     let localData: string = localStorage.getItem(key);
     if(!localData){
@@ -23,6 +25,7 @@ export class storageService {
     }
     return JSON.parse(localData);
   };
+
   remove(keys: string): void{//key1,key2,key3
     let keysList: Array<string> = keys.split(',');
     for (var index = 0; index < keysList.length; index++) {
@@ -30,6 +33,7 @@ export class storageService {
       sessionStorage.removeItem(keysList[index]);      
     }
   };
+  
   clear(): void{
     localStorage.clear();
     sessionStorage.clear();
