@@ -5,14 +5,16 @@ export class storageService {
 
   constructor() { }
   put(param: any): void{
-    let data = param.data;
-    if(typeof param.data =='object'){
-      param.data = JSON.stringify(data);
+    let data: any = param.data;//数据
+    let key: string = param.key;//约定的key
+    let type: string = param.type;//存储类型
+    if(typeof data =='object'){
+      data = JSON.stringify(data);
     }
-    if(param.type =='local'){
-      localStorage.setItem(param.key,data);
+    if(type =='local'){
+      localStorage.setItem(key,data);
     }
-    sessionStorage.setItem(param.key,data);
+    sessionStorage.setItem(key,data);
   };
   get(param: any): any{
     let key: string = param.key;
