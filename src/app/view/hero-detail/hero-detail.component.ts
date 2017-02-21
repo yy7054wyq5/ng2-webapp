@@ -33,11 +33,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroService.testGet()
-      .then(data =>{
-        this.data = data;
-        console.log(this.data);
-      });
+
   }
 
 }

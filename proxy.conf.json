@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://scmpurchase.loongjoy.com",
+    "target": "http://appbuilder.doboyu.com",
     "changeOrigin": true,
     "secure": false,
     "logLevel": "debug"
