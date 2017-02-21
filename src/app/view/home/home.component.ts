@@ -42,6 +42,9 @@ export class HomeComponent implements OnInit {
             data: res.content
           });
           console.log(this.storage.get('appinfo'));
+          setTimeout(()=>{
+            this.storage.remove('appinfo');
+          },1000);
         }
       });
 

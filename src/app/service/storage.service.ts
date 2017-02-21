@@ -16,12 +16,22 @@ export class storageService {
     }
     sessionStorage.setItem(key,data);
   };
-  get(param: any): any{
-    let key: string = param.key;
+  get(key: string): any{
     let localData: string = localStorage.getItem(key);
     if(!localData){
       localData = sessionStorage.getItem(key);
     }
     return JSON.parse(localData);
+  };
+  remove(keys: string): void{//key1,key2,key3
+    let keysList: Array<string> = keys.split(',');
+    for (var index = 0; index < keysList.length; index++) {
+      localStorage.removeItem(keysList[index]);
+      sessionStorage.removeItem(keysList[index]);      
+    }
+  };
+  clear(): void{
+    localStorage.clear();
+    sessionStorage.clear();
   }
 }
