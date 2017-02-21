@@ -15,6 +15,11 @@ export class storageService {
     sessionStorage.setItem(param.key,data);
   };
   get(param: any): any{
-    return JSON.parse(localStorage.getItem(param.key));
+    let key: string = param.key;
+    let localData: string = localStorage.getItem(key);
+    if(!localData){
+      localData = sessionStorage.getItem(key);
+    }
+    return JSON.parse(localData);
   }
 }

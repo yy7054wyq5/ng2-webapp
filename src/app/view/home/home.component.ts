@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private HeroService: HeroService,
     private http: Http,
-    private localData: storageService
+    private storage: storageService
   ){}
   
   testGet(): Promise<any>{
@@ -36,8 +36,12 @@ export class HomeComponent implements OnInit {
         console.log(res);
         if(res.success){
           alert(res.msg);
-          this.localData.put('appinfo',res.content);
-          console.log(this.localData.get('appinfo'));
+          this.storage.put({
+            type: 'local',
+            key:'appinfo',
+            data: res.content
+          });
+          console.log(this.storage.get('appinfo'));
         }
       });
 
