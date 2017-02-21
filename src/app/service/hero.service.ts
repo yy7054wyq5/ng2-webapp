@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -20,6 +20,13 @@ export class HeroService {
             .toPromise()
             .then(response => response.json().data as Hero[])
             .catch(this.handleError);
+  };
+  testGet(): Promise<any>{
+    return this.http.get('http://scmpurchase.loongjoy.com/api/purchaseParts/getList?fromSys=scmpcapp&lang=zh&pageIndex=1&pageSize=10&token=06dcc3580eaaa25a045b6559f8c0509e')
+      .map(response =>{
+        return response.json().data;
+      })
+      .toPromise()
   };
   getHeroesSlowly(): Promise<Hero[]> {
     return new Promise<Hero[]>(resolve =>

@@ -31,7 +31,7 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  
+
   ngOnInit() {
     this.route.params
     .switchMap((params: Params) => this.heroService.getHero(+params['id']))// (+) 操作符把路由参数的值转成数字
@@ -39,14 +39,19 @@ export class HeroDetailComponent implements OnInit {
     this.route.data
     .subscribe((data: Data) => this.title = data['title'])//接受路由中的数据
 
-    this.http.get('http://scmpurchase.loongjoy.com/api/purchaseOrder/getList?fromSys=scmpcapp&lang=zh&pageIndex=1&pageSize=10&token=feed196d333adee733e6fa889c9188eb')
-      .subscribe(response => {
-        let aa = response.json().data;
-        console.log(aa);
-      },
-        (err)=>console.log(err),
-        ()=>console.log("Done")
-      )
+    this.heroService.testGet()
+      .then(data =>{
+        this.data = data;
+        console.log(this.data);
+      });
+    // this.http.get('/api/purchaseOrder/getList?fromSys=scmpcapp&lang=zh&pageIndex=1&pageSize=10&token=feed196d333adee733e6fa889c9188eb')
+    //   .subscribe(response => {
+    //     let aa = response.json().data;
+    //     console.log(aa);
+    //   },
+    //     (err)=>console.log(err),
+    //     ()=>console.log("Done")
+    //   )
   }
 
 }

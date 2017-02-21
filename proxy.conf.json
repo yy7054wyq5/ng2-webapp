@@ -1,6 +1,8 @@
 {
-  "api/*": {
+  "/api/*": {
     "target": "http://scmpurchase.loongjoy.com",
-    "secure": false
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
   }
 }
