@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../service/hero.service';
 
@@ -14,43 +15,22 @@ export class HomeComponent implements OnInit {
   res;
   title = 'Heroes List!';
   constructor(
-    private HeroService: HeroService
+    private HeroService: HeroService,
+    private http: Http,
   ){}
   
-  getHeroes(): void{//函数
-    this.HeroService.getHeroes().then(heroes => this.heroes = heroes);//接受promise
-  }
+  testGet(): Promise<any>{
+    return this.http.get('/api/purchaseParts/getList?fromSys=scmpcapp&lang=zh&pageIndex=1&pageSize=10&token=06dcc3580eaaa25a045b6559f8c0509e')
+      .map(response =>{
+        return response.json().data;
+      })
+      .toPromise()
+  };
 
   ngOnInit() {
-    // this.http.get('/api/app/info/11?sign=beb790d872f5b20202c7d4e98119c54d&timeout=5000')
-    //   .switchMap(res => res.text())
-    //   .subscribe(response => this.res = response);
-    this.getHeroes();//调用函数
-    //onselect(hero: Hero): void {}
-    this.folders = [
-    {
-      name: 'Photos',
-      updated: new Date('1/1/16'),
-    },
-    {
-      name: 'Recipes',
-      updated: new Date('1/17/16'),
-    },
-    {
-      name: 'Work',
-      updated: new Date('1/28/16'),
-    }
-  ];
-  this.notes = [
-    {
-      name: 'Vacation Itinerary',
-      updated: new Date('2/20/16'),
-    },
-    {
-      name: 'Kitchen Remodel',
-      updated: new Date('1/18/16'),
-    }
-  ];
+
+    this.testGet();
+
   }
 
 }

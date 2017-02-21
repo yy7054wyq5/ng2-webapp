@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';//根组件
 import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
 import { HeroDetailComponent } from './view/hero-detail/hero-detail.component';
 import { HomeComponent } from './view/home/home.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 const appRoutes: Routes = [
   { path:'hero/:id',
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     HelloNg2Component,
     HeroDetailComponent,
     HomeComponent,
+    FooterComponent,
   ],
   //本模块声明的组件模板需要的类所在的其它模块。
   imports: [
