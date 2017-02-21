@@ -1,13 +1,13 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../service/hero.service';
-import { storageService } from '../../service/storage.service';
+import { StorageService } from '../../service/storage.service';
 
 @Component({
   selector: 'app-home-component',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
-  providers: [HeroService,storageService]
+  providers: [HeroService, StorageService]
 })
 export class HomeComponent implements OnInit {
   heroes;
@@ -18,33 +18,31 @@ export class HomeComponent implements OnInit {
   constructor(
     private HeroService: HeroService,
     private http: Http,
-    private storage: storageService
-  ){}
-  
-  testGet(): Promise<any>{
+    private storage: StorageService
+  ) { };
+  testGet(): Promise<any> {
     return this.http.get('/api/app/info/11?sign=beb790d872f5b20202c7d4e98119c54d&timeout=5000')
       .toPromise()
-      .then(res =>{
+      .then(res => {
         return res.json();
-      })
+      });
   };
-
   ngOnInit() {
 
     this.testGet()
-      .then(res =>{
+      .then(res => {
         console.log(res);
-        if(res.success){
+        if (res.success) {
           alert(res.msg);
           this.storage.put({
             type: 'local',
-            key:'appinfo',
+            key: 'appinfo',
             data: res.content
           });
           console.log(this.storage.get('appinfo'));
-          setTimeout(()=>{
+          setTimeout(() => {
             this.storage.remove('appinfo');
-          },1000);
+          }, 1000);
         }
       });
 
