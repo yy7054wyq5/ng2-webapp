@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
       .then(res => {
         console.log(res);
         if (res.success) {
-          alert(res.msg);
           this.storage.put({
             type: 'local',
             key: 'appinfo',

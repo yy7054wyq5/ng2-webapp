@@ -17,7 +17,7 @@ export class StorageService {
     }
     sessionStorage.setItem(key, data);
   };
-  get(key: string): any {
+  get(key: string): Object {
     let localData: string = localStorage.getItem(key);
     if (!localData) {
       localData = sessionStorage.getItem(key);
