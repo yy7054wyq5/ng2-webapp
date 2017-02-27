@@ -1,9 +1,4 @@
 <div class="wrap">
   <app-footer></app-footer>  
+  {{info | json}}>
 </div>
-<md-slide-toggle>Slide me!</md-slide-toggle>
-<md-autocomplete>
-   <md-option *ngFor="let info of appInfo" [value]="info">
-      {{ info }}
-   </md-option>
-</md-autocomplete>
