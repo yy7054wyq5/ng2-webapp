@@ -10,11 +10,8 @@ import { StorageService } from '../../service/storage.service';
   providers: [HeroService, StorageService]
 })
 export class HomeComponent implements OnInit {
-  heroes;
-  folders;
-  notes;
+  appInfo;
   res;
-  title = 'Heroes List!';
   constructor(
     private HeroService: HeroService,
     private http: Http,
@@ -28,20 +25,20 @@ export class HomeComponent implements OnInit {
       });
   };
   ngOnInit() {
-
+    this.appInfo = [];
     this.testGet()
       .then(res => {
-        console.log(res);
         if (res.success) {
+          for (const key in res.content) {
+            if (res.content.hasOwnProperty(key)) {
+              this.appInfo.push(res.content[key]);
+            }
+          }
           this.storage.put({
             type: 'local',
             key: 'appinfo',
             data: res.content
           });
-          console.log(this.storage.get('appinfo'));
-          setTimeout(() => {
-            this.storage.remove('appinfo');
-          }, 1000);
         }
       });
 
