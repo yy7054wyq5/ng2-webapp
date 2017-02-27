@@ -26,6 +26,16 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (res) => {
         this.info = res.content;
+        this.storage.put({
+          type: 'localStorage',
+          key: 'appinfo',
+          data: res.content
+        });
+        this.storage.put({
+          type: 'sessionStorage',
+          key: 'appinfo',
+          data: res.content
+        });
       }
     );
   }

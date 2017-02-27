@@ -19,7 +19,7 @@ export class ApiService {
     const method: string = opt.method;
     let url: string = opt.url + '?';
     let body: any = opt.body;
-    const concatUrlParams = () => {
+    const creatUrlParams = () => {
       // 拼参数
       for (const key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -32,18 +32,19 @@ export class ApiService {
     loader.open();
     switch (method) {
       case 'get':
-        concatUrlParams();
+        creatUrlParams();
         break;
       case 'delete':
-        concatUrlParams();
+        creatUrlParams();
         break;
       case 'head':
-        concatUrlParams();
+        creatUrlParams();
         break;
       case 'options':
-        concatUrlParams();
+        creatUrlParams();
         break;
       default:
+        // 除以上以外的请求需要body部分
         break;
     }
     return this.http[method](url.substring(0, url.length - 1), body)

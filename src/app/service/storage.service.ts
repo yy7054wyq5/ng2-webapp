@@ -8,14 +8,12 @@ export class StorageService {
     let data: any = param.data; // 数据
     const key: string = param.key; // 约定的key
     const type: string = param.type; // 存储类型
-    if (typeof data === 'object') {
-      data = JSON.stringify(data);
-    }
-    if (type === 'local') {
+    data = typeof data === 'object' ? data = JSON.stringify(data) : data;
+    if (type === 'localStorage') {
       localStorage.setItem(key, data);
-      return;
+    }else {
+      sessionStorage.setItem(key, data);
     }
-    sessionStorage.setItem(key, data);
   };
   get(key: string): Object {
     let localData: string = localStorage.getItem(key);
