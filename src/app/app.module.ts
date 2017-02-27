@@ -12,6 +12,8 @@ import { HeroDetailComponent } from './view/hero-detail/hero-detail.component';
 import { HomeComponent } from './view/home/home.component';
 import { FooterComponent } from './component/footer/footer.component';
 
+import { LoaderService } from './service/loader.service';
+
 const appRoutes: Routes = [
   { path: 'hero/:id',
     component: HeroDetailComponent,
@@ -41,7 +43,7 @@ const appRoutes: Routes = [
     MaterialModule.forRoot(),
   ],
   // 服务的创建者，并加入到全局服务列表中，可用于应用任何部分
-  providers: [],
+  providers: [LoaderService],
   // 指定应用的主视图（称为根组件），它是所有其它视图的宿主。只有根模块才能设置bootstrap属性
   bootstrap: [AppComponent]
 })
