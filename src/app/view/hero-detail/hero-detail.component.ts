@@ -6,14 +6,13 @@ import { Router, ActivatedRoute, Params , Data } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 
-import { HeroService } from '../../service/hero.service';
 import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-hero-detail-component',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],
-  providers: [HeroService]
+  providers: []
 })
 export class HeroDetailComponent implements OnInit {
   hero;
@@ -23,7 +22,6 @@ export class HeroDetailComponent implements OnInit {
   constructor( // 类的构造函数会在所有其它生命周期钩子之前调用。使用它来注入依赖，但是要避免用它做较重的工作。
     private route: ActivatedRoute,
     private router: Router,
-    private heroService: HeroService,
     private location: Location,
     private http: Http,
   ) {}
