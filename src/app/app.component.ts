@@ -9,7 +9,6 @@ import { RemService } from './service/rem.service';
   providers: [RemService]
 })
 export class AppComponent implements OnInit  { // 生命周期钩子
-
   constructor(
     private rem: RemService
   ) {}

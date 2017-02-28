@@ -1,4 +1,10 @@
 <div class="wrap">
+  <div class="list">
+    <div class="item" *ngFor="let item of list">
+      <img src="{{item.imagePath}}">
+      <h2 class="line-camp">{{item.name}}</h2>
+      <p class="line-ellipsis">{{item.summary}}</p>
+    </div>
+  </div>
   <app-footer></app-footer>  
-  {{info | json}}>
 </div>

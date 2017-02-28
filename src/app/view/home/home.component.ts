@@ -10,12 +10,14 @@ import { ApiService } from '../../service/api.service';
 })
 export class HomeComponent implements OnInit {
   info;
+  list;
   constructor(
     private storage: StorageService,
     private api: ApiService
   ) { };
 
   ngOnInit() {
+    // 获取info
     this.api.ajax({
       method: 'get',
       url: '/api/app/info/11',
@@ -31,10 +33,17 @@ export class HomeComponent implements OnInit {
           key: 'appinfo',
           data: res.content
         });
-        this.storage.put({
-          type: 'sessionStorage',
-          key: 'appinfo',
-          data: res.content
+        // 获取list
+        this.api.ajax({
+          method: 'get',
+          url: '/api/index/index',
+          body: {
+            appId: this.info.id,
+            page: 1
+          }
+        })
+        .subscribe(resList => {
+          this.list = resList.content.hotProducts;
         });
       }
     );
