@@ -7,18 +7,20 @@ import { MaterialModule } from '@angular/material'; // ui库
 import 'hammerjs'; // ui库所需
 
 import { AppComponent } from './app.component'; // 根组件
-import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
-import { HeroDetailComponent } from './view/hero-detail/hero-detail.component';
+import { DetailComponent } from './view/detail/detail.component';
 import { HomeComponent } from './view/home/home.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
 
 import { LoaderService } from './service/loader.service';
+import { StorageService } from './service/storage.service';
+import { ApiService } from './service/api.service';
 
 const appRoutes: Routes = [
-  { path: 'hero/:id',
-    component: HeroDetailComponent,
+  { path: 'product/:id',
+    component: DetailComponent,
     data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
-      title: '英雄详情'
+      title: '产品详情'
     }
   },
   { path: '', component: HomeComponent },
@@ -30,7 +32,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HelloNg2Component,
-    HeroDetailComponent,
+    DetailComponent,
     HomeComponent,
     FooterComponent
   ],
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
     MaterialModule.forRoot(),
   ],
   // 服务的创建者，并加入到全局服务列表中，可用于应用任何部分
-  providers: [LoaderService],
+  providers: [LoaderService, ApiService, StorageService],
   // 指定应用的主视图（称为根组件），它是所有其它视图的宿主。只有根模块才能设置bootstrap属性
   bootstrap: [AppComponent]
 })

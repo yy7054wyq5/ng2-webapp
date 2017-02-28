@@ -9,12 +9,12 @@ import 'rxjs/add/operator/toPromise';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-hero-detail-component',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css'],
+  selector: 'app-detail-component',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.css'],
   providers: []
 })
-export class HeroDetailComponent implements OnInit {
+export class DetailComponent implements OnInit {
   hero;
   heroes;
   title;

@@ -6,7 +6,7 @@ import { ApiService } from '../../service/api.service';
   selector: 'app-home-component',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
-  providers: [StorageService, ApiService]
+  providers: []
 })
 export class HomeComponent implements OnInit {
   info;
