@@ -25,8 +25,7 @@ export class HomeComponent implements OnInit {
         sign: 'beb790d872f5b20202c7d4e98119c54d'
       }
     })
-    .subscribe(
-      (res) => {
+    .subscribe(res => {
         this.info = res.content;
         this.storage.put({
           type: 'localStorage',
