@@ -17,14 +17,14 @@ import { StorageService } from './service/storage.service';
 import { ApiService } from './service/api.service';
 
 const appRoutes: Routes = [
-  { path: 'product/:id',
-    component: DetailComponent,
+  { path: 'product/:id', // 路由器会用它来匹配浏览器地址栏中的地址，如product。
+    component: DetailComponent, // 导航到此路由时，路由器需要创建的组件DetailComponent
     data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
       title: '产品详情'
     }
   },
   { path: '', component: HomeComponent },
-  { path: '**', component: HelloNg2Component } // 需要显示404页面或者重定向到其它路由时，该特性非常有用
+  { path: '**', component: HomeComponent } // 需要显示404页面或者重定向到其它路由时，该特性非常有用
 ];
 
 @NgModule({
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     HelloNg2Component,
     DetailComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
   ],
   // 本模块声明的组件模板需要的类所在的其它模块。
   imports: [
