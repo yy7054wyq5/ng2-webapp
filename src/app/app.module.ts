@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { LazyLoadImageModule } from 'ng2-lazyload-image';
 import { MaterialModule } from '@angular/material'; // ui库
 import 'hammerjs'; // ui库所需
 
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    MaterialModule.forRoot(),
+    MaterialModule,
+    LazyLoadImageModule
   ],
   // 服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [LoaderService, ApiService, StorageService, ResolverService],

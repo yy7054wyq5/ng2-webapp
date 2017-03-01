@@ -11,12 +11,14 @@ import { ApiService } from '../../service/api.service';
 export class HomeComponent implements OnInit {
   info;
   list;
+  defaultImage;
   constructor(
     private storage: StorageService,
     private api: ApiService
   ) { };
 
   ngOnInit() {
+    this.defaultImage = 'http://www.lemauto.cn/img/temp-img.png';
     // 获取info
     this.api.ajax({
       method: 'get',
