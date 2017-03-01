@@ -7,8 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutModule } from './app.routing'; // 路由模块
 import { LazyLoadImageModule } from 'ng2-lazyload-image'; // 图片懒加载模块
-import { MaterialModule } from '@angular/material'; // ui库
-import 'hammerjs'; // ui库所需
+import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component'; // 根组件
 import { FooterComponent } from './component/footer/footer.component';
@@ -20,6 +19,7 @@ import { LoaderService } from './service/loader.service';
 import { StorageService } from './service/storage.service';
 import { ApiService } from './service/api.service';
 import { ResolverService } from './service/resolver.service';
+import { CarouselComponent } from './component/carousel/carousel.component';
 
 @NgModule({
   // 声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。
@@ -28,16 +28,17 @@ import { ResolverService } from './service/resolver.service';
     HelloNg2Component,
     FooterComponent,
     DetailComponent,
-    HomeComponent
+    HomeComponent,
+    CarouselComponent
   ],
   // 本模块声明的组件模板需要的类所在的其它模块。
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
     AppRoutModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    AlertModule.forRoot()
   ],
   // 服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [LoaderService, ApiService, StorageService],
