@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutModule } from './app.routing'; // 路由模块
 import { LazyLoadImageModule } from 'ng2-lazyload-image'; // 图片懒加载模块
-import { AlertModule } from 'ng2-bootstrap';
+import { CarouselModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component'; // 根组件
 import { FooterComponent } from './component/footer/footer.component';
@@ -38,7 +38,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
     HttpModule,
     AppRoutModule,
     LazyLoadImageModule,
-    AlertModule.forRoot()
+    CarouselModule
   ],
   // 服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [LoaderService, ApiService, StorageService],

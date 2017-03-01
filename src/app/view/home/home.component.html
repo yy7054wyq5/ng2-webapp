@@ -1,3 +1,8 @@
+<carousel>
+  <slide *ngFor="let carousel of topcarousel">
+    <img [defaultImage]="defaultImage" [lazyLoad]="carousel.imagePath">
+  </slide>
+</carousel>
 <div class="list">
   <div class="item" *ngFor="let item of list" [routerLink]="['/product', item.id]">
     <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
