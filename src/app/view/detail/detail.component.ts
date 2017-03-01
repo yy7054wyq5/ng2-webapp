@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-detail-component',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css'],
+  styleUrls: ['./detail.component.less'],
   providers: [ApiService],
 })
 export class DetailComponent implements OnInit {
@@ -32,11 +32,10 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe(res => {
-        this.title = res;
-        console.log(res);
+        this.title = res['title'];
       });
     this.route.params
-      .switchMap((params: Params): any => {
+      .switchMap((params: Params) => {
         return this.api.ajax({
                 method: 'get',
                 url: '/api/product/detail/' + params['id'],
@@ -46,8 +45,7 @@ export class DetailComponent implements OnInit {
               });
       })
       .subscribe(res => {
-        console.log(res);
-        this.detail = res;
+        this.detail = res.content;
       });
   }
 
