@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ) { };
 
   ngOnInit() {
-    this.defaultImage = 'http://www.lemauto.cn/img/temp-img.png';
+    this.defaultImage = 'assets/lazy_default.png';
     // 获取info
     this.api.ajax({
       method: 'get',
