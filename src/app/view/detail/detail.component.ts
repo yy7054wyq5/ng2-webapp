@@ -27,6 +27,7 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe(res => {
+        this.detail = res['content'];
         this.title = res['title'];
       });
     // this.route.params
