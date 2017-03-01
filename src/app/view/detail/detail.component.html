@@ -2,7 +2,7 @@
 <div *ngIf="detail">
   {{detail.name}}
   {{detail.summary}}
-  <a [routerLink]="['']">使用路由回到首页</a><br>
-  <a (click)="goBack()">点击事件回到首页</a>
   <app-hello-ng2 [data]="detail"></app-hello-ng2>
 </div>
+<a [routerLink]="['']">使用路由回到首页</a><br>
+<a (click)="goBack()">点击事件回到首页</a>
