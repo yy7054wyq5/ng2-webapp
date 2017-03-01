@@ -13,7 +13,9 @@ const appRoutes: Routes = [
     data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
       title: '产品详情',
     },
-    // resolve: [ResolverService]
+    resolve: {
+      content: ResolverService
+    }
   },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent } // 需要显示404页面或者重定向到其它路由时，该特性非常有用
