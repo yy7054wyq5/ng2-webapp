@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutModule } from './app.routing'; // 路由模块
 import { LazyLoadImageModule } from 'ng2-lazyload-image'; // 图片懒加载模块
-import { CarouselModule } from 'ng2-bootstrap';
+import { CarouselModule } from 'ng2-bootstrap'; // 轮播图模块
 
 import { AppComponent } from './app.component'; // 根组件
 import { FooterComponent } from './component/footer/footer.component';
@@ -19,6 +19,7 @@ import { StorageService } from './service/storage.service';
 import { ApiService } from './service/api.service';
 import { ResolverService } from './service/resolver.service';
 import { LoaderComponent } from './component/loader/loader.component';
+import { YellowBgDirective } from './directive/yellowbg.directive';
 
 @NgModule({
   // 声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。
@@ -28,7 +29,8 @@ import { LoaderComponent } from './component/loader/loader.component';
     FooterComponent,
     DetailComponent,
     HomeComponent,
-    LoaderComponent
+    LoaderComponent,
+    YellowBgDirective
   ],
   // 本模块声明的组件模板需要的类所在的其它模块。
   imports: [
