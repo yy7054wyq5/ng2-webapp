@@ -14,7 +14,7 @@ export class ResolverService implements Resolve<Object> {
 
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Object> {
-    const apiUrl = route.data['api'];
+    const apiUrl = route.data['api']; // 从路由传入接口地址
     const id = route.params['id'];
     return this.api.ajax({
       method: 'get',
