@@ -20,7 +20,11 @@ export class StorageService {
     if (!localData) {
       localData = sessionStorage.getItem(key);
     }
-    return JSON.parse(localData);
+    if (typeof localData === 'object') {
+      return JSON.parse(localData);
+    }else {
+      return localData;
+    }
   };
   remove(keys: string): void { // key1,key2,key3
     const keysList: Array<string> = keys.split(',');

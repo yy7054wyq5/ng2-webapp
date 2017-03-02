@@ -1,6 +1,6 @@
+import { StorageService } from './storage.service';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { LoaderService } from './loader.service';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -10,13 +10,18 @@ export class ApiService {
 
   constructor(
     public http: Http,
-    public loader: LoaderService,
+    public storage: StorageService
   ) { }
 
   ajax(opt): Observable<any> {
-    const loader = this.loader;
     const obj = opt.body;
     const method: string = opt.method;
+    // 将loading状态存入sessionStorage
+    this.storage.put({
+      type: 'sessionStorage',
+      key: 'loadingStatus',
+      data: 'loading'
+    });
     let url: string = opt.url + '?';
     let body: any = opt.body;
     const creatUrlParams = () => {
@@ -29,7 +34,6 @@ export class ApiService {
       body = null;
       return url;
     };
-    loader.open();
     switch (method) {
       case 'get':
         creatUrlParams();
@@ -49,9 +53,7 @@ export class ApiService {
     }
     return this.http[method](url.substring(0, url.length - 1), body)
             .map(res => {
-              setTimeout(() => {
-                loader.close(); // css中还有过渡的效果
-              }, 500);
+              this.storage.remove('loadingStatus');
               return res.json();
             });
   };

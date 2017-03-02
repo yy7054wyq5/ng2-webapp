@@ -14,11 +14,11 @@ export class ResolverService implements Resolve<Object> {
 
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Object> {
-    const apiUrl = '/api/product/detail';
+    const apiUrl = route.data['api'];
     const id = route.params['id'];
     return this.api.ajax({
       method: 'get',
-      url: apiUrl + '/' + id,
+      url: apiUrl + id,
       body: {
         sign: 'beb790d872f5b20202c7d4e98119c54d'
       }
