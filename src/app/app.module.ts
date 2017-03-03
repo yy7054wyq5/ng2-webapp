@@ -8,12 +8,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutModule } from './app.routing'; // 路由模块
 import { LazyLoadImageModule } from 'ng2-lazyload-image'; // 图片懒加载模块
 import { CarouselModule } from 'ng2-bootstrap'; // 轮播图模块
+import { ProductModule } from './product/product.module';
 
 import { AppComponent } from './app.component'; // 根组件
 import { FooterComponent } from './component/footer/footer.component';
-import { DetailComponent } from './view/detail/detail.component';
-import { HomeComponent } from './view/home/home.component';
+import { HomeComponent } from './home/home.component';
+/*产品模块*/
+import { ProductListComponent } from './product/list/list.component';
+import { ProductIndexComponent } from './product/index/index.component';
+import { ProductDetailComponent } from './product/detail/detail.component';
 import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
+
 
 import { StorageService } from './service/storage.service';
 import { ApiService } from './service/api.service';
@@ -25,9 +30,7 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
   // 声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。
   declarations: [
     AppComponent,
-    HelloNg2Component,
     FooterComponent,
-    DetailComponent,
     HomeComponent,
     LoaderComponent,
     YellowBgDirective
@@ -37,9 +40,10 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutModule,
+    ProductModule, // 子模块要在AppRoutModule之前
     LazyLoadImageModule,
-    CarouselModule
+    CarouselModule,
+    AppRoutModule, // 保持主路由模块在最后
   ],
   // 服务的创建者，并加入到全局服务列表中，可用于应用任何部分
   providers: [ApiService, StorageService],

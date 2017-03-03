@@ -20,7 +20,8 @@ export class StorageService {
     if (!localData) {
       localData = sessionStorage.getItem(key);
     }
-    if (typeof localData === 'object') {
+
+    if (localData && localData.toString().indexOf('{') > -1) {
       return JSON.parse(localData);
     }else {
       return localData;

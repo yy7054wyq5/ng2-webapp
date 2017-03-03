@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./detail.component.less'],
   providers: [ApiService],
 })
-export class DetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit {
   title;
   detail;
   constructor( // 类的构造函数会在所有其它生命周期钩子之前调用。使用它来注入依赖，但是要避免用它做较重的工作。

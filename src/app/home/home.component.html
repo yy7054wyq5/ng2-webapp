@@ -4,10 +4,9 @@
   </slide>
 </carousel>
 <div class="list" appyellowbg>
-  <div class="item" *ngFor="let item of list" [routerLink]="['/product', item.id]">
+  <div class="item" *ngFor="let item of list" [routerLink]="['/', item.id]">
     <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
     <h2 class="line-camp">{{item.name}}</h2>
     <p class="line-ellipsis">{{item.summary}}</p>
   </div>
 </div>
-<app-footer></app-footer>
