@@ -9,6 +9,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Development cmd 
 首先 npm install 且node.js 版本高于6.9.4
 请使用正确的启动方式: npm start
+文件夹结构说明:
+component service directive为项目功能划分
+home product为业务划分
+
 
 ## Code scaffolding
 
