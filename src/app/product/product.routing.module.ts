@@ -18,10 +18,10 @@ const productRoutes: Routes = [
       content: ResolverService
     }
   },
-  { path: 'list',
+  { path: 'product/list/:id',
     component: ProductListComponent,
   },
-  { path: 'product/:id', // 路由器会用它来匹配浏览器地址栏中的地址，如product。
+  { path: 'product/detail/:id', // 路由器会用它来匹配浏览器地址栏中的地址，如product。
     component: ProductDetailComponent, // 导航到此路由时，路由器需要创建的组件DetailComponent
     canActivate: [AuthGuard],
     data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
