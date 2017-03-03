@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.less']
 })
 export class ProductIndexComponent implements OnInit {
-
-  constructor() { }
+  index;
+  title;
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.data
+      .subscribe(res => {
+        this.index = res['content'];
+        this.title = res['title'];
+      });
   }
 
 }

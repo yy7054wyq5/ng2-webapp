@@ -12,10 +12,17 @@ import { ResolverService } from './service/resolver.service';
 
 const appRoutes: Routes = [
   { path: 'index', component: HomeComponent },
+  // { path: 'product',
+  //   loadChildren: './product/product.module#ProductModule'
+  // },
   { path: '',
     redirectTo: '/index', // 重定向
     pathMatch: 'full' },
-  { path: '**', component: HomeComponent }, // 需要显示404页面或者重定向到其它路由时，该特性非常有用
+  { path: '**',
+    redirectTo: '/index',
+    pathMatch: 'full'
+    // component: HomeComponent
+  }, // 需要显示404页面或者重定向到其它路由时，该特性非常有用
   // { path: 'mmaa', loadChildren: 'module-a/module-a.module#ModuleAModule'}
 ];
 
