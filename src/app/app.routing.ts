@@ -1,3 +1,4 @@
+import { ResolverService } from './share/resolver.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './service/auth.service';
@@ -7,8 +8,6 @@ import { ProductListComponent } from './product/list/list.component';
 import { ProductIndexComponent } from './product/index/index.component';
 import { ProductDetailComponent } from './product/detail/detail.component';
 import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
-
-import { ResolverService } from './service/resolver.service';
 
 const appRoutes: Routes = [
   { path: 'index', component: HomeComponent },

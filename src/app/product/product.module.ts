@@ -6,7 +6,6 @@ import { ProductIndexComponent } from './index/index.component';
 import { ProductListComponent } from './list/list.component';
 import { ProductDetailComponent } from './detail/detail.component';
 
-
 @NgModule({
   imports: [
     CommonModule,

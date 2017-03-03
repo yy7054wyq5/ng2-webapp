@@ -1,4 +1,4 @@
-import { ResolverService } from './../service/resolver.service';
+import { ResolverService } from './../share/resolver.service';
 import { AuthGuard } from './../service/auth.service';
 import { ProductDetailComponent } from './detail/detail.component';
 import { ProductListComponent } from './list/list.component';
@@ -16,25 +16,22 @@ const productRoutes: Routes = [
     },
     resolve: {
       content: ResolverService
+    }
+  },
+  { path: 'product/list/:id',
+    component: ProductListComponent
+  },
+  { path: 'product/detail/:id', // 路由器会用它来匹配浏览器地址栏中的地址，如product。
+    component: ProductDetailComponent, // 导航到此路由时，路由器需要创建的组件DetailComponent
+    canActivate: [AuthGuard],
+    data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
+      title: '产品详情',
+      api: '/api/product/detail/', // 接口地址
     },
-    children: [
-      { path: 'list/:id',
-        component: ProductListComponent,
-        outlet: 'product',
-      },
-      { path: 'detail/:id', // 路由器会用它来匹配浏览器地址栏中的地址，如product。
-        component: ProductDetailComponent, // 导航到此路由时，路由器需要创建的组件DetailComponent
-        canActivate: [AuthGuard],
-        data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
-          title: '产品详情',
-          api: '/api/product/detail/', // 接口地址
-        },
-        resolve: {
-          content: ResolverService
-        }
-      },
-    ]
-  }
+    resolve: {
+      content: ResolverService
+    }
+  },
 ];
 
 @NgModule({

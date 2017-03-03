@@ -1,4 +1,4 @@
-import { ApiService } from './../../service/api.service';
+import { ApiService } from './../../share/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params , Data } from '@angular/router';
 import { Location } from '@angular/common';
