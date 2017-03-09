@@ -9,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class ProductIndexComponent implements OnInit {
   index;
   title;
+  user = {
+    name: '',
+    pass: ''
+  };
   constructor(
     private route: ActivatedRoute
   ) { }
