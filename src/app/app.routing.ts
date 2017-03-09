@@ -13,8 +13,8 @@ const appRoutes: Routes = [
   { path: 'index', component: HomeComponent },
   { path: 'product',
     loadChildren: './product/product.module#ProductModule',
-    canActivate: [AuthGuard],
-    canLoad: [AuthGuard]
+    canActivate: [AuthGuard], // 激活
+    canLoad: [AuthGuard] // 加载
   },
   { path: '',
     redirectTo: '/index', // 重定向
