@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://appbuilder.doboyu.com",
+    "target": "http://appbuilder.loongjoy.com",
     "changeOrigin": true,
     "secure": false,
     "logLevel": "debug"

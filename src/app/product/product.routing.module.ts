@@ -8,7 +8,7 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 const productRoutes: Routes = [
-  { path: 'product',
+  { path: '',
     component: ProductIndexComponent,
     data: {
       title: '产品主页',
