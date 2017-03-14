@@ -23,9 +23,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.less"
       ],
-      "scripts": [
-        "../node_modules/js-cookie/src/js.cookie.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

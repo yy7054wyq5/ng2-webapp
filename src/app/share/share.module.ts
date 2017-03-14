@@ -1,4 +1,4 @@
-import { CookiesService } from './cookies.service';
+
 import { StorageService } from './storage.service';
 import { ResolverService } from './resolver.service';
 import { ApiService } from './api.service';
@@ -12,8 +12,7 @@ import { CommonModule } from '@angular/common';
   providers: [
     ApiService,
     StorageService,
-    ResolverService,
-    CookiesService
+    ResolverService
   ],
   declarations: []
 })
