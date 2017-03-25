@@ -52,10 +52,14 @@ export class ApiService {
         break;
     }
     return this.http[method](url.substring(0, url.length - 1), body)
-            .map(res => {
-              this.storage.remove('loadingStatus');
-              return res.json();
-            });
+      .map(res => {
+        this.storage.remove('loadingStatus');
+        res = res.json();
+        if (res.success) {
+          console.log('请求成功'); // 错误的返回根据接口来定
+        }
+        return res;
+      });
   };
 
 }
