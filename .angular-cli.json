@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-rc.0",
+    "version": "1.0.0",
     "name": "ng2-cli-demo",
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json"
   },
