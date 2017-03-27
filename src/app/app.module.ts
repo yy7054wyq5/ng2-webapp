@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs'; // 手势
 
 import { AppRoutModule } from './app.routing'; // 路由模块
-import { LazyLoadImageModule } from 'ng2-lazyload-image'; // 图片懒加载模块
+import { LazyLoadImageModule } from 'ng-lazyload-image'; // 图片懒加载模块
 import { CarouselModule } from 'ng2-bootstrap'; // 轮播图模块
 import { ShareModule } from './share/share.module';
 import { ProductModule } from './product/product.module';
