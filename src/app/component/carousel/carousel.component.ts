@@ -53,7 +53,7 @@ export class CarouselComponent implements OnInit {
   }
 
   pan(currentIndex: number, action: string){
-    console.log(currentIndex);
+    console.log(action);
   }
   constructor() { }
 

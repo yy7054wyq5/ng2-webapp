@@ -1,4 +1,4 @@
-<div class="ui card swipe-box" *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" (panstart)="pan(idx, $event.type)"
+<div class="ui card swipe-box" *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" (panstart)="pan(idx, $event)"
   [class.visible]="avatar.visible" [class.hidden]="!avatar.visible">
   <div class="image">
     <img [src]="avatar.image" [alt]="avatar.name">
