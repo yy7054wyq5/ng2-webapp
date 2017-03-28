@@ -23,6 +23,7 @@ import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
 
 import { LoaderComponent } from './component/loader/loader.component';
 import { YellowBgDirective } from './directive/yellowbg.directive';
+import { CarouselComponent } from './component/carousel/carousel.component';
 
 @NgModule({
   // 声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。
@@ -31,7 +32,8 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
     FooterComponent,
     HomeComponent,
     LoaderComponent,
-    YellowBgDirective
+    YellowBgDirective,
+    CarouselComponent
   ],
   // 本模块声明的组件模板需要的类所在的其它模块。
   imports: [

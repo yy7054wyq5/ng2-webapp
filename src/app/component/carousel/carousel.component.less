@@ -1,0 +1,47 @@
+// 轮播图
+.slide-img{
+	height: 7.31rem;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	.img-box{
+		position: relative;
+		z-index: 1;
+		width: 10rem;
+		overflow: hidden;
+		height: 7.31rem;
+		img{
+			width: 100%;
+			max-width: 100%;
+			height: 7.31rem;
+			position: absolute;
+			z-index: 2;
+			left: 0;
+			top: 0;
+			transition: left .3s;
+		}
+	}
+	.img-btn{
+		position: absolute;
+		z-index: 2;
+		height: .19rem;
+		bottom: .5rem;
+		width: 10rem;
+		text-align: center;
+		ol{
+			display: inline-block;
+			li{
+				display: inline-block;
+				width: .2rem;
+				height: .2rem;
+				background: #f2f2f2;
+				border-radius: .2rem;
+				margin-right: .1rem;
+				margin-left: .1rem;
+			}
+			li.active{
+				background: #ed4f44;
+			}
+		}
+	}
+}

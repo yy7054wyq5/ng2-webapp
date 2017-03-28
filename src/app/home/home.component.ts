@@ -2,8 +2,6 @@ import { ApiService } from './../share/api.service';
 import { StorageService } from './../share/storage.service';
 import { Component, OnInit } from '@angular/core';
 
-import 'hammerjs'; // 手势
-
 @Component({
   selector: 'app-home-component',
   templateUrl: './home.component.html',
