@@ -10,11 +10,11 @@ import 'hammerjs'; // 手势
 export class CarouselComponent implements OnInit {
   boxWidth;
   moveLeft;
-  quickSlide;
+  slowSlide;
   @Input() data;
 
   pan(index: number, action: any) {
-    this.quickSlide = true;
+    this.slowSlide = true;
     const length = this.data.length;
     const type = action.type;
     const srcEventType = action.srcEvent.type;
@@ -23,7 +23,7 @@ export class CarouselComponent implements OnInit {
     if (type === 'panleft') {
       if (this.moveLeft <= maxLeft) {
         if (srcEventType === 'pointermove') {
-          this.quickSlide = false;
+          this.slowSlide = false;
           const move = window['px2rem'](0 - deltaX * window['dpr']);
           this.moveLeft = this.moveLeft - move;
           if (this.moveLeft <= maxLeft - 5) {
@@ -39,7 +39,7 @@ export class CarouselComponent implements OnInit {
     } else if (type === 'panright') {
       if (this.moveLeft >= 0) {
         if (srcEventType === 'pointermove') {
-          this.quickSlide = false;
+          this.slowSlide = false;
           const move = window['px2rem'](deltaX * window['dpr']);
           this.moveLeft = this.moveLeft + move;
           if (this.moveLeft >= 5) {
