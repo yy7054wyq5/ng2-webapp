@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   info;
   list;
   defaultImage;
-  topcarousel;
+  topCarousel;
   constructor(
     private storage: StorageService,
     private api: ApiService
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
         })
         .subscribe(home => {
           this.list = home.content.hotProducts;
-          this.topcarousel = home.content.locationAds[0].ads;
+          this.topCarousel = home.content.locationAds[0].ads;
         });
       }
     );

@@ -1,4 +1,4 @@
-<app-carousel></app-carousel>
+<app-carousel [data]="topCarousel" *ngIf="topCarousel"></app-carousel>
 <div class="list" appyellowbg>
   <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]">
     <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
