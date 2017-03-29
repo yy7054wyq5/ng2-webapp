@@ -15,11 +15,11 @@ export class CarouselComponent implements OnInit {
 
   pan(index: number, action: any) {
     this.slowSlide = true;
-    const length = this.data.length;
-    const type = action.type;
-    const srcEventType = action.srcEvent.type;
-    const maxLeft = (length - 1) * -10;
-    const deltaX = action.deltaX;
+    const length: number = this.data.length;
+    const type: string = action.type;
+    const srcEventType: string = action.srcEvent.type;
+    const maxLeft: number = (length - 1) * -10;
+    const deltaX: number = action.deltaX;
     if (type === 'panleft') {
       if (this.moveLeft <= maxLeft) {
         if (srcEventType === 'pointermove') {
@@ -53,7 +53,9 @@ export class CarouselComponent implements OnInit {
       index = index - 1;
       this.moveLeft = index * -10;
     } else { // panend
-      if (this.moveLeft === maxLeft - 5 || this.moveLeft === 5) {
+      const toRight: boolean = (this.moveLeft < maxLeft && this.moveLeft >= maxLeft - 5);
+      const toLeft: boolean = (this.moveLeft <= 5 && this.moveLeft > 0);
+      if (toRight || toLeft) {
         this.moveLeft = index * -10;
       }
     }

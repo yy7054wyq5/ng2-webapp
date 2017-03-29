@@ -56,7 +56,7 @@ export class ApiService {
         this.storage.remove('loadingStatus');
         res = res.json();
         if (res.success) {
-          console.log('请求成功'); // 错误的返回根据接口来定
+          // console.log('请求成功'); // 错误的返回根据接口来定
         }
         return res;
       });
