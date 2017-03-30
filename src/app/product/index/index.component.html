@@ -1,11 +1,12 @@
-<h2>{{title}}</h2>
-<a [routerLink]="['/product/list',1]">去列表页</a>
-<form name="login">
-  {{user.name}}
-  <input type="text" [(ngModel)]="user.name" name="name">
-  <input type="text" [(ngModel)]="user.pass" name="pass">
-  {{user.pass}}
-</form>
-<p>
-  {{index | json}}
-</p>
+<div [@flyIn]="title">
+  <h2>{{title}}</h2>
+  <a [routerLink]="['/product/list',1]">去列表页</a>
+  <form name="login">
+    {{user.name}}
+    <input type="text" [(ngModel)]="user.name" name="name">
+    <input type="text" [(ngModel)]="user.pass" name="pass"> {{user.pass}}
+  </form>
+  <p>
+    {{index | json}}
+  </p>
+</div>

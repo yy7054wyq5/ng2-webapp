@@ -1,8 +1,10 @@
-<app-carousel [data]="topCarousel" *ngIf="topCarousel"></app-carousel>
-<div class="list" appyellowbg *ngIf="list">
-  <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]">
-    <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
-    <h2 class="line-camp">{{item.name}}</h2>
-    <p class="line-ellipsis">{{item.summary}}</p>
+<div [@flyIn]="list">
+  <app-carousel [data]="topCarousel" *ngIf="topCarousel"></app-carousel>
+  <div class="list" appyellowbg *ngIf="list">
+    <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]">
+      <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
+      <h2 class="line-camp">{{item.name}}</h2>
+      <p class="line-ellipsis">{{item.summary}}</p>
+    </div>
   </div>
 </div>

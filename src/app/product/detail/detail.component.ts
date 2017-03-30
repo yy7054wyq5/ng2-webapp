@@ -1,3 +1,4 @@
+import { flyIn } from './../../animation/fly-in';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ApiService } from './../../share/api.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,20 +12,7 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.less'],
   providers: [ApiService],
-  animations: [
-    trigger('heroState', [
-      state('inactive', style({
-        backgroundColor: '#eee',
-        transform: 'scale(1)'
-      })),
-      state('active', style({
-        backgroundColor: '#cfd8dc',
-        transform: 'scale(1.1)'
-      })),
-      transition('inactive => active', animate('100ms ease-in')),
-      transition('active => inactive', animate('100ms ease-out'))
-    ])
-  ]
+  animations: [flyIn]
 })
 export class ProductDetailComponent implements OnInit {
   title;

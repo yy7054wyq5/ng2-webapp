@@ -1,10 +1,12 @@
+import { flyIn } from './../../animation/fly-in';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.less']
+  styleUrls: ['./index.component.less'],
+  animations: [flyIn]
 })
 export class ProductIndexComponent implements OnInit {
   index;

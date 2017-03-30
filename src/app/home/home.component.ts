@@ -1,3 +1,4 @@
+import { flyIn } from './../animation/fly-in';
 import { ApiService } from './../share/api.service';
 import { StorageService } from './../share/storage.service';
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-home-component',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
-  providers: []
+  providers: [],
+  animations: [flyIn]
 })
 export class HomeComponent implements OnInit {
   info;
@@ -45,7 +47,6 @@ export class HomeComponent implements OnInit {
           }
         })
         .subscribe(home => {
-          console.log(this.list);
           this.list = home.content.hotProducts;
           this.topCarousel = home.content.locationAds[0].ads;
         });

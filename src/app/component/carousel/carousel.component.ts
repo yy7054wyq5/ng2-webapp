@@ -12,7 +12,7 @@ import 'hammerjs'; // 手势
 export class CarouselComponent implements OnInit {
   boxWidth;
   slowSlide;
-  moveLeft = 0;
+  translateLeft = 0;
   initMoveLeft = 0;
   defaultImage;
   @Input() data;
