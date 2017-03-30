@@ -1,5 +1,5 @@
 <div class="pan-wrap">
-  <div class="pan-box" [style.width.rem]="data.length*10" [style.transform]="translateLeft" [ngClass]="{slowSlide: slowSlide}">
+  <div class="pan-box slide-transition" [style.width.rem]="data.length*10" [style.transform]="translateLeft">
     <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)">
       <img [defaultImage]="defaultImage" [lazyLoad]="avatar.imagePath" [offset]="100">
     </div>

@@ -8,11 +8,8 @@
 	.pan-box{
 		height: @pan-height;
 		position: relative;
-		&.slow-slide{
-			transition: margin-left .5s;
-		}
-		&.quick-slide{
-			transition: margin-left .2s;
+		&.slide-transition{
+			transition-duration: .1s;
 		}
 		.img-box{
 			touch-action: pan-x;

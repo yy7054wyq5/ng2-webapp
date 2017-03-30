@@ -9,11 +9,10 @@ import 'hammerjs'; // 手势
 })
 
 export class CarouselComponent implements OnInit {
-  slowSlide; // 移动动画
+  defaultImage;
   translateLeft; // div平移css
   distance; // 每次移动的距离
   initTranslateLeft = 0; // 每次移动后记录移动的距离
-  defaultImage;
   limitDistance = (10 * window['rem'] / window['dpr']) / 2;
   @Input() data;
 
@@ -32,7 +31,6 @@ export class CarouselComponent implements OnInit {
   }
 
   panmove(index: number, action: any) {
-    this.slowSlide = true;
     const deltaX: number = action.deltaX;
     this.distance = deltaX * window['dpr'];
     this.translateLeft = 'translate3d(' + (this.initTranslateLeft + this.limitMove(index, this.distance)) + 'px,0px,0px)';
