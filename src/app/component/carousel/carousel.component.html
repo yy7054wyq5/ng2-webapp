@@ -4,6 +4,11 @@
       <img [defaultImage]="defaultImage" [lazyLoad]="avatar.imagePath" [offset]="100">
     </div>
   </div>
+  <div class="pointer">
+    <ul>
+      <li *ngFor="let point of data;let id = index" [ngClass]="{active: pointer===id}"></li>
+    </ul>
+  </div>
 </div>
 <p>目前样式距离：{{translateLeft}}</p>
 <p>移动距离：{{distance}}</p>

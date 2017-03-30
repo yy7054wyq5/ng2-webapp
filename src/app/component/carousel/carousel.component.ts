@@ -13,9 +13,11 @@ export class CarouselComponent implements OnInit {
   translateLeft; // div平移css
   distance; // 每次移动的距离
   initTranslateLeft = 0; // 每次移动后记录移动的距离
-  limitDistance = (10 * window['rem'] / window['dpr']) / 2;
+  limitDistance = (10 * window['rem'] / window['dpr']) / 2; // 半屏宽度
+  pointer = 0; // 小圆点高亮
   @Input() data;
 
+  // 头尾移动边界值
   limitMove(index: number, move: number) {
     if (index === 0 && move >= this.limitDistance) {
       return this.limitDistance;
@@ -28,6 +30,7 @@ export class CarouselComponent implements OnInit {
   state(index) {
     this.translateLeft = 'translate3d(' + -index * this.limitDistance * 2 + 'px,0px,0px)';
     this.initTranslateLeft = -index * this.limitDistance * 2;
+    this.pointer = index;
   }
 
   panmove(index: number, action: any) {
@@ -54,6 +57,8 @@ export class CarouselComponent implements OnInit {
       }
     }
   }
+
+  intervalCarousel(){}
   constructor() { }
 
   ngOnInit() {
