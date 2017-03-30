@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs'; // 手势
 
 import { AppRoutModule } from './app.routing'; // 路由模块
@@ -44,6 +45,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
     LazyLoadImageModule,
     CarouselModule,
     ShareModule,
+    BrowserAnimationsModule,
     AppRoutModule, // 保持主路由模块在最后
   ],
   // 服务的创建者，并加入到全局服务列表中，可用于应用任何部分

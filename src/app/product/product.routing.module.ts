@@ -1,5 +1,5 @@
+import { AuthGuard } from './../guard/auth.guard';
 import { ResolverService } from './../share/resolver.service';
-import { AuthGuard } from './../service/auth.service';
 import { ProductDetailComponent } from './detail/detail.component';
 import { ProductListComponent } from './list/list.component';
 import { ProductIndexComponent } from './index/index.component';

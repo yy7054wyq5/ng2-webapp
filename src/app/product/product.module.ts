@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { HelloNg2Component } from './../component/hello-ng2/hello-ng2.component';
 import { ProductRoutingModule } from './product.routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductIndexComponent } from './index/index.component';
@@ -13,7 +14,8 @@ import 'hammerjs'; // 手势
   imports: [
     CommonModule,
     ProductRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     ProductIndexComponent,

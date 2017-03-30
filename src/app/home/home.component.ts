@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
           }
         })
         .subscribe(home => {
+          console.log(this.list);
           this.list = home.content.hotProducts;
           this.topCarousel = home.content.locationAds[0].ads;
         });

@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import 'hammerjs'; // 手势
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.less']
+  styleUrls: ['./carousel.component.less'],
+  animations: []
 })
 
 export class CarouselComponent implements OnInit {
@@ -12,6 +14,7 @@ export class CarouselComponent implements OnInit {
   slowSlide;
   moveLeft = 0;
   initMoveLeft = 0;
+  defaultImage;
   @Input() data;
 
   // pan(index: number, action: any) {
@@ -64,24 +67,21 @@ export class CarouselComponent implements OnInit {
   //   }
   // }
 
-  panstart(index, action) {
-    this.initMoveLeft = index * -10;
-  }
-
-  panmove(index, action){
+  panmove(index: number, action: any, translateLeft: string) {
     this.slowSlide = true;
     const deltaX: number = action.deltaX;
     const move = window['px2rem'](deltaX * window['dpr']);
-    this.moveLeft = this.initMoveLeft + move;
+    translateLeft = 'translate3d(' + move + ',0,0)';
   }
 
-  panend(index, action){
+  panend(index: number, action: object, moveLeft: number) {
 
   }
   constructor() { }
 
   ngOnInit() {
     this.boxWidth = this.data.length * 10;
+    this.defaultImage = 'assets/lazy_default.png';
   }
 
 }

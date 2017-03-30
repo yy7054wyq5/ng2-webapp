@@ -1,7 +1,8 @@
 <div class="pan-wrap">
-  <div class="pan-box" [style.width.rem]="boxWidth" [style.margin-left.rem]="moveLeft" [class.slow-slide]="slowSlide" [class.quick-slide]="!slowSlide">
-    <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)" (panstart)="panstart(idx,$event)">
+  <div class="pan-box" [style.width.rem]="boxWidth" [style.transform]="translateLeft">
+    <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event, moveLeft)" (panend)="panend(idx,$event,moveLeft)">
       <img [defaultImage]="defaultImage" [lazyLoad]="avatar.imagePath" [offset]="100">
     </div>
   </div>
 </div>
+{{moveLeft}}
