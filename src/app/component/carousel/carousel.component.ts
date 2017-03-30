@@ -41,27 +41,27 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   panmove(index: number, action: any) {
-    const deltaX: number = action.deltaX;
-    this.distance = deltaX * window['dpr'];
+    const DELTAX: number = action.deltaX;
+    this.distance = DELTAX * window['dpr'];
     this.translateLeft = 'translate3d(' + (this.initTranslateLeft + this.limitMove(index, this.distance)) + 'px,0px,0px)';
   }
 
   panend(index: number, action: object) {
     this.intervalCarousel();
-    const move: number = this.limitMove(index, this.distance);
-    const halfClientWidth: number = this.limitDistance;
-    if (index === 0 && move > 0) {
+    const MOVE: number = this.limitMove(index, this.distance);
+    const HalfClientWidth: number = this.limitDistance;
+    if (index === 0 && MOVE > 0) {
       this.state(0);
-    } else if (index === this.data.length - 1 && move < 0) {
+    } else if (index === this.data.length - 1 && MOVE < 0) {
       this.state(this.data.length - 1);
     } else {
-      if (move > 0 && move < halfClientWidth) { // 右移未超过半屏
+      if (MOVE > 0 && MOVE < HalfClientWidth) { // 右移未超过半屏
         this.state(index);
-      } else if (move > 0 && move >= halfClientWidth) { // 右移超过半屏
+      } else if (MOVE > 0 && MOVE >= HalfClientWidth) { // 右移超过半屏
         this.state(index - 1);
-      } else if (move < 0 && move > -halfClientWidth) { // 左移未超过半屏
+      } else if (MOVE < 0 && MOVE > -HalfClientWidth) { // 左移未超过半屏
         this.state(index);
-      } else if (move < 0 && move <= -halfClientWidth) { // 左移超过半屏
+      } else if (MOVE < 0 && MOVE <= -HalfClientWidth) { // 左移超过半屏
         this.state(index + 1);
       }
     }
@@ -69,14 +69,23 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
   intervalCarousel() {
     let index: number = this.pointer;
-    const max: number = this.data.length - 1;
+    const MAX: number = this.data.length - 1;
+    const DIRECTION = { LEFT: 'left', RIGHT: 'right' };
+    let direction = 'right';
     this.setIntervalId = setInterval(() => {
-      if (index === max) {
-        index = 0;
-      } else {
+      if (direction === DIRECTION.RIGHT) {
         index += 1;
+        if (index === MAX) {
+          direction = 'left';
+        }
+        this.state(index);
+      } else {
+        index -= 1;
+        if (index === 0) {
+          direction = 'right';
+        }
+        this.state(index);
       }
-      this.state(index);
     }, 3000);
   }
 
