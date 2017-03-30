@@ -1,5 +1,4 @@
 import { FormsModule } from '@angular/forms';
-import { HelloNg2Component } from './../component/hello-ng2/hello-ng2.component';
 import { ProductRoutingModule } from './product.routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,8 +17,7 @@ import 'hammerjs'; // 手势
   declarations: [
     ProductIndexComponent,
     ProductListComponent,
-    ProductDetailComponent,
-    HelloNg2Component
+    ProductDetailComponent
   ]
 })
 export class ProductModule { }

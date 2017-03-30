@@ -19,12 +19,17 @@ export class CarouselComponent implements OnInit, OnDestroy {
   setTimeOutId;
   @Input() data;
 
-  // 头尾移动边界值
   limitMove(index: number, move: number) {
-    if (index === 0 && move >= this.limitDistance) {
+    if (index === 0 && move >= this.limitDistance) { // 头
       return this.limitDistance;
-    } else if (index === this.data.length - 1 && move <= -this.limitDistance) {
+    } else if (index === this.data.length - 1 && move <= -this.limitDistance) { // 尾
       return -this.limitDistance;
+    } else {
+      if (move < 0 && move < -this.limitDistance * 2) { // 右移最多一屏
+        return - this.limitDistance * 2;
+      } else if (move > 0 && move > this.limitDistance * 2) { // 左移最多一屏
+        return this.limitDistance * 2;
+      }
     }
     return move;
   }

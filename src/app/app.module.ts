@@ -20,7 +20,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product/list/list.component';
 import { ProductIndexComponent } from './product/index/index.component';
 import { ProductDetailComponent } from './product/detail/detail.component';
-import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
 
 import { LoaderComponent } from './component/loader/loader.component';
 import { YellowBgDirective } from './directive/yellowbg.directive';
