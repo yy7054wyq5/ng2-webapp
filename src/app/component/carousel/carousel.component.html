@@ -1,8 +1,10 @@
 <div class="pan-wrap">
-  <div class="pan-box" [style.width.rem]="boxWidth" [style.transform]="translateLeft">
+  <div class="pan-box" [style.width.rem]="data.length*10" [style.transform]="translateLeft" [ngClass]="{slowSlide: slowSlide}">
     <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)">
       <img [defaultImage]="defaultImage" [lazyLoad]="avatar.imagePath" [offset]="100">
     </div>
   </div>
 </div>
-{{translateLeft}}
+<p>目前样式距离：{{translateLeft}}</p>
+<p>移动距离：{{distance}}</p>
+<p>移动后初始距离：{{initTranslateLeft}}</p>

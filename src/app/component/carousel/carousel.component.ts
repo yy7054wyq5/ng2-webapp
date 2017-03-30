@@ -6,80 +6,59 @@ import 'hammerjs'; // 手势
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.less'],
-  animations: []
 })
 
 export class CarouselComponent implements OnInit {
-  boxWidth;
-  slowSlide;
-  translateLeft;
+  slowSlide; // 移动动画
+  translateLeft; // div平移css
+  distance; // 每次移动的距离
+  initTranslateLeft = 0; // 每次移动后记录移动的距离
   defaultImage;
+  limitDistance = (10 * window['rem'] / window['dpr']) / 2;
   @Input() data;
 
-  // pan(index: number, action: any) {
-  //   this.slowSlide = true;
-  //   const length: number = this.data.length;
-  //   const type: string = action.type;
-  //   const srcEventType: string = action.srcEvent.type;
-  //   const maxLeft: number = (length - 1) * -10;
-  //   const deltaX: number = action.deltaX;
-  //   const move = window['px2rem'](deltaX * window['dpr']);
+  limitMove(index: number, move: number) {
+    if (index === 0 && move >= this.limitDistance) {
+      return this.limitDistance;
+    } else if (index === this.data.length - 1 && move <= -this.limitDistance) {
+      return -this.limitDistance;
+    }
+    return move;
+  }
 
-  //   if (type === 'panstart') {
-  //     this.initMoveLeft = this.moveLeft;
-  //   }else if (type === 'panleft') {
-  //     if (this.moveLeft <= maxLeft) {
-  //       if (srcEventType === 'pointermove') {
-  //         this.slowSlide = false;
-  //         this.moveLeft = this.initMoveLeft + move;
-  //         if (this.moveLeft <= maxLeft - 5) {
-  //           this.moveLeft = maxLeft - 5;
-  //         }
-  //       } else if (srcEventType === 'pointerup') {
-  //         this.moveLeft = maxLeft;
-  //       }
-  //       return;
-  //     }
-  //     index = index + 1;
-  //     this.moveLeft = index * -10;
-  //   } else if (type === 'panright') {
-  //     if (this.moveLeft >= 0) {
-  //       if (srcEventType === 'pointermove') {
-  //         this.slowSlide = false;
-  //         this.moveLeft = this.initMoveLeft + move;
-  //         if (this.moveLeft >= 5) {
-  //           this.moveLeft = 5;
-  //         }
-  //       } else if (srcEventType === 'pointerup') {
-  //         this.moveLeft = 0;
-  //       }
-  //       return;
-  //     }
-  //     index = index - 1;
-  //     this.moveLeft = index * -10;
-  //   } else { // panend
-  //     const toRight: boolean = (this.moveLeft < maxLeft && this.moveLeft >= maxLeft - 5);
-  //     const toLeft: boolean = (this.moveLeft <= 5 && this.moveLeft > 0);
-  //     if (toRight || toLeft) {
-  //       this.moveLeft = index * -10;
-  //     }
-  //   }
-  // }
+  state(index) {
+    this.translateLeft = 'translate3d(' + -index * this.limitDistance * 2 + 'px,0px,0px)';
+    this.initTranslateLeft = -index * this.limitDistance * 2;
+  }
 
   panmove(index: number, action: any) {
     this.slowSlide = true;
     const deltaX: number = action.deltaX;
-    const move = deltaX * window['dpr'];
-    this.translateLeft = 'translate3d(' + move + 'px,0px,0px)';
+    this.distance = deltaX * window['dpr'];
+    this.translateLeft = 'translate3d(' + (this.initTranslateLeft + this.limitMove(index, this.distance)) + 'px,0px,0px)';
   }
 
-  panend(index: number, action: object, moveLeft: number) {
-
+  panend(index: number, action: object) {
+    const move: number = this.limitMove(index, this.distance);
+    if (index === 0 && move > 0) {
+      this.state(0);
+    } else if (index === this.data.length - 1 && move < 0) {
+      this.state(this.data.length - 1);
+    } else {
+      if (move > 0 && move < this.limitDistance) { // 右移未超过半屏
+        this.state(index);
+      } else if (move > 0 && move >= this.limitDistance) { // 右移超过半屏
+        this.state(index - 1);
+      } else if (move < 0 && move > -this.limitDistance) { // 左移未超过半屏
+        this.state(index);
+      } else if (move < 0 && move <= -this.limitDistance) { // 左移超过半屏
+        this.state(index + 1);
+      }
+    }
   }
   constructor() { }
 
   ngOnInit() {
-    this.boxWidth = this.data.length * 10;
     this.defaultImage = 'assets/lazy_default.png';
   }
 
