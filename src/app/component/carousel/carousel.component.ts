@@ -12,8 +12,7 @@ import 'hammerjs'; // 手势
 export class CarouselComponent implements OnInit {
   boxWidth;
   slowSlide;
-  translateLeft = 0;
-  initMoveLeft = 0;
+  translateLeft;
   defaultImage;
   @Input() data;
 
@@ -67,11 +66,11 @@ export class CarouselComponent implements OnInit {
   //   }
   // }
 
-  panmove(index: number, action: any, translateLeft: string) {
+  panmove(index: number, action: any) {
     this.slowSlide = true;
     const deltaX: number = action.deltaX;
-    const move = window['px2rem'](deltaX * window['dpr']);
-    translateLeft = 'translate3d(' + move + ',0,0)';
+    const move = deltaX * window['dpr'];
+    this.translateLeft = 'translate3d(' + move + 'px,0px,0px)';
   }
 
   panend(index: number, action: object, moveLeft: number) {
