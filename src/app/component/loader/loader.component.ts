@@ -1,4 +1,4 @@
-import { StorageService } from './../../share/storage.service';
+import { StorageService } from './../../service/storage.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

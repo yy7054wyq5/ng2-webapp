@@ -1,6 +1,6 @@
+import { ApiService } from './../../service/api.service';
 import { flyIn } from './../../animation/fly-in';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { ApiService } from './../../share/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Data } from '@angular/router';
 import { Location } from '@angular/common';

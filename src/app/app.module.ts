@@ -9,8 +9,7 @@ import 'hammerjs'; // 手势
 
 import { AppRoutModule } from './app.routing'; // 路由模块
 import { LazyLoadImageModule } from 'ng-lazyload-image'; // 图片懒加载模块
-import { CarouselModule } from 'ng2-bootstrap'; // 轮播图模块
-import { ShareModule } from './share/share.module';
+import { ServiceModule } from './service/service.module';
 import { ProductModule } from './product/product.module';
 
 import { AppComponent } from './app.component'; // 根组件
@@ -42,8 +41,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
     HttpModule,
     ProductModule, // 子模块要在AppRoutModule之前
     LazyLoadImageModule,
-    CarouselModule,
-    ShareModule,
+    ServiceModule,
     BrowserAnimationsModule,
     AppRoutModule, // 保持主路由模块在最后
   ],

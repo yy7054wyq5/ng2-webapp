@@ -1,9 +1,10 @@
-
+import { RemService } from './rem.service';
 import { StorageService } from './storage.service';
 import { ResolverService } from './resolver.service';
 import { ApiService } from './api.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   imports: [
@@ -12,8 +13,9 @@ import { CommonModule } from '@angular/common';
   providers: [
     ApiService,
     StorageService,
-    ResolverService
+    ResolverService,
+    RemService
   ],
   declarations: []
 })
-export class ShareModule { }
+export class ServiceModule { }

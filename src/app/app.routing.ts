@@ -1,5 +1,5 @@
+import { ResolverService } from './service/resolver.service';
 import { AuthGuard } from './guard/auth.guard';
-import { ResolverService } from './share/resolver.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 

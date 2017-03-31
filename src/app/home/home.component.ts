@@ -1,6 +1,6 @@
+import { StorageService } from './../service/storage.service';
+import { ApiService } from './../service/api.service';
 import { flyIn } from './../animation/fly-in';
-import { ApiService } from './../share/api.service';
-import { StorageService } from './../share/storage.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
