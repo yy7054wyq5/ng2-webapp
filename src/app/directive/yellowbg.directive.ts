@@ -7,7 +7,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 export class YellowBgDirective {
 
   constructor(el: ElementRef) {
-    el.nativeElement.style.backgroundColor = 'yellow';
+    // el.nativeElement.style.backgroundColor = 'yellow';
   }
 
 }
