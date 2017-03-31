@@ -26,8 +26,10 @@ export class FindComponent implements OnInit {
 
   pandown(action) {
     if (action.deltaY > 0) {
-      this.loading = true;
-      this.downMove = action.deltaY / window['rem'];
+      if (window['scrollY'] === 0) {
+        this.loading = true;
+        this.downMove = action.deltaY / window['rem'];
+      }
     }
   }
 

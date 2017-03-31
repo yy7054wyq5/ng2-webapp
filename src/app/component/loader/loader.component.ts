@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import 'hammerjs'; // 手势
 
@@ -12,6 +12,7 @@ export class LoaderComponent implements OnInit, OnChanges {
   @Input() isloading;
   @Input() leaveTop;
   @Input() move;
+  @Output() outEvent = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
