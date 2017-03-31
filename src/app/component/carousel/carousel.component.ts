@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import 'hammerjs'; // 手势
 
@@ -8,7 +8,7 @@ import 'hammerjs'; // 手势
   styleUrls: ['./carousel.component.less'],
 })
 
-export class CarouselComponent implements OnInit, OnDestroy, OnChanges {
+export class CarouselComponent implements OnInit, OnDestroy {
   defaultImage = 'assets/lazy_default.png';
   translateLeft; // div平移css
   distance; // 每次移动的距离
@@ -105,10 +105,6 @@ export class CarouselComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnDestroy() {
     clearInterval(this.setIntervalId);
-  }
-
-  ngOnChanges(changeRecord) {
-    console.log(changeRecord);
   }
 
 }

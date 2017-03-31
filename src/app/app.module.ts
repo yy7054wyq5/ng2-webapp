@@ -13,7 +13,6 @@ import { ServiceModule } from './service/service.module';
 
 import { AppComponent } from './app.component'; // 根组件
 import { FooterComponent } from './component/footer/footer.component';
-import { LoaderComponent } from './component/loader/loader.component';
 
 /*首页模版*/
 import { HomeModule } from './home/home.module';
@@ -27,7 +26,6 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
   declarations: [
     AppComponent,
     FooterComponent,
-    LoaderComponent,
     YellowBgDirective
   ],
   // 本模块声明的组件模板需要的类所在的其它模块。

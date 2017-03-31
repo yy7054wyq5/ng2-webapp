@@ -11,7 +11,9 @@ import { ProductDetailComponent } from './product/detail/detail.component';
 
 const appRoutes: Routes = [
   { path: 'index',
-    loadChildren: './home/home.module#HomeModule'
+    loadChildren: './home/home.module#HomeModule',
+    canActivate: [AuthGuard], // 激活
+    canLoad: [AuthGuard] // 加载
   },
   { path: 'product',
     loadChildren: './product/product.module#ProductModule',
