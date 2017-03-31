@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, OnChanges } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import 'hammerjs'; // 手势
 
@@ -8,7 +8,7 @@ import 'hammerjs'; // 手势
   styleUrls: ['./carousel.component.less'],
 })
 
-export class CarouselComponent implements OnInit, OnDestroy {
+export class CarouselComponent implements OnInit, OnDestroy, OnChanges {
   defaultImage = 'assets/lazy_default.png';
   translateLeft; // div平移css
   distance; // 每次移动的距离
@@ -48,8 +48,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   panmove(index: number, action: any) {
-    const DELTAX: number = action.deltaX;
-    this.distance = DELTAX * window['dpr'];
+    this.distance = action.deltaX;
     this.translateLeft = 'translate3d(' + (this.initTranslateLeft + this.limitMove(index, this.distance)) + 'px,0px,0px)';
   }
 
@@ -81,9 +80,11 @@ export class CarouselComponent implements OnInit, OnDestroy {
     let direction = 'right';
     this.setIntervalId = setInterval(() => {
       if (direction === DIRECTION.RIGHT) {
-        index += 1;
         if (index === MAX) {
           direction = 'left';
+          index = index - 1;
+        } else {
+          index += 1;
         }
         this.state(index);
       } else {
@@ -104,6 +105,10 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     clearInterval(this.setIntervalId);
+  }
+
+  ngOnChanges(changeRecord) {
+    console.log(changeRecord);
   }
 
 }
