@@ -13,10 +13,11 @@ import 'hammerjs';
   animations: [flyIn]
 })
 export class FindComponent implements OnInit {
-  info;
-  list;
-  topCarousel;
+  info; // 商户信息
+  list; // 产品列表
+  topCarousel; // 顶部广告
   loading;
+  panning;
   defaultImage = 'assets/lazy_default.png';
   constructor(
     private storage: StorageService,
@@ -24,7 +25,12 @@ export class FindComponent implements OnInit {
   ) { };
 
   pandown() {
-    // this.ajaxData();
+    this.panning = true;
+    this.loading = true;
+  }
+
+  panend() {
+    this.ajaxData();
   }
 
   ajaxData() {

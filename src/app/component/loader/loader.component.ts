@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoaderComponent implements OnInit {
   @Input () isloading;
+  @Input () ispanning;
   constructor(
     private storage: StorageService
   ) { }
