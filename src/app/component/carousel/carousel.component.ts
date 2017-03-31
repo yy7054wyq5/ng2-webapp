@@ -16,8 +16,10 @@ export class CarouselComponent implements OnInit, OnDestroy {
   limitDistance = (10 * window['rem'] / window['dpr']) / 2; // 半屏宽度
   pointer = 0; // 小圆点高亮,图片索引
   setIntervalId;
-  setTimeOutId;
   @Input() data;
+  @Input() interval;
+  @Input() width;
+  @Input() height;
 
   limitMove(index: number, move: number) {
     if (index === 0 && move >= this.limitDistance) { // 头
@@ -91,7 +93,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
         }
         this.state(index);
       }
-    }, 3000);
+    }, this.interval);
   }
 
   constructor() { }

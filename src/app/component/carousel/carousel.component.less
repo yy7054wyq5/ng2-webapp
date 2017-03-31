@@ -1,24 +1,18 @@
-@pan-width: 10rem;
-@pan-height: 7.31rem;
 .pan-wrap{
-	height: @pan-height;
-	width: @pan-width;
 	overflow: hidden;
 	margin-bottom: .5rem;
 	position: relative;
 	.pan-box{
-		height: @pan-height;
 		&.slide-transition{
 			transition-duration: .3s;
 		}
 		.img-box{
 			touch-action: pan-x;
-			width: @pan-width;
-			height: @pan-height;
 			display: inline-block;
 			img{
-				width: @pan-width;
-				height: @pan-height;
+				display: block;
+				width: 100%;
+				height: 100%;
 			}
 		}
 	}

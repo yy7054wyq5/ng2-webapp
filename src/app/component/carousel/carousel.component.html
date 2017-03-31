@@ -1,7 +1,7 @@
-<div class="pan-wrap">
-  <div class="pan-box slide-transition" [style.width.rem]="data.length*10" [style.transform]="translateLeft">
-    <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)" (panstart)="panstart()">
-      <img [defaultImage]="defaultImage" [lazyLoad]="avatar.imagePath" [offset]="100">
+<div class="pan-wrap" [style.height.rem]="height" [style.width.rem]="width">
+  <div class="pan-box slide-transition" [style.width.rem]="data.length*10" [style.transform]="translateLeft" [style.height.rem]="height">
+    <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)" (panstart)="panstart()" [style.height.rem]="height">
+      <img [defaultImage]="defaultImage" [lazyLoad]="avatar.imagePath" [offset]="100" [style.height.rem]="height" [style.width.rem]="width">
     </div>
   </div>
   <div class="pointer">

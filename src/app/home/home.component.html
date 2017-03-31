@@ -1,5 +1,5 @@
 <div [@flyIn]="list">
-  <app-carousel [data]="topCarousel" *ngIf="topCarousel"></app-carousel>
+  <app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
   <div class="list" appyellowbg *ngIf="list">
     <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]">
       <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">

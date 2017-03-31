@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product/list/list.component';
 import { ProductIndexComponent } from './product/index/index.component';
 import { ProductDetailComponent } from './product/detail/detail.component';
-import { HelloNg2Component } from './component/hello-ng2/hello-ng2.component';
 
 const appRoutes: Routes = [
   { path: 'index', component: HomeComponent },
