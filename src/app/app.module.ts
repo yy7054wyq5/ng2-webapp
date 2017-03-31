@@ -5,10 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import 'hammerjs'; // 手势
 
 import { AppRoutModule } from './app.routing'; // 路由模块
-import { LazyLoadImageModule } from 'ng-lazyload-image'; // 图片懒加载模块
 import { ServiceModule } from './service/service.module';
 
 import { AppComponent } from './app.component'; // 根组件
@@ -35,7 +33,6 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
     HttpModule,
     HomeModule,
     ProductModule, // 子模块要在AppRoutModule之前
-    LazyLoadImageModule,
     ServiceModule,
     BrowserAnimationsModule,
     AppRoutModule, // 保持主路由模块在最后

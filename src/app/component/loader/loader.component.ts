@@ -1,4 +1,3 @@
-import { StorageService } from './../../service/storage.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,9 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LoaderComponent implements OnInit {
   @Input () isloading;
   @Input () ispanning;
-  constructor(
-    private storage: StorageService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
 

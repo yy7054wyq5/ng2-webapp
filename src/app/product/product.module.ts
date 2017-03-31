@@ -6,8 +6,6 @@ import { ProductIndexComponent } from './index/index.component';
 import { ProductListComponent } from './list/list.component';
 import { ProductDetailComponent } from './detail/detail.component';
 
-import 'hammerjs'; // 手势
-
 @NgModule({
   imports: [
     CommonModule,

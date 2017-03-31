@@ -7,8 +7,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image'; // 图片懒加载模块
 
-import 'hammerjs';
-
 @NgModule({
   imports: [
     CommonModule,
