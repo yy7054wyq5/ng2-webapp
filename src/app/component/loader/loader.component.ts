@@ -20,6 +20,9 @@ export class LoaderComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.initTop && this.move) {
+      if (this.move > 3) {
+        this.move = 3;
+      }
       this.leaveTop = this.initTop + this.move;
     }
   }
