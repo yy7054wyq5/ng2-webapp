@@ -1,9 +1,11 @@
 <!--loader-->
-<div *ngIf="isloading" class="loading-wrap">
-  <p *ngIf="ispanning">松开刷新</p>
+<!--<div class="loading-wrap">
+  <p>松开刷新</p>
   <div class="loader">
     <div class="bounce1"></div>
     <div class="bounce2"></div>
     <div class="bounce3"></div>
   </div>
-</div>
+</div>-->
+<i class="fa fa-refresh" aria-hidden="true" [(style.top.px)]="top"></i>
+<!--*ngIf="isloading"-->
