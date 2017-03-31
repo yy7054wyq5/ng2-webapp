@@ -1,16 +1,17 @@
-import { StorageService } from './../service/storage.service';
-import { ApiService } from './../service/api.service';
-import { flyIn } from './../animation/fly-in';
+import { StorageService } from './../../service/storage.service';
+import { ApiService } from './../../service/api.service';
+import { flyIn } from './../../animation/fly-in';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home-component',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.less'],
+  selector: 'app-find-component',
+  templateUrl: './find.component.html',
+  styleUrls: ['./find.component.less'],
   providers: [],
   animations: [flyIn]
 })
-export class HomeComponent implements OnInit {
+export class FindComponent implements OnInit {
   info;
   list;
   defaultImage;

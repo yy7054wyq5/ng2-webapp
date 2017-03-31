@@ -10,35 +10,32 @@ import 'hammerjs'; // 手势
 import { AppRoutModule } from './app.routing'; // 路由模块
 import { LazyLoadImageModule } from 'ng-lazyload-image'; // 图片懒加载模块
 import { ServiceModule } from './service/service.module';
-import { ProductModule } from './product/product.module';
 
 import { AppComponent } from './app.component'; // 根组件
 import { FooterComponent } from './component/footer/footer.component';
-import { HomeComponent } from './home/home.component';
-/*产品模块*/
-import { ProductListComponent } from './product/list/list.component';
-import { ProductIndexComponent } from './product/index/index.component';
-import { ProductDetailComponent } from './product/detail/detail.component';
-
 import { LoaderComponent } from './component/loader/loader.component';
+
+/*首页模版*/
+import { HomeModule } from './home/home.module';
+/*产品模块*/
+import { ProductModule } from './product/product.module';
+
 import { YellowBgDirective } from './directive/yellowbg.directive';
-import { CarouselComponent } from './component/carousel/carousel.component';
 
 @NgModule({
   // 声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。
   declarations: [
     AppComponent,
     FooterComponent,
-    HomeComponent,
     LoaderComponent,
-    YellowBgDirective,
-    CarouselComponent
+    YellowBgDirective
   ],
   // 本模块声明的组件模板需要的类所在的其它模块。
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HomeModule,
     ProductModule, // 子模块要在AppRoutModule之前
     LazyLoadImageModule,
     ServiceModule,
