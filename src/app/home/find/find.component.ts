@@ -24,17 +24,20 @@ export class FindComponent implements OnInit {
     private api: ApiService
   ) { };
 
-  pandown() {
-    this.panning = true;
-    this.loading = true;
+  pandown(action) {
+    if (action.deltaY > 0) {
+      this.panning = true;
+      this.loading = true;
+    }
   }
 
-  panend() {
-    this.ajaxData();
+  panend(action) {
+    if (action.deltaY > 0 && this.panning) {
+      this.ajaxData();
+    }
   }
 
   ajaxData() {
-    this.loading = true;
     // 获取info
     this.api.ajax({
       method: 'get',
@@ -63,6 +66,7 @@ export class FindComponent implements OnInit {
             this.list = home.content.hotProducts;
             this.topCarousel = home.content.locationAds[0].ads;
             this.loading = false;
+            this.panning = false;
           });
       });
   }
