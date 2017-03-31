@@ -55,18 +55,28 @@
 //     -webkit-transform: scale(1.0);
 //   }
 // }
+@keyframes rotate
+{
+from {transform: rotate(0deg);}
+to {transform: rotate(360deg);}
+}
+
 .fa-refresh{
-  font-size: .4rem;
-  color: red;
-  background-color: #fff;
+  font-size: .6rem;
+  color:olive;
   width: .6rem;
   height: .6rem;
   text-align: center;
-  padding-top: .1rem;
   border-radius: .6rem;
   position: fixed;
   left: 47%;
-  top: 1.2rem;
   z-index: 2;
-  transition: top .2s;
+  background-color: #fff;
+  &.rotateLoader{
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+  }
 }

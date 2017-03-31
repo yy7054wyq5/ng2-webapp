@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import 'hammerjs'; // 手势
 
 @Component({
   selector: 'app-loader',
@@ -6,18 +8,19 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   styleUrls: ['./loader.component.less']
 })
 export class LoaderComponent implements OnInit, OnChanges {
-  initTop;
+  initTop = 0;
   @Input() isloading;
-  @Input() top;
+  @Input() leaveTop;
   @Input() move;
   constructor() { }
 
   ngOnInit() {
-    this.initTop = this.top;
+    this.initTop = this.leaveTop;
   }
 
   ngOnChanges() {
-    console.log(this.move);
-    this.top = this.initTop + this.move;
+    if (this.initTop && this.move) {
+      this.leaveTop = this.initTop + this.move;
+    }
   }
 }

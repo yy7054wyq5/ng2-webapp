@@ -1,5 +1,4 @@
 <div [@flyIn]="list" (pandown)="pandown($event)" (panend)="panend($event)">
-  <app-loader [isloading]="loading" [top]="1.3+downMove"></app-loader>
   <app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
   <div class="list" appyellowbg *ngIf="list">
     <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]">
@@ -9,3 +8,4 @@
     </div>
   </div>
 </div>
+<app-loader [isloading]="loading" [move]="downMove" [leaveTop]="1.4" ></app-loader>

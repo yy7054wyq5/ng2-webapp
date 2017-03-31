@@ -7,5 +7,5 @@
     <div class="bounce3"></div>
   </div>
 </div>-->
-<i class="fa fa-refresh" aria-hidden="true" [(style.top.px)]="top"></i>
-<!--*ngIf="isloading"-->
+<i class="fa fa-refresh" aria-hidden="true" [style.top.rem]="leaveTop" [ngClass]="{rotateLoader: isloading===true}" *ngIf="isloading"></i>
+
