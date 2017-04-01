@@ -1,3 +1,4 @@
+import { HeaderComponent } from './../component/header/header.component';
 import { LoaderComponent } from './../component/loader/loader.component';
 import { CarouselComponent } from './../component/carousel/carousel.component';
 import { FindComponent } from './find/find.component';
@@ -16,8 +17,6 @@ import { LazyLoadImageModule } from 'ng-lazyload-image'; // 图片懒加载模�
   declarations: [
     HomeComponent,
     FindComponent,
-    CarouselComponent,
-    LoaderComponent
   ]
 })
 export class HomeModule { }

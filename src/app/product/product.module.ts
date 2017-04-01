@@ -1,3 +1,4 @@
+// import { HeaderComponent } from './../component/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ProductRoutingModule } from './product.routing.module';
 import { NgModule } from '@angular/core';

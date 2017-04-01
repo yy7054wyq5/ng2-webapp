@@ -1,3 +1,4 @@
+import { ComponentModule } from './component/component.module';
 /*公共模块*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,8 +11,6 @@ import { AppRoutModule } from './app.routing'; // 路由模块
 import { ServiceModule } from './service/service.module';
 
 import { AppComponent } from './app.component'; // 根组件
-import { FooterComponent } from './component/footer/footer.component';
-
 /*首页模版*/
 import { HomeModule } from './home/home.module';
 /*产品模块*/
@@ -23,8 +22,7 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
   // 声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。
   declarations: [
     AppComponent,
-    FooterComponent,
-    YellowBgDirective
+    YellowBgDirective,
   ],
   // 本模块声明的组件模板需要的类所在的其它模块。
   imports: [
@@ -34,6 +32,7 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
     HomeModule,
     ProductModule, // 子模块要在AppRoutModule之前
     ServiceModule,
+    ComponentModule,
     BrowserAnimationsModule,
     AppRoutModule, // 保持主路由模块在最后
   ],

@@ -1,5 +1,6 @@
 <div [@flyIn]="list">
   <app-loader [url]="'/api/index/index'" [method]="'get'" [body]="body" (onReceive)="receiveTheData($event)">
+    <!--class="loader-content"为组件内嵌tag-->
     <div class="loader-content">
       <app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
       <div class="list" appyellowbg *ngIf="list">
