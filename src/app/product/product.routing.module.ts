@@ -12,7 +12,12 @@ const productRoutes: Routes = [
     component: ProductIndexComponent,
     data: {
       title: '产品主页',
-      api: '/api/product/category',
+      api: '/api/product/list',
+      body: {
+        type: 1,
+        page: 1,
+        pageCount: 10
+      }
     },
     resolve: {
       content: ResolverService

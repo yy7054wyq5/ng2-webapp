@@ -19,22 +19,23 @@ export class ResolverService implements Resolve<Object> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Object> {
     const apiUrl = route.data['api']; // 从路由传入接口地址
     const id = route.params['id'] || '';
-    return this.api.ajax({
-      method: 'get',
-      url: apiUrl + id,
-      body: {
-        appId: this.storage.get('appinfo')['id'],
-        sign: 'beb790d872f5b20202c7d4e98119c54d'
-      }
-    })
-    .toPromise()
-    .then(res => {
-      if (res.success) {
-        return res.content;
-      } else { // id not found
-        this.router.navigate(['']);
-        return null;
-      }
-    });
+    const body = route.data['body'];
+    body.appId = this.storage.get('appinfo')['id'];
+    body.sign = 'beb790d872f5b20202c7d4e98119c54d';
+    return this.api
+      .ajax({
+        method: 'get',
+        url: apiUrl + id,
+        body: body
+      })
+      .toPromise()
+      .then(res => {
+        if (res.success) {
+          return res.content;
+        } else { // id not found
+          this.router.navigate(['']);
+          return null;
+        }
+      });
   }
 }

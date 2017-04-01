@@ -1,19 +1,11 @@
 <div [@flyIn]="title">
   <app-header>
     <div class="header-content">
-      <i class="fa fa-chevron-left" aria-hidden="true"></i>
-      <input type="" name="" value="">
-      <span>搜索</span>
+      <form>
+        <span>back</span>
+        <input placeholder="请输入搜索内容" [(ngModel)]="keyword" name="search">
+        <span>搜索</span>
+      </form>
     </div>
   </app-header>
-  <h2>{{title}}</h2>
-  <a [routerLink]="['/product/list',1]">去列表页</a>
-  <form name="login">
-    {{user.name}}
-    <input type="text" [(ngModel)]="user.name" name="name">
-    <input type="text" [(ngModel)]="user.pass" name="pass"> {{user.pass}}
-  </form>
-  <p>
-    {{index | json}}
-  </p>
 </div>
