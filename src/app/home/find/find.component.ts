@@ -61,5 +61,4 @@ export class FindComponent implements OnInit {
   ngOnInit() {
     this.ajaxData();
   }
-
 }

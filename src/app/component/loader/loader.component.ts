@@ -12,7 +12,6 @@ export class LoaderComponent implements OnInit, OnChanges {
   @Input() isloading;
   @Input() leaveTop;
   @Input() move;
-  @Output() outEvent = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
