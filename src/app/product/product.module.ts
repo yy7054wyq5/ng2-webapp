@@ -1,4 +1,4 @@
-// import { HeaderComponent } from './../component/header/header.component';
+import { ComponentModule } from './../component/component.module';
 import { FormsModule } from '@angular/forms';
 import { ProductRoutingModule } from './product.routing.module';
 import { NgModule } from '@angular/core';
@@ -11,6 +11,7 @@ import { ProductDetailComponent } from './detail/detail.component';
   imports: [
     CommonModule,
     ProductRoutingModule,
+    ComponentModule,
     FormsModule
   ],
   declarations: [

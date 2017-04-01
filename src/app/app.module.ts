@@ -1,4 +1,3 @@
-import { ComponentModule } from './component/component.module';
 /*公共模块*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,13 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutModule } from './app.routing'; // 路由模块
-import { ServiceModule } from './service/service.module';
-
+import { ServiceModule } from './service/service.module'; // 服务模块
+import { ComponentModule } from './component/component.module'; // 组件模块
+import { HomeModule } from './home/home.module'; // 首页模块
+import { ProductModule } from './product/product.module'; // 产品模块
 import { AppComponent } from './app.component'; // 根组件
-/*首页模版*/
-import { HomeModule } from './home/home.module';
-/*产品模块*/
-import { ProductModule } from './product/product.module';
+
 
 import { YellowBgDirective } from './directive/yellowbg.directive';
 

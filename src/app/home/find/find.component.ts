@@ -13,7 +13,6 @@ import 'hammerjs';
   animations: [flyIn]
 })
 export class FindComponent implements OnInit {
-  info; // 商户信息
   list; // 产品列表
   topCarousel; // 顶部广告
   defaultImage = 'assets/lazy_default.png';
