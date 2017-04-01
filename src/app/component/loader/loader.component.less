@@ -61,21 +61,24 @@ from {transform: rotate(0deg);}
 to {transform: rotate(360deg);}
 }
 
-.fa-refresh{
-  font-size: .6rem;
-  color:olive;
-  width: .6rem;
-  height: .6rem;
-  text-align: center;
-  border-radius: .6rem;
-  position: fixed;
-  left: 47%;
-  z-index: 2;
-  &.rotateLoader{
-    animation-name: rotate;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
+.loader-wrap{
+  position: relative;
+  .fa-refresh{
+    font-size: .6rem;
+    color:olive;
+    width: .6rem;
+    height: .6rem;
+    text-align: center;
+    border-radius: .6rem;
+    position: fixed;
+    left: 47%;
+    z-index: 2;
+    &.rotateLoader{
+      animation-name: rotate;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+    }
   }
 }

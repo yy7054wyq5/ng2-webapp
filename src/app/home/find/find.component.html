@@ -1,11 +1,14 @@
-<div [@flyIn]="list" (pandown)="pandown($event)" (panend)="panend($event)">
-  <app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
-  <div class="list" appyellowbg *ngIf="list">
-    <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]">
-      <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
-      <h2 class="line-camp">{{item.name}}</h2>
-      <p class="line-ellipsis">{{item.summary}}</p>
+<div [@flyIn]="list">
+  <app-loader [leaveTop]="1.4" [url]="'/api/index/index'" [method]="'get'" [body]="body" (onReceive)="receiveTheData($event)">
+    <div class="loader-content">
+      <app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
+      <div class="list" appyellowbg *ngIf="list">
+        <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]">
+          <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
+          <h2 class="line-camp">{{item.name}}</h2>
+          <p class="line-ellipsis">{{item.summary}}</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </app-loader>
 </div>
-<app-loader [isloading]="loading" [move]="downMove" [leaveTop]="1.4"></app-loader>
