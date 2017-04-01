@@ -8,6 +8,8 @@
   </div>
 </div>-->
 <div class="loader-wrap" (pandown)="pandown($event)" (panend)="panend($event)">
-  <i class="fa fa-refresh" aria-hidden="true" [style.top.rem]="leaveTop" [ngClass]="{rotateLoader: loading}" *ngIf="loading"></i>
+  <div class="loader" *ngIf="loading">
+    <i class="fa fa-refresh" aria-hidden="true" [ngClass]="{rotateLoader: ajax}"></i>
+  </div>
   <ng-content select=".loader-content"></ng-content>
 </div>

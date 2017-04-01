@@ -10,8 +10,7 @@ import 'hammerjs'; // 手势
 })
 export class LoaderComponent implements OnInit, OnChanges {
   loading = false;
-  initTop = 0;
-  downMove = 0;
+  ajax = false;
   data;
   @Input() method;
   @Input() url;
@@ -29,17 +28,13 @@ export class LoaderComponent implements OnInit, OnChanges {
     if (action.deltaY > 0) {
       if (window['scrollY'] === 0) {
         this.loading = true;
-        this.downMove = action.deltaY / window['rem'];
-        if (this.downMove > 3) {
-          this.downMove = 3;
-        }
-        this.leaveTop = this.initTop + this.downMove;
       }
     }
   }
 
   panend(action) {
     if (action.deltaY > 0 && this.loading) {
+      this.ajax = true;
       this.ajaxData();
     }
   }
@@ -55,7 +50,7 @@ export class LoaderComponent implements OnInit, OnChanges {
       .subscribe(res => {
         if (res.success) {
           this.loading = false;
-          this.leaveTop = this.initTop;
+          this.ajax = false;
           this.data = res.content;
           this.receiveTheData();
         }
@@ -63,7 +58,6 @@ export class LoaderComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.initTop = this.leaveTop;
     this.ajaxData();
   }
 
