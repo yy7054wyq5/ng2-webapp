@@ -85,7 +85,7 @@ export class FindComponent implements OnInit {
 ```
 * TS
 ```javascript
-export class ProductDetailComponent implements OnInit {
+export class ProductIndexComponent implements OnInit {
   title;
   detail;
   constructor( 
