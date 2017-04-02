@@ -1,40 +1,15 @@
 # Ng2CliDemo
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30.
+本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的开源项目。
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# 包含的功能
 
-
-## Development cmd 
-首先 npm install 且node.js 版本高于6.9.4
-请使用正确的启动方式: npm start
-文件夹结构说明:
-component service directive为项目功能划分
-home product为业务划分
+> 1.rem 布局
+> 2.下拉加载
+> 3.轮播回弹
+> 4.封装http请求
+> 5.路由中请求(resolve)
+> 6.请求代理配置
 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### rem布局
