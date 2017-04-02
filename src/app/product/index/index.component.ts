@@ -11,15 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class ProductIndexComponent implements OnInit {
   list;
   defaultImage = 'assets/lazy_default.png';
-  body;
+  lineLeaveLeft;
   constructor(
     private route: ActivatedRoute
   ) { }
 
+  search(num: number, direction: boolean) {
+    this.lineLeaveLeft = num;
+    direction = !direction;
+  }
+
   ngOnInit() {
     this.route.data
       .subscribe(res => {
-        this.body = res['body'];
         this.list = res['content'].products;
       });
   }

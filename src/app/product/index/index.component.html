@@ -18,9 +18,9 @@
         <!--<li>促销</li>-->
       </ul>
     </li>
-    <li class="up" (click)="lineLeaveLeft=2" [ngClass]="{active: lineLeaveLeft===2}">时间</li>
-    <li class="up" (click)="lineLeaveLeft=4" [ngClass]="{active: lineLeaveLeft===4}">销量</li>
-    <li class="up" (click)="lineLeaveLeft=6" [ngClass]="{active: lineLeaveLeft===6}">价格</li>
+    <li class="up" (click)="search(2,timeDirection)" [ngClass]="{active: lineLeaveLeft===2,up: !timeDirection,down: timeDirection}">时间</li>
+    <li class="up" (click)="search(4,saleDirection)" [ngClass]="{active: lineLeaveLeft===4,up: !saleDirection,down: saleDirection}">销量</li>
+    <li class="up" (click)="search(6,priceDirection)" [ngClass]="{active: lineLeaveLeft===6,up: !priceDirection,down: priceDirection}">价格</li>
     <li (click)="listLayout=!listLayout" [ngClass]="{listbtn: !listLayout,blockbtn: listLayout}"></li>
   </ul>
   <div class="seat"></div>
