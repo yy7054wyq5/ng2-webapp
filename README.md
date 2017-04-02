@@ -10,3 +10,43 @@
 * 4.封装http请求
 * 5.路由中请求(resolve)
 * 6.请求代理配置
+
+# 使用方法
+
+### 下拉加载
+
+##### 父组件所需代码：
+* html
+```html
+<app-loader [url]="'/api/index/index'" [method]="'get'" [body]="body" (onReceive)="receiveTheData($event)">
+  <!--url: 请求地址-->
+  <!--method：请求方法-->
+  <!--body：请求参数-->
+  <!--(onReceive)="receiveTheData($event)"：父组件绑定的事件-->
+  <!--class="loader-content"为组件内嵌tag，不可删除-->
+  <div class="loader-content">
+  <!--在这里放入需加载数据的html结构-->
+  </div>
+</app-loader>
+  ```
+* TS
+```javascript
+export class FindComponent implements OnInit {
+  list;
+  body = {
+    appId: 11,
+    page: 1
+  };
+  receiveTheData(action) {
+    // 从loader组件返回action
+    // this.list = action.hotProducts; //返回赋值
+  }
+  constructor(
+    private storage: StorageService
+  ) { };
+
+  ngOnInit() {
+  }
+}
+
+```
