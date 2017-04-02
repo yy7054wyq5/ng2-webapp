@@ -10,17 +10,17 @@
   </app-header>
   <ul class="menu">
     <!--下划线-->
-    <li class="menu-line"></li>
-    <li>
+    <li class="menu-line" [style.left.rem]="lineLeaveLeft"></li>
+    <li (click)="lineLeaveLeft=0" [ngClass]="{active: lineLeaveLeft===0}">
       <b class="product" (click)="classic=!classic" [ngClass]="{down: !classic,up: classic}">产品</b>
       <ul class="classic" *ngIf="classic">
         <li (click)="classic=!classic">产品</li>
         <!--<li>促销</li>-->
       </ul>
     </li>
-    <li class="up">时间</li>
-    <li class="up">销量</li>
-    <li class="up">价格</li>
+    <li class="up" (click)="lineLeaveLeft=2" [ngClass]="{active: lineLeaveLeft===2}">时间</li>
+    <li class="up" (click)="lineLeaveLeft=4" [ngClass]="{active: lineLeaveLeft===4}">销量</li>
+    <li class="up" (click)="lineLeaveLeft=6" [ngClass]="{active: lineLeaveLeft===6}">价格</li>
     <li (click)="listLayout=!listLayout" [ngClass]="{listbtn: !listLayout,blockbtn: listLayout}"></li>
   </ul>
   <div class="seat"></div>
