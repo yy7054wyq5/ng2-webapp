@@ -9,7 +9,7 @@ import { RemService } from './service/rem.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
-  providers: [RemService]
+  providers: []
 })
 export class AppComponent implements OnInit { // 生命周期钩子
   constructor(

@@ -15,11 +15,10 @@ export class ResolverService implements Resolve<Object> {
     private storage: StorageService,
   ) { }
 
-
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Object> {
     const apiUrl = route.data['api']; // 从路由传入接口地址
     const id = route.params['id'] || '';
-    const body = route.data['body'];
+    const body = route.data['body'] || {};
     body.appId = this.storage.get('appinfo')['id'];
     body.sign = 'beb790d872f5b20202c7d4e98119c54d';
     return this.api

@@ -9,12 +9,9 @@ import { Component, OnInit } from '@angular/core';
   animations: [flyIn]
 })
 export class ProductIndexComponent implements OnInit {
-  index;
-  title;
-  user = {
-    name: '',
-    pass: ''
-  };
+  list;
+  defaultImage = 'assets/lazy_default.png';
+  body;
   constructor(
     private route: ActivatedRoute
   ) { }
@@ -22,8 +19,8 @@ export class ProductIndexComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe(res => {
-        this.index = res['content'];
-        this.title = res['title'];
+        this.body = res['body'];
+        this.list = res['content'].products;
       });
   }
 

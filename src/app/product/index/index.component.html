@@ -1,4 +1,4 @@
-<div [@flyIn]="title">
+<div [@flyIn]="list">
   <app-header>
     <div class="header-content">
       <form>
@@ -8,4 +8,28 @@
       </form>
     </div>
   </app-header>
+  <ul class="menu">
+    <!--下划线-->
+    <li class="menu-line"></li>
+    <li>
+      <b class="product" (click)="classic=!classic" [ngClass]="{down: !classic,up: classic}">产品</b>
+      <ul class="classic" *ngIf="classic">
+        <li (click)="classic=!classic">产品</li>
+        <!--<li>促销</li>-->
+      </ul>
+    </li>
+    <li class="up">时间</li>
+    <li class="up">销量</li>
+    <li class="up">价格</li>
+    <li (click)="listLayout=!listLayout" [ngClass]="{listbtn: !listLayout,blockbtn: listLayout}"></li>
+  </ul>
+  <div class="seat"></div>
+  <ul class="list" [ngClass]="{listdis: !listLayout,blockdis: listLayout}">
+    <li class="clear" [routerLink]="['/product/detail/', item.id]" *ngFor="let item of list">
+      <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
+      <p class="line-camp">{{item.name}}</p>
+      <span class="price">¥{{item.price}}</span>
+      <span class="sale">已售{{item.saleCount}}件</span>
+    </li>
+  </ul>
 </div>

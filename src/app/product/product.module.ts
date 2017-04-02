@@ -6,13 +6,15 @@ import { CommonModule } from '@angular/common';
 import { ProductIndexComponent } from './index/index.component';
 import { ProductListComponent } from './list/list.component';
 import { ProductDetailComponent } from './detail/detail.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image'; // 图片懒加载模块
 
 @NgModule({
   imports: [
     CommonModule,
     ProductRoutingModule,
     ComponentModule,
-    FormsModule
+    FormsModule,
+    LazyLoadImageModule
   ],
   declarations: [
     ProductIndexComponent,

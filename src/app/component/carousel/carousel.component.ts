@@ -78,6 +78,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
     const MAX: number = this.data.length - 1;
     const DIRECTION = { LEFT: 'left', RIGHT: 'right' };
     let direction = 'right';
+    if (MAX === 0) { return; } // 一张图片不轮播
     this.setIntervalId = setInterval(() => {
       if (direction === DIRECTION.RIGHT) {
         if (index === MAX) {

@@ -24,6 +24,7 @@ export class ApiService {
         }
       }
       body = null;
+      url = url.substring(0, url.length - 1);
       return url;
     };
     switch (method) {
@@ -43,9 +44,10 @@ export class ApiService {
         // 除以上以外的请求需要body部分
         break;
     }
-    return this.http[method](url.substring(0, url.length - 1), body)
+    return this.http[method](url, body)
       .map(res => {
-        res = res.json();
+        // res返回的是整个异步的请求
+        res = res.json(); // 通过json()方法将后台的数据输出
         if (res.success) {
           // console.log('请求成功'); // 错误的返回根据接口来定
         }
