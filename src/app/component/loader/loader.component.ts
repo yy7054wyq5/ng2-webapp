@@ -15,7 +15,6 @@ export class LoaderComponent implements OnInit, OnChanges {
   @Input() method;
   @Input() url;
   @Input() body;
-  @Input() leaveTop;
   @Output() onReceive = new EventEmitter();
   receiveTheData() {
     this.onReceive.emit(this.data);

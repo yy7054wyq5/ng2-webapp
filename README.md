@@ -10,12 +10,12 @@
 * 4.封装http请求
 * 5.路由中请求(resolve)
 * 6.请求代理配置
+* 7.图片懒加载，使用[ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
 
 # 使用方法
 
 ### 下拉加载
 
-##### 父组件所需代码：
 * html
 ```html
 <app-loader [url]="'/api/index/index'" [method]="'get'" [body]="body" (onReceive)="receiveTheData($event)">
@@ -42,11 +42,21 @@ export class FindComponent implements OnInit {
     // this.list = action.hotProducts; //返回赋值
   }
   constructor(
-    private storage: StorageService
   ) { };
 
   ngOnInit() {
   }
 }
 
+```
+
+### 轮播回弹
+
+* html
+```html
+<app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
+<!--data：元素为对象的数组，内部实现需根据接口更改-->
+<!--interval：轮播间隔时间，单位为毫秒-->
+<!--height：高度,单位rem-->
+<!--width：宽度,单位rem-->
 ```
