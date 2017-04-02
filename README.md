@@ -7,12 +7,14 @@
 * 1.rem 布局：在根组件调用rem.service，动态计算html的font-size
 * 2.下拉加载：loader组件,在父组件插入loader组件,利用output传输数据
 * 3.轮播回弹：carousel组件，自定义轮播间隔，高和宽以及传入的数据
-* 4.封装http请求
-* 5.路由中请求(resolve)
+* 4.封装http请求：所有的请求都从这里走，以便加公共参数或者做加密操作
+* 5.路由中请求(resolver)：在进入页面前获取数据
 * 6.请求代理配置
 * 7.图片懒加载，使用[ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
 
 # 使用方法
+
+> 注意： TS内该引入的引入，不在示例中提及
 
 ### 下拉加载
 
@@ -54,9 +56,49 @@ export class FindComponent implements OnInit {
 
 * html
 ```html
-<app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
+<app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel">
+</app-carousel>
 <!--data：元素为对象的数组，内部实现需根据接口更改-->
 <!--interval：轮播间隔时间，单位为毫秒-->
 <!--height：高度,单位rem-->
 <!--width：宽度,单位rem-->
+```
+
+### resolver，就是一个service
+* 路由配置
+```javascript
+{ 
+  path: 'product',
+  component: ProductIndexComponent,
+  data: {
+    api: '/api/product/list', // 接口地址
+    body: { // 接口参数
+      type: 1,
+      page: 1,
+      pageCount: 10
+    }
+  },
+  resolve: {
+    content: ResolverService // 对应的服务
+  }
+},
+```
+* TS
+```javascript
+export class ProductDetailComponent implements OnInit {
+  title;
+  detail;
+  constructor( 
+    private route: ActivatedRoute,
+  ) { }
+
+  ngOnInit() {
+    this.route.data
+      .subscribe(res => {
+        this.detail = res['content'];
+        this.title = res['title'];
+      });
+  }
+
+}
 ```
