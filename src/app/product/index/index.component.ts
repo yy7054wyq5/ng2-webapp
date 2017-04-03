@@ -43,8 +43,8 @@ export class ProductIndexComponent implements OnInit {
         method: 'get',
         url: '/api/product/list',
         body: {
-          orderType: this.orderType || 1,
-          order: this.order || 'updateTime',
+          orderType: this.orderType,
+          order: this.order,
           type: 1,
           keyword: this.keyword || '',
           appId: this.storage.get('appinfo')['id'],
@@ -97,6 +97,8 @@ export class ProductIndexComponent implements OnInit {
         this.ajax();
         break;
       default:
+        this.orderType = '1';
+        this.order = 'updateTime';
         this.ajax();
         break;
     }
