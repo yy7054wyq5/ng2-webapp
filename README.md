@@ -1,4 +1,4 @@
-# Ng2CliDemo
+# mobile-web-angular-cli
 
 本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的开源项目。且已经升级到angular4.0, angular-cli也为最新的。
 
@@ -9,12 +9,22 @@
 * 3.轮播回弹：carousel组件，自定义轮播间隔，高和宽以及传入的数据
 * 4.封装http请求：所有的请求都从这里走，以便加公共参数或者做加密操作
 * 5.路由中请求(resolver)：在进入页面前获取数据
-* 6.请求代理配置
+* 6.请求代理配置：项目根目录下proxy.conf.json中配置
 * 7.图片懒加载，使用[ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
+* 8.storage：本地存储
 
 # 使用方法
 
 > 注意： TS内该引入的引入，不在示例中提及
+
+### rem 布局
+在根组件调用一次就行。
+```javascript
+this.rem.setDpr();
+window.onresize = () => {
+  this.rem.setDpr();
+};
+```
 
 ### 下拉加载
 
@@ -98,6 +108,35 @@ export class ProductIndexComponent implements OnInit {
         this.detail = res['content'];
         this.title = res['title'];
       });
+  }
+
+}
+```
+
+### storage
+
+* TS
+```javascript
+export class ProductIndexComponent implements OnInit {
+  constructor( 
+    private storage: StorageService
+  ) { }
+
+  ngOnInit() {
+    // 存放
+    this.storage.put({
+      type: 'localStorage', // 也可以是sessionStorage
+      key: 'appinfo',
+      data: [
+        // ...
+      ]
+    });
+    // 获取
+    this.storage.get('appinfo');
+    // 移除
+    this.storage.remove('appinfo,id');
+    // 清空
+    this.storage.remove(); // 清空localStorage和sessionStorage
   }
 
 }
