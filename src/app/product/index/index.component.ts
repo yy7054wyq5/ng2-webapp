@@ -65,7 +65,7 @@ export class ProductIndexComponent implements OnInit {
         if (this.timeDirection === 1 || !this.timeDirection) {
           this.orderType = 1;
         } else {
-          this.orderType = 1;
+          this.orderType = 0;
         }
         this.order = 'updateTime';
         this.ajax();
@@ -77,7 +77,7 @@ export class ProductIndexComponent implements OnInit {
         if (this.saleDirection === 1 || !this.saleDirection) {
           this.orderType = 1;
         } else {
-          this.orderType = 1;
+          this.orderType = 0;
         }
         this.order = 'saleCount';
         this.ajax();
@@ -89,7 +89,7 @@ export class ProductIndexComponent implements OnInit {
         if (this.priceDirection === 1 || !this.priceDirection) {
           this.orderType = 1;
         } else {
-          this.orderType = 1;
+          this.orderType = 0;
         }
         this.order = 'price';
         this.ajax();
