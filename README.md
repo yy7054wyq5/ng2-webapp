@@ -1,4 +1,4 @@
-# mobile-web-angular-cli
+# mobile-web-with-angular-cli
 
 本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的开源项目。且已经升级到angular4.0, angular-cli也为最新的。
 
