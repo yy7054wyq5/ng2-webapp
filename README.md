@@ -5,7 +5,7 @@
 # 包含的功能
 
 * 1.[rem 布局](#rem-布局)：在根组件调用rem.service，动态计算html的font-size
-* 2.[下拉加载](#下拉加载)：loader组件,在父组件插入loader组件,利用output传输数据
+* 2.[下拉刷新](#下拉加载)：loader组件,在父组件插入loader组件,利用output传输数据
 * 3.[轮播回弹](#轮播回弹)：carousel组件，自定义轮播间隔，高和宽以及传入的数据
 * 4.[封装http请求](#封装的http请求)：所有的请求都从这里走，以便加公共参数或者做加密操作
 * 5.[路由中请求(resolver)](resolver就是一个service)：在进入页面前获取数据
@@ -40,7 +40,7 @@ window.onresize = () => {
 };
 ```
 
-### 下拉加载
+### 下拉刷新
 
 * html
 ```html
