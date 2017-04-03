@@ -43,15 +43,17 @@ export class ProductIndexComponent implements OnInit {
         method: 'get',
         url: '/api/product/list',
         body: {
-          orderType: this.orderType,
-          order: this.order,
+          orderType: this.orderType || 1,
+          order: this.order || 'updateTime',
           type: 1,
-          keyword: this.keyword,
-          appId: this.storage.get('appinfo')['id']
+          keyword: this.keyword || '',
+          appId: this.storage.get('appinfo')['id'],
+          pageCount: 10,
+          page: 1
         }
       })
       .subscribe(res => {
-        console.log(res);
+        this.list = res.content.products;
       });
   }
 
@@ -95,6 +97,7 @@ export class ProductIndexComponent implements OnInit {
         this.ajax();
         break;
       default:
+        this.ajax();
         break;
     }
   }
