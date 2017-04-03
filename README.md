@@ -13,6 +13,20 @@
 * 7.图片懒加载，使用[ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
 * 8.[storage](#storage)：本地存储
 
+# 项目结构说明
+>app<br/>
+>--animation 转场动画，来自大漠穷秋的nicefish<br/>
+>--component 公共组件，使用前要在模块引入component.mudule<br/>
+>&nbsp;&nbsp;--carousel 回弹轮播<br/>
+>&nbsp;&nbsp;--footer 底部<br/>
+>&nbsp;&nbsp;--header 头部里面的内容采用内嵌模式，样式需要在父组件写<br/>
+>&nbsp;&nbsp;--loader 下拉加载<br/>
+>--directive 不多说了，angularjs中已有的概念<br/>
+>--guard 路由守卫(service)，最新的angular-cli已将此独立出来，可以单独生成<br/>
+>--home 项目的home模块<br/>
+>--product 项目的product模块<br/>
+>--service 公共服务，在根模块引入service.module即可<br/>
+
 # 使用方法
 
 > 注意： TS内该引入的引入，不在示例中提及
@@ -37,7 +51,8 @@ window.onresize = () => {
   <!--(onReceive)="receiveTheData($event)"：父组件绑定的事件-->
   <!--class="loader-content"为组件内嵌tag，不可删除-->
   <div class="loader-content">
-  <!--在这里放入需加载数据的html结构-->
+    <!--在这里放入需加载数据的html结构-->
+    <div *ngFor="let item of list;let idx = index"></div>
   </div>
 </app-loader>
   ```
@@ -51,7 +66,7 @@ export class FindComponent implements OnInit {
   };
   receiveTheData(action) {
     // 从loader组件返回action
-    // this.list = action.hotProducts; //返回赋值
+    this.list = action.hotProducts; //返回赋值
   }
   constructor(
   ) { };
@@ -132,7 +147,7 @@ export class ProductIndexComponent implements OnInit {
       })
       .toPromise()
       .then(res => {
-        // do somethind
+        // do something
       });
     
     // 可观察者对象
@@ -145,7 +160,7 @@ export class ProductIndexComponent implements OnInit {
         }
       })
       .subscribe(res => {
-        // do somethind
+        // do something
       });
   }
 
