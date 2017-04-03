@@ -112,6 +112,45 @@ export class ProductIndexComponent implements OnInit {
 
 }
 ```
+### 封装的http请求
+*TS
+```javascript
+export class ProductIndexComponent implements OnInit {
+  constructor( 
+    private api: ApiService
+  ) { }
+
+  ngOnInit() {
+    // Promise
+    this.api
+      .ajax({
+        method: 'get',
+        url: 'api/index/appinfo',
+        body: {
+          // 参数
+        }
+      })
+      .toPromise()
+      .then(res => {
+        // do somethind
+      });
+    
+    // 可观察者对象
+    this.api
+      .ajax({
+        method: 'get',
+        url: 'api/index/appinfo',
+        body: {
+          // 参数
+        }
+      })
+      .subscribe(res => {
+        // do somethind
+      });
+  }
+
+}
+```
 
 ### storage
 
