@@ -55,26 +55,36 @@ export class CarouselComponent implements OnInit, OnDestroy {
     this.translateLeft = 'translate3d(' + (this.initTranslateLeft + this.limitMove(index, this.distance)) + 'px,0px,0px)';
   }
 
-  panend(index: number, action: object) {
+  panend(index: number, action: any) {
     this.intervalCarousel();
     const MOVE: number = this.limitMove(index, this.distance);
-    const HalfClientWidth: number = this.limitDistance;
+    const MoveRuleWidth: number = this.limitDistance;
     this.slideTransitionClass = true;
     if (index === 0 && MOVE > 0) {
       this.state(0);
     } else if (index === this.data.length - 1 && MOVE < 0) {
       this.state(this.data.length - 1);
     } else {
-      if (MOVE > 0 && MOVE < HalfClientWidth) { // 右移未超过半屏
+      if (MOVE > 0 && MOVE < MoveRuleWidth) { // 右移未超过半屏
         this.state(index);
-      } else if (MOVE > 0 && MOVE >= HalfClientWidth) { // 右移超过半屏
+      } else if ( (MOVE > 0 && MOVE >= MoveRuleWidth)) { // 右移超过半屏
         this.state(index - 1);
-      } else if (MOVE < 0 && MOVE > -HalfClientWidth) { // 左移未超过半屏
+      } else if (MOVE < 0 && MOVE > -MoveRuleWidth) { // 左移未超过半屏
         this.state(index);
-      } else if (MOVE < 0 && MOVE <= -HalfClientWidth) { // 左移超过半屏
+      } else if (MOVE < 0 && MOVE <= -MoveRuleWidth) { // 左移超过半屏
         this.state(index + 1);
       }
     }
+  }
+
+  swipeleft(index: number, action: any){
+    if(index===this.data.length-1) return;
+    this.state(index+1);
+  }
+
+  swiperight(index: number, action: any){
+    if(index===0) return;
+    this.state(index-1);
   }
 
   intervalCarousel() {

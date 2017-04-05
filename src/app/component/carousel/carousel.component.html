@@ -1,6 +1,6 @@
 <div class="pan-wrap" [style.height.rem]="height" [style.width.rem]="width">
   <div class="pan-box" [style.width.rem]="data.length*10" [style.transform]="translateLeft" [style.height.rem]="height" [ngClass]="{slideTransition: slideTransitionClass}">
-    <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)" (panstart)="panstart()" [style.height.rem]="height">
+    <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)" (panstart)="panstart()" [style.height.rem]="height" (swipeleft)="swipeleft(idx,$event)" (swiperight)="swiperight(idx,$event)">
       <img [style.height.rem]="height" [style.width.rem]="width" src="{{avatar.imagePath}}">
     </div>
   </div>
