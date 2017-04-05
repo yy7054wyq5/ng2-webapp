@@ -13,6 +13,7 @@ export class LoaderComponent implements OnInit, OnChanges {
   ajax = false;
   data;
   initScrollY = 0;
+  fixScroll = 'pan-y';
   @Input() method;
   @Input() url;
   @Input() body;
@@ -25,19 +26,19 @@ export class LoaderComponent implements OnInit, OnChanges {
   ) { }
 
   panstart(action) {
-    this.initScrollY = window['scrollY'];
+    this.initScrollY = window.scrollY;
   }
 
   panup(action) {
-    window['scroll'](0, this.initScrollY - action.deltaY);
+   // window.scroll(0, this.initScrollY - action.deltaY);
   }
 
   pandown(action) {
     if (action.deltaY > 0) {
-      if (window['scrollY'] === 0) {
+      if (window.scrollY === 0) {
         this.loading = true;
-      }else{
-        window['scroll'](0, this.initScrollY - action.deltaY);
+      } else {
+        // window.scroll(0, this.initScrollY - action.deltaY);
       }
     }
   }

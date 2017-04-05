@@ -7,7 +7,7 @@
     <div class="bounce3"></div>
   </div>
 </div>-->
-<div class="loader-wrap" (panup)="panup($event)" (pandown)="pandown($event)" (panend)="panend($event)" (panstart)="panstart($event)">
+<div class="loader-wrap" (pandown)="pandown($event)" (panend)="panend($event)" (panstart)="panstart($event)" [style.touch-action]="fixScroll">
   <div class="loader" *ngIf="loading">
     <i class="fa fa-refresh" aria-hidden="true" [ngClass]="{rotateLoader: ajax}"></i>
   </div>
