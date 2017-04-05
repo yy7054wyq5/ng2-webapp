@@ -25,14 +25,6 @@ export class LoaderComponent implements OnInit, OnChanges {
     private api: ApiService
   ) { }
 
-  panstart(action) {
-    this.initScrollY = window.scrollY;
-  }
-
-  panup(action) {
-   // window.scroll(0, this.initScrollY - action.deltaY);
-  }
-
   pandown(action) {
     if (action.deltaY > 0) {
       if (window.scrollY === 0) {
