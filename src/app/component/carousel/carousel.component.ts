@@ -23,10 +23,11 @@ export class CarouselComponent implements OnInit, OnDestroy {
   @Input() height;
 
   limitMove(index: number, move: number) {
-    if (index === 0 && move >= this.limitDistance) { // 头
-      return this.limitDistance;
-    } else if (index === this.data.length - 1 && move <= -this.limitDistance) { // 尾
-      return -this.limitDistance;
+    // 头尾只能拉出1/4屏
+    if (index === 0 && move >= this.limitDistance / 2) { // 头
+      return this.limitDistance / 2;
+    } else if (index === this.data.length - 1 && move <= -this.limitDistance / 2) { // 尾
+      return -this.limitDistance / 2;
     } else {
       if (move < 0 && move < -this.limitDistance * 2) { // 右移最多一屏
         return - this.limitDistance * 2;

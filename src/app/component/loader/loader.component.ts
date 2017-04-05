@@ -12,6 +12,7 @@ export class LoaderComponent implements OnInit, OnChanges {
   loading = false;
   ajax = false;
   data;
+  initScrollY = 0;
   @Input() method;
   @Input() url;
   @Input() body;
@@ -23,15 +24,20 @@ export class LoaderComponent implements OnInit, OnChanges {
     private api: ApiService
   ) { }
 
+  panstart(action) {
+    this.initScrollY = window['scrollY'];
+  }
 
   panup(action) {
-    console.log(action);
+    window['scroll'](0, this.initScrollY - action.deltaY);
   }
 
   pandown(action) {
     if (action.deltaY > 0) {
       if (window['scrollY'] === 0) {
         this.loading = true;
+      }else{
+        window['scroll'](0, this.initScrollY - action.deltaY);
       }
     }
   }
