@@ -67,7 +67,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
     } else {
       if (MOVE > 0 && MOVE < MoveRuleWidth) { // 右移未超过半屏
         this.state(index);
-      } else if ( (MOVE > 0 && MOVE >= MoveRuleWidth)) { // 右移超过半屏
+      } else if ((MOVE > 0 && MOVE >= MoveRuleWidth)) { // 右移超过半屏
         this.state(index - 1);
       } else if (MOVE < 0 && MOVE > -MoveRuleWidth) { // 左移未超过半屏
         this.state(index);
@@ -77,14 +77,14 @@ export class CarouselComponent implements OnInit, OnDestroy {
     }
   }
 
-  swipeleft(index: number, action: any){
-    if(index===this.data.length-1) return;
-    this.state(index+1);
+  swipeleft(index: number, action: any) {
+    if (index === this.data.length - 1) { return; }
+    this.state(index + 1);
   }
 
-  swiperight(index: number, action: any){
-    if(index===0) return;
-    this.state(index-1);
+  swiperight(index: number, action: any) {
+    if (index === 0) { return; }
+    this.state(index - 1);
   }
 
   intervalCarousel() {
