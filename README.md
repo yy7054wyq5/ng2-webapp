@@ -1,4 +1,4 @@
-# mobile-web-with-angular-cli
+# ng2webapp
 
 本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的开源项目。且已经升级到angular4.0, angular-cli也为最新的。
 
@@ -15,7 +15,7 @@
 
 # 项目结构说明
 >app<br/>
->--animation 转场动画，来自大漠穷秋的nicefish<br/>
+>--animation 转场动画，来自大漠穷秋老师的nicefish<br/>
 >--component 公共组件，使用前要在模块引入component.mudule<br/>
 >&nbsp;&nbsp;--carousel 回弹轮播<br/>
 >&nbsp;&nbsp;--footer 底部<br/>
