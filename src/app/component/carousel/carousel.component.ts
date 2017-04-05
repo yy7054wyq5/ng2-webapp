@@ -13,7 +13,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   translateLeft; // div平移css
   distance; // 每次移动的距离
   initTranslateLeft = 0; // 每次移动后记录移动的距离
-  limitDistance = (10 * window['rem'] / window['dpr']) / 2; // 半屏宽度
+  limitDistance = (10 * window['rem'] / window['dpr']) > 640 ? 640 / 2 : (10 * window['rem'] / window['dpr']) / 2; // 半屏宽度
   pointer = 0; // 小圆点高亮,图片索引
   setIntervalId;
   slideTransitionClass = true; // panend和interval时才加过渡效果
