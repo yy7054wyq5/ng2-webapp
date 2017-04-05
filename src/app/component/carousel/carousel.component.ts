@@ -16,6 +16,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   limitDistance = (10 * window['rem'] / window['dpr']) / 2; // 半屏宽度
   pointer = 0; // 小圆点高亮,图片索引
   setIntervalId;
+  slideTransitionClass = true; // panend和interval时才加过渡效果
   @Input() data;
   @Input() interval;
   @Input() width;
@@ -44,6 +45,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   panstart() {
+    this.slideTransitionClass = false;
     clearInterval(this.setIntervalId);
   }
 
@@ -56,6 +58,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
     this.intervalCarousel();
     const MOVE: number = this.limitMove(index, this.distance);
     const HalfClientWidth: number = this.limitDistance;
+    this.slideTransitionClass = true;
     if (index === 0 && MOVE > 0) {
       this.state(0);
     } else if (index === this.data.length - 1 && MOVE < 0) {
@@ -74,6 +77,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   intervalCarousel() {
+    this.slideTransitionClass = true;
     let index: number = this.pointer;
     const MAX: number = this.data.length - 1;
     const DIRECTION = { LEFT: 'left', RIGHT: 'right' };

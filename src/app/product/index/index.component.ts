@@ -15,6 +15,8 @@ export class ProductIndexComponent implements OnInit {
   defaultImage = 'assets/lazy_default.png';
   keyword;
   order;
+  classic;
+  listLayout;
   orderType;
   lineLeaveLeft;
   timeDirection;

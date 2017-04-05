@@ -23,6 +23,11 @@ export class LoaderComponent implements OnInit, OnChanges {
     private api: ApiService
   ) { }
 
+
+  panup(action) {
+    console.log(action);
+  }
+
   pandown(action) {
     if (action.deltaY > 0) {
       if (window['scrollY'] === 0) {
@@ -61,5 +66,6 @@ export class LoaderComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    this.ajaxData();
   }
 }

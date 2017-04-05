@@ -35,7 +35,7 @@ export class AppComponent implements OnInit { // 生命周期钩子
         }
       })
       .subscribe(res => {
-        if (res.status) {
+        if (res.success) {
           this.storage.put({
             type: 'localStorage',
             key: 'appinfo',

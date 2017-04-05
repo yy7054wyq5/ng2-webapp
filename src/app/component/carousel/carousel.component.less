@@ -2,11 +2,16 @@
 	overflow: hidden;
 	position: relative;
 	.pan-box{
-		&.slide-transition{
-			transition-duration: .1s;
+		&.slideTransition{
+			transition-duration: .3s;
+			.img-box{
+			display: inline-block;
+				img{
+					display: block;
+				}
+			}
 		}
 		.img-box{
-			touch-action: pan-x;
 			display: inline-block;
 			img{
 				display: block;
