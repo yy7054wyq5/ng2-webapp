@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/timeout';
 
 @Injectable()
 export class ApiService {
@@ -45,6 +46,7 @@ export class ApiService {
         break;
     }
     return this.http[method](url, body)
+      .timeout(5000)
       .map(res => {
         // res返回的是整个异步的请求
         res = res.json(); // 通过json()方法将后台的数据输出
@@ -52,6 +54,9 @@ export class ApiService {
           // console.log('请求成功'); // 错误的返回根据接口来定
         }
         return res;
+      })
+      .catch(err => {
+        console.log(err);
       });
   };
 
