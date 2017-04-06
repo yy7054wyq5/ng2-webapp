@@ -8,7 +8,7 @@
   </div>
 </div>-->
 <div class="loader-wrap" (pandown)="pandown($event)" (panend)="panend($event)" [style.touch-action]="fixScroll">
-  <div class="loader" *ngIf="loading">
+  <div class="loader" [ngClass]="{hide: !loading}">
     <i class="fa fa-refresh" aria-hidden="true" [ngClass]="{rotateLoader: ajax}"></i>
   </div>
   <ng-content select=".loader-content"></ng-content>
