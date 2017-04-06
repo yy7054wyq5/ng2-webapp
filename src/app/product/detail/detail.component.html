@@ -4,6 +4,7 @@
       <h2>产品详情</h2>
     </div>
   </app-header>
+  <app-carousel [width]="10" [height]="7.31" [interval]="3000" [data]="carousel"></app-carousel>
   <div *ngIf="detail">
     {{detail.name}} {{detail.summary}}
   </div>

@@ -15,8 +15,8 @@ import 'rxjs/add/operator/switchMap';
   animations: [flyIn]
 })
 export class ProductDetailComponent implements OnInit {
-  title;
   detail;
+  carousel;
   constructor( // 类的构造函数会在所有其它生命周期钩子之前调用。使用它来注入依赖，但是要避免用它做较重的工作。
     private route: ActivatedRoute,
     private location: Location,
@@ -28,7 +28,7 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         this.detail = res['content'];
-        this.title = res['title'];
+        this.carousel = this.detail.albumImages;
       });
     this.route.queryParams
       .subscribe(params => {
