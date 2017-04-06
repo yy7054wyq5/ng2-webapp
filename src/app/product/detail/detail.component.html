@@ -1,5 +1,9 @@
 <div [@flyIn]="detail">
-  <h2>{{title}}</h2>
+  <app-header [hasBack]="1" [hasCar]="1">
+    <div class="header-content">
+      <h2>产品详情</h2>
+    </div>
+  </app-header>
   <div *ngIf="detail">
     {{detail.name}} {{detail.summary}}
   </div>

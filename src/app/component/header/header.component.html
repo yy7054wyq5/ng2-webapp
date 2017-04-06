@@ -1,4 +1,6 @@
 <header>
+  <i (click)="goBack()" *ngIf="hasBack"></i>
   <ng-content select=".header-content"></ng-content>
+  <a class="car" *ngIf="hasCar" [routerLink]="['car']"></a>
 </header>
 <div class="seat"></div>

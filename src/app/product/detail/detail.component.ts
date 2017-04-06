@@ -23,15 +23,11 @@ export class ProductDetailComponent implements OnInit {
     private api: ApiService,
   ) { }
 
-  goBack(): void {
-    this.location.back();
-  }
-
   ngOnInit() {
     this.route.data
       .subscribe(res => {
         console.log(res);
-        this.detail = res['data'];
+        this.detail = res['content'];
         this.title = res['title'];
       });
     this.route.queryParams

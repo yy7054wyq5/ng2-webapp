@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
+  @Input() hasCar;
+  @Input() hasBack;
+  constructor(
+    private location: Location
+  ) { }
 
-  constructor() { }
+  goBack(): void {
+    this.location.back();
+  }
 
   ngOnInit() {
   }
