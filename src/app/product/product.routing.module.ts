@@ -29,7 +29,6 @@ const productRoutes: Routes = [
     component: ProductDetailComponent, // 导航到此路由时，路由器需要创建的组件DetailComponent
     canActivate: [AuthGuard],
     data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
-      title: '产品详情',
       api: '/api/product/detail/' // 接口地址
     },
     resolve: {

@@ -30,8 +30,13 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe(res => {
-        this.detail = res['content'];
+        console.log(res);
+        this.detail = res['data'];
         this.title = res['title'];
+      });
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params);
       });
   }
 
