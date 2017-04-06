@@ -33,19 +33,6 @@ export class ProductDetailComponent implements OnInit {
         this.detail = res['content'];
         this.title = res['title'];
       });
-    // this.route.params
-    //   .switchMap((params: Params) => {
-    //     return this.api.ajax({
-    //             method: 'get',
-    //             url: '/api/product/detail/' + params['id'],
-    //             body: {
-    //               sign: 'beb790d872f5b20202c7d4e98119c54d'
-    //             }
-    //           });
-    //   })
-    //   .subscribe(res => {
-    //     this.detail = res.content;
-    //   });
   }
 
 }

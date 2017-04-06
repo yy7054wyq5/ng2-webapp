@@ -16,10 +16,7 @@ export class FindComponent implements OnInit {
   list; // 产品列表
   topCarousel; // 顶部广告
   defaultImage = 'assets/lazy_default.png';
-  body = {
-    appId: this.storage.get('appinfo')['id'],
-    page: 1
-  };
+  body;
   receiveTheData(action) {
     // 从loader组件返回action
     // console.log(action);
@@ -31,5 +28,9 @@ export class FindComponent implements OnInit {
   ) { };
 
   ngOnInit() {
+    this.body = {
+      appId: this.storage.get('appinfo')['id'],
+      page: 1
+    };
   }
 }

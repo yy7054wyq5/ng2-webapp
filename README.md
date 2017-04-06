@@ -1,4 +1,4 @@
-# ng2webapp
+# ng2-webapp
 
 本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的项目。
 
