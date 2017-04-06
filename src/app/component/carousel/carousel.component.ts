@@ -56,6 +56,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   panend(index: number, action: any) {
+    console.log('panend');
     this.intervalCarousel();
     const MOVE: number = this.limitMove(index, this.distance);
     const MoveRuleWidth: number = this.limitDistance;
@@ -78,11 +79,13 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   swipeleft(index: number, action: any) {
+    console.log('swipeleft');
     if (index === this.data.length - 1) { return; }
     this.state(index + 1);
   }
 
   swiperight(index: number, action: any) {
+    console.log('swiperight');
     if (index === 0) { return; }
     this.state(index - 1);
   }
