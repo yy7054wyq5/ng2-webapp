@@ -1,6 +1,6 @@
 # ng2webapp
 
-本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的开源项目。且已经升级到angular4.0, angular-cli也为最新的。
+本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的项目。
 
 # 包含的功能
 
@@ -29,7 +29,11 @@
 
 # 使用方法
 
-> 注意： TS内该引入的引入，不在示例中提及
+> 注意： TS内该引入的引入，不在示例中提及<br/>
+> package.json配置：<br/>
+"start": "ng serve --proxy-config proxy.conf.json --host 192.168.1.29 --port 80"<br/>
+> host 为本机IP,port为端口<br/>
+> npm start 后，手机在同局域网下可访问该IP<br/>
 
 ### rem 布局
 在根组件调用一次就行。
