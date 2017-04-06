@@ -56,7 +56,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   panend(index: number, action: any) {
-    // console.log('panend');
     this.intervalCarousel();
     const MOVE: number = this.limitMove(index, this.distance);
     const MoveRuleWidth: number = this.limitDistance;
