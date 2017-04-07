@@ -12,7 +12,7 @@ export class ApiService {
     public http: Http
   ) { }
 
-  ajax(opt): Observable<any> {
+  ajax(opt: any): Observable<any> {
     const obj = opt.body;
     const method: string = opt.method;
     let url: string = opt.url + '?';
