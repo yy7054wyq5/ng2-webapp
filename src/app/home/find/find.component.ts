@@ -1,3 +1,4 @@
+import { CacheService } from './../../service/cache.service';
 import { StorageService } from './../../service/storage.service';
 import { ApiService } from './../../service/api.service';
 import { flyIn } from './../../animation/fly-in';
@@ -24,12 +25,13 @@ export class FindComponent implements OnInit {
     this.list = action.hotProducts;
   }
   constructor(
-    private storage: StorageService
+    private storage: StorageService,
+    private cache: CacheService
   ) { };
 
   ngOnInit() {
     this.body = {
-      appId: this.storage.get('appinfo')['id'],
+      appId: this.cache.get('appinfo')['id'],
       page: 1
     };
   }

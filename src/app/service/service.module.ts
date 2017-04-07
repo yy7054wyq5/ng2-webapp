@@ -1,3 +1,4 @@
+import { CacheService } from './cache.service';
 import { RemService } from './rem.service';
 import { StorageService } from './storage.service';
 import { ResolverService } from './resolver.service';
@@ -14,7 +15,8 @@ import { CommonModule } from '@angular/common';
     ApiService,
     StorageService,
     ResolverService,
-    RemService
+    RemService,
+    CacheService
   ],
   declarations: []
 })

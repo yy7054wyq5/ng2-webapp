@@ -10,6 +10,15 @@ const homeRoutes: Routes = [
   {
     path: 'index',
     component: HomeComponent,
+    data: {
+      api: '/api/app/info/11',
+      body: {
+        sign: 'beb790d872f5b20202c7d4e98119c54d'
+      }
+    },
+    resolve: {
+      appInfo: ResolverService
+    },
     children: [
       {
         path: 'find',
