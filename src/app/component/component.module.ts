@@ -5,6 +5,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BackTopComponent } from './back-top/back-top.component';
 
 @NgModule({
   imports: [
@@ -15,13 +16,15 @@ import { RouterModule } from '@angular/router';
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    BackTopComponent
   ],
   exports:[
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    BackTopComponent
   ]
 })
 export class ComponentModule { }
