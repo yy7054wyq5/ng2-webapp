@@ -17,6 +17,5 @@ export class CacheService {
     const tmp = {};
     tmp[key] = data;
     this.store.push(tmp);
-    console.log(this.store);
   }
 }

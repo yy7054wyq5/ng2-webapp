@@ -31,7 +31,6 @@ export class FindComponent implements OnInit {
 
   ngOnInit() {
     this.body = {
-      appId: this.cache.get('appinfo')['id'],
       page: 1
     };
   }

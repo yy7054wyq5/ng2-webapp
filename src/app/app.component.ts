@@ -1,3 +1,6 @@
+import { CacheService } from './service/cache.service';
+import { StorageService } from './service/storage.service';
+import { ApiService } from './service/api.service';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { RemService } from './service/rem.service';
@@ -11,6 +14,9 @@ import { RemService } from './service/rem.service';
 export class AppComponent implements OnInit { // 生命周期钩子
   constructor(
     private rem: RemService,
+    private api: ApiService,
+    private storage: StorageService,
+    private cache: CacheService
   ) { }
 
   ngOnInit() {
@@ -20,5 +26,21 @@ export class AppComponent implements OnInit { // 生命周期钩子
     window.onresize = () => {
       this.rem.setDpr();
     };
+    this.api
+      .ajax({
+        method: 'get',
+        url: '/api/app/info/11'
+      })
+      .subscribe(res => {
+        if (res.success) {
+          this.storage.put({
+            type: 'localStorage',
+            key: 'appinfo',
+            data: res.content
+          });
+          this.cache.put('appinfo', res.content);
+        }
+      });
+    console.log('根组件');
   }
 }

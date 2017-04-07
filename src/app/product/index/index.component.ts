@@ -1,4 +1,3 @@
-import { StorageService } from './../../service/storage.service';
 import { ApiService } from './../../service/api.service';
 import { flyIn } from './../../animation/fly-in';
 import { ActivatedRoute } from '@angular/router';
@@ -25,7 +24,6 @@ export class ProductIndexComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private api: ApiService,
-    private storage: StorageService
   ) { }
 
   changeDirection(direction) {
@@ -49,7 +47,6 @@ export class ProductIndexComponent implements OnInit {
           order: this.order,
           type: 1,
           keyword: this.keyword || '',
-          appId: this.storage.get('appinfo')['id'],
           pageCount: 10,
           page: 1
         }

@@ -18,8 +18,6 @@ export class ResolverService implements Resolve<Object> {
     const apiUrl = route.data['api']; // 从路由传入接口地址
     const id = route.params['id'] || '';
     const body = route.data['body'] || {};
-    body.appId = 11;
-    body.sign = 'beb790d872f5b20202c7d4e98119c54d';
     return this.api
       .ajax({
         method: 'get',
