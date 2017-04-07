@@ -8,11 +8,15 @@
   <div *ngIf="detail" class="detail">
     <h2>{{detail.name}}</h2>
     <p>{{detail.summary}}</p>
-    <span class="price">{{detail.price}}</span>
+    <span class="price">&yen;{{detail.price}}</span>
   </div>
   <div class="bar">
     <span>已选</span>
     <span class="chosed">白色,1件</span>
     <i></i>
   </div>
+  <div class="bar">
+    <h3>图文详情</h3>
+  </div>
+  <div [innerHtml]="detail.detail"></div>
 </div>
