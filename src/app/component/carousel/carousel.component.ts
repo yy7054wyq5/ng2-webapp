@@ -96,6 +96,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
     const DIRECTION = { LEFT: 'left', RIGHT: 'right' };
     let direction = 'right';
     if (MAX === 0) { return; } // 一张图片不轮播
+    console.log(MAX);
     this.setIntervalId = setInterval(() => {
       if (direction === DIRECTION.RIGHT) {
         if (index === MAX) {
@@ -106,9 +107,11 @@ export class CarouselComponent implements OnInit, OnDestroy {
         }
         this.state(index);
       } else {
-        index -= 1;
         if (index === 0) {
           direction = 'right';
+          index = index + 1;
+        }else{
+          index -= 1;
         }
         this.state(index);
       }

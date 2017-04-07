@@ -26,13 +26,12 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe(res => {
-        console.log(res);
         this.detail = res['content'];
         this.carousel = this.detail.albumImages;
       });
     this.route.queryParams
       .subscribe(params => {
-        console.log(params);
+        // console.log(params);
       });
   }
 
