@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json --host 192.168.1.10 --port 80",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
