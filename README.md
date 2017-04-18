@@ -12,6 +12,7 @@
 * 6.请求代理配置：项目根目录下proxy.conf.json中配置
 * 7.图片懒加载，使用[ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
 * 8.[storage](#storage)：本地存储
+* 9.使用gulp运行dist内代码，在api.service中设置
 
 # 项目结构说明
 >app<br/>

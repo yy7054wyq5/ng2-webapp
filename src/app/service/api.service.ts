@@ -15,7 +15,10 @@ export class ApiService {
   ajax(opt: any): Observable<any> {
     const obj = opt.body;
     const method: string = opt.method;
-    const PROXYHOST = location.protocol + '//' + location.hostname + '/appbuilder.loongjoy.com';
+    /*for build test*/
+    // const PROXYHOST = location.protocol + '//' + location.hostname + '/appbuilder.loongjoy.com';
+    /*for develop*/
+    const PROXYHOST = '';
     let url: string = PROXYHOST + opt.url + '?';
     let body: any = opt.body || {};
     body.appId = 11;
