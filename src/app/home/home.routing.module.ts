@@ -1,3 +1,4 @@
+import { SaleComponent } from './sale/sale.component';
 import { FindComponent } from './find/find.component';
 import { HomeComponent } from './home/home.component';
 import { ResolverService } from './../service/resolver.service';
@@ -14,6 +15,10 @@ const homeRoutes: Routes = [
       {
         path: 'find',
         component: FindComponent,
+      },
+      {
+        path: 'sale',
+        component: SaleComponent
       }
     ]
   }
