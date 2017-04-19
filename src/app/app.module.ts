@@ -13,7 +13,6 @@ import { HomeModule } from './home/home.module'; // 首页模块
 import { ProductModule } from './product/product.module'; // 产品模块
 import { AppComponent } from './app.component'; // 根组件
 
-
 import { YellowBgDirective } from './directive/yellowbg.directive';
 
 @NgModule({

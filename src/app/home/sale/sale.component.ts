@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sale.component.less']
 })
 export class SaleComponent implements OnInit {
-
+  checked = false;
+  indeterminate = false;
+  align = 'start';
+  disabled = false;
   constructor() { }
 
   ngOnInit() {

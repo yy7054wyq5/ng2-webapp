@@ -6,11 +6,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BackTopComponent } from './back-top/back-top.component';
+import { MdAutocompleteModule, MdCheckboxModule, MdCardModule } from '@angular/material';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MdAutocompleteModule
   ],
   declarations: [
     LoaderComponent,
@@ -24,7 +27,10 @@ import { BackTopComponent } from './back-top/back-top.component';
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
-    BackTopComponent
+    BackTopComponent,
+    MdAutocompleteModule,
+    MdCardModule,
+    MdCheckboxModule
   ]
 })
 export class ComponentModule { }
