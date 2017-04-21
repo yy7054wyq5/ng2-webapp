@@ -1,4 +1,3 @@
-import { LoaderComponent } from './loader/loader.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -7,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BackTopComponent } from './back-top/back-top.component';
 import { MdAutocompleteModule, MdCheckboxModule, MdCardModule } from '@angular/material';
+import { RefreshComponent } from './refresh/refresh.component';
 
 
 @NgModule({
@@ -16,21 +16,21 @@ import { MdAutocompleteModule, MdCheckboxModule, MdCardModule } from '@angular/m
     MdAutocompleteModule
   ],
   declarations: [
-    LoaderComponent,
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
-    BackTopComponent
+    BackTopComponent,
+    RefreshComponent
   ],
-  exports:[
-    LoaderComponent,
+  exports: [
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
     BackTopComponent,
     MdAutocompleteModule,
     MdCardModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    RefreshComponent
   ]
 })
 export class ComponentModule { }

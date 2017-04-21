@@ -1,12 +1,3 @@
-<!--loader-->
-<!--<div class="loading-wrap">
-  <p>松开刷新</p>
-  <div class="loader">
-    <div class="bounce1"></div>
-    <div class="bounce2"></div>
-    <div class="bounce3"></div>
-  </div>
-</div>-->
 <div class="loader-wrap" (pandown)="pandown($event)" (panend)="panend($event)" [style.touch-action]="fixScroll">
   <div class="loader" [ngClass]="{hide: !loading}">
     <i class="fa fa-refresh" aria-hidden="true" [ngClass]="{rotateLoader: ajax}"></i>
