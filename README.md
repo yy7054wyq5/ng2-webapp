@@ -5,7 +5,7 @@
 # 包含的功能
 
 * 1.[rem 布局](#rem-布局)：在根组件调用rem.service，动态计算html的font-size
-* 2.[下拉刷新](#下拉加载)：loader组件,在父组件插入loader组件,利用output传输数据
+* 2.[下拉刷新](#下拉加载)：refresh组件,在父组件插入loader组件,利用output传输数据
 * 3.[轮播回弹](#轮播回弹)：carousel组件，自定义轮播间隔，高和宽以及传入的数据
 * 4.[封装http请求](#封装的http请求)：所有的请求都从这里走，以便加公共参数或者做加密操作
 * 5.[路由中请求(resolver)](resolver就是一个service)：在进入页面前获取数据
@@ -21,7 +21,7 @@
 >&nbsp;&nbsp;--carousel 回弹轮播<br/>
 >&nbsp;&nbsp;--footer 底部<br/>
 >&nbsp;&nbsp;--header 头部里面的内容采用内嵌模式，样式需要在父组件写<br/>
->&nbsp;&nbsp;--loader 下拉加载<br/>
+>&nbsp;&nbsp;--refresh 下拉加载<br/>
 >--directive 不多说了，angularjs中已有的概念<br/>
 >--guard 路由守卫(service)，最新的angular-cli已将此独立出来，可以单独生成<br/>
 >--home 项目的home模块<br/>
@@ -49,7 +49,7 @@ window.onresize = () => {
 
 * html
 ```html
-<app-loader [url]="'/api/index/index'" [method]="'get'" [body]="body" (onReceive)="receiveTheData($event)">
+<app-refresh [url]="'/api/index/index'" [method]="'get'" [body]="body" (onReceive)="receiveTheData($event)">
   <!--url: 请求地址-->
   <!--method：请求方法-->
   <!--body：请求参数-->
@@ -59,7 +59,7 @@ window.onresize = () => {
     <!--在这里放入需加载数据的html结构-->
     <div *ngFor="let item of list;let idx = index"></div>
   </div>
-</app-loader>
+</app-refresh>
   ```
 * TS
 ```javascript
