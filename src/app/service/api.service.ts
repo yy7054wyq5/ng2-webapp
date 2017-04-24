@@ -1,3 +1,4 @@
+import { LoadingService } from './loading.service';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -7,16 +8,15 @@ import 'rxjs/add/operator/timeout';
 
 @Injectable()
 export class ApiService {
-  doc = document;
-  loading = this.doc.getElementById('loading');
   constructor(
-    public http: Http
+    public http: Http,
+    public loading: LoadingService
   ) { }
 
   ajax(opt: any): Observable<any> {
     const obj = opt.body;
     const method: string = opt.method;
-    this.loading.setAttribute('class', 'ajax-loading-wrap show');
+    this.loading.show();
     /*for build test*/
     // const PROXYHOST = location.protocol + '//' + location.hostname + '/appbuilder.loongjoy.com';
     /*for develop*/
@@ -57,7 +57,7 @@ export class ApiService {
       .timeout(5000)
       .map(res => {
         // res返回的是整个异步的请求
-        this.loading.setAttribute('class', 'ajax-loading-wrap hide');
+        this.loading.hide();
         return res.json(); // 通过json()方法将后台的数据输出
       })
       .catch(err => {
