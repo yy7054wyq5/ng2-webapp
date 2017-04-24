@@ -13,11 +13,10 @@ export class RefreshComponent implements OnInit, OnChanges {
   ajax = false;
   data;
   initScrollY = 0;
-  fixScroll = 'pan-y';
   @Input() method;
   @Input() url;
   @Input() body;
-  @Output() onReceive = new EventEmitter();
+  @Output() onReceive: EventEmitter<object> = new EventEmitter<object>();
   receiveTheData() {
     this.onReceive.emit(this.data);
   }

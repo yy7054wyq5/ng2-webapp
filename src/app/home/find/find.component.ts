@@ -18,11 +18,14 @@ export class FindComponent implements OnInit {
   topCarousel; // 顶部广告
   defaultImage = 'assets/lazy_default.png';
   body;
-  receiveTheData(action) {
+  refreshData(action) {
     // 从loader组件返回action
     // console.log(action);
     this.topCarousel = action.locationAds[0].ads;
     this.list = action.hotProducts;
+  }
+  loadData(action){
+    console.log(action);
   }
   constructor(
     private storage: StorageService,

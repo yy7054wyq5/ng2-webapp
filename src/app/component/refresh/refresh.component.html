@@ -1,4 +1,4 @@
-<div class="refresh-wrap" (pandown)="pandown($event)" (panend)="panend($event)" [style.touch-action]="fixScroll">
+<div class="refresh-wrap" (pandown)="pandown($event)" (panend)="panend($event)" [style.touch-action]="'pan-y'">
   <div class="refresh" [ngClass]="{hide: !loading}">
     <i class="fa fa-refresh" aria-hidden="true" [ngClass]="{rotateLoader: ajax}"></i>
   </div>
