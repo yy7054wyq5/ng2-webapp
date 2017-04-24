@@ -48,7 +48,8 @@ export class RefreshComponent implements OnInit, OnChanges {
       .ajax({
         method: this.method,
         url: this.url,
-        body: this.body
+        body: this.body,
+        noLoading: true
       })
       .subscribe(res => {
         if (res.success) {
@@ -61,7 +62,7 @@ export class RefreshComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.ajaxData();
+    // this.ajaxData();
   }
 
   ngOnChanges() {

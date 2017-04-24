@@ -16,7 +16,9 @@ export class ApiService {
   ajax(opt: any): Observable<any> {
     const obj = opt.body;
     const method: string = opt.method;
-    this.loading.show();
+    if (!opt.noLoading) {
+      this.loading.show();
+    }
     /*for build test*/
     // const PROXYHOST = location.protocol + '//' + location.hostname + '/appbuilder.loongjoy.com';
     /*for develop*/
@@ -57,7 +59,9 @@ export class ApiService {
       .timeout(5000)
       .map(res => {
         // res返回的是整个异步的请求
-        this.loading.hide();
+        if (!opt.noLoading) {
+          this.loading.hide();
+        }
         return res.json(); // 通过json()方法将后台的数据输出
       })
       .catch(err => {

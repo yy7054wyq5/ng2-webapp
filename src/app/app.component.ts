@@ -41,6 +41,5 @@ export class AppComponent implements OnInit { // 生命周期钩子
           this.cache.put('appinfo', res.content);
         }
       });
-    console.log('根组件');
   }
 }
