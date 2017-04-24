@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { BackTopComponent } from './back-top/back-top.component';
 import { MdAutocompleteModule, MdCheckboxModule, MdCardModule } from '@angular/material';
 import { RefreshComponent } from './refresh/refresh.component';
+import { LoadComponent } from './load/load.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RefreshComponent } from './refresh/refresh.component';
     FooterComponent,
     CarouselComponent,
     BackTopComponent,
-    RefreshComponent
+    RefreshComponent,
+    LoadComponent
   ],
   exports: [
     HeaderComponent,
@@ -30,7 +32,8 @@ import { RefreshComponent } from './refresh/refresh.component';
     MdAutocompleteModule,
     MdCardModule,
     MdCheckboxModule,
-    RefreshComponent
+    RefreshComponent,
+    LoadComponent
   ]
 })
 export class ComponentModule { }
