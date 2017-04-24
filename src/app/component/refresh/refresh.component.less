@@ -1,7 +1,7 @@
 @keyframes rotate
 {
-from {transform: rotate(0deg);}
-to {transform: rotate(360deg);}
+0% {transform: rotate(0deg);}
+100% {transform: rotate(359deg);}
 }
 
 .refresh-wrap{
@@ -19,11 +19,8 @@ to {transform: rotate(360deg);}
     }
     i{
       align-self: center;
-      font-size: .6rem;
+      font-size: .5rem;
       color:olive;
-      width: .6rem;
-      height: .6rem;
-      border-radius: .6rem;
       &.rotateLoader{
         animation-name: rotate;
         animation-duration: .5s;

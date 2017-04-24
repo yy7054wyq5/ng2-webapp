@@ -3,7 +3,7 @@
     <!--class="loader-content"为组件内嵌tag-->
     <div class="refresh-content">
       <app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
-      <app-load [url]="'api/index/hotproducts'" [method]="'get'" [body]="body" (onReceive)="loadData($event)">
+      <app-load [url]="'api/index/hotproducts'" [method]="'get'" [body]="body" [list]="list" (onReceive)="loadData($event)">
         <div class="load-content">
           <div class="list" *ngIf="list">
             <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]" [queryParams]="{limit: 5}">

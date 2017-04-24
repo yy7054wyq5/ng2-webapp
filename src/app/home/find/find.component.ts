@@ -29,7 +29,8 @@ export class FindComponent implements OnInit {
   }
   constructor(
     private storage: StorageService,
-    private cache: CacheService
+    private cache: CacheService,
+    private api: ApiService
   ) { };
 
   ngOnInit() {
