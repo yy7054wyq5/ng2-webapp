@@ -14,6 +14,7 @@ import 'hammerjs';
 })
 export class FindComponent implements OnInit {
   list; // 产品列表
+  loadList; // 翻页列表
   topCarousel; // 顶部广告
   defaultImage = 'assets/lazy_default.png';
   body = {
@@ -26,7 +27,7 @@ export class FindComponent implements OnInit {
     this.list = action.hotProducts;
   }
   loadData(action) {
-    console.log(action);
+    this.loadList = action;
   }
   constructor(
     private storage: StorageService,

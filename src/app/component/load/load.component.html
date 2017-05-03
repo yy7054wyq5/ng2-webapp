@@ -1,5 +1,5 @@
 <div class="load-wrap" (panup)="panup($event)" [style.touch-action]="'pan-y'">
   <ng-content select=".load-content"></ng-content>
-  <img src="assets/loading.gif" [class]="loadStatus" class="load-img">
-  <p [class]="loadStatus" class="load-txt">正在载入......</p>
+  <img src="assets/loading.gif" [class]="loadStatus">
+  <p [class]="loadStatus">正在载入......</p>
 </div>
