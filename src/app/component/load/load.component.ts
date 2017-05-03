@@ -21,8 +21,21 @@ export class LoadComponent implements OnInit {
     private api: ApiService
   ) { }
 
-  panup() {
-    this.loadStatus = 'block';
+  panstart() {
+    // this.loadStatus = 'block';
+    console.log('panstart');
+  }
+
+  swipeup() {
+    console.log('swipeup');
+    this.ajaxData();
+  }
+
+  panend() {
+    console.log('panend');
+  }
+
+  ajaxData() {
     this.api
       .ajax({
         method: this.method,

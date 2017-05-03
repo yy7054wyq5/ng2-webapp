@@ -1,4 +1,4 @@
-<div class="load-wrap" (panup)="panup($event)" [style.touch-action]="'pan-y'">
+<div class="load-wrap" (panstart)="panstart($event)" (panend)="panend($event)" [style.touch-action]="'pan-y'" (swipeup)="swipeup($event)">
   <ng-content select=".load-content"></ng-content>
   <img src="assets/loading.gif" [class]="loadStatus">
   <p [class]="loadStatus">正在载入......</p>
