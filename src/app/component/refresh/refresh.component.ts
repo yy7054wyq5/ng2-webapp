@@ -1,5 +1,5 @@
 import { ApiService } from './../../service/api.service';
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import 'hammerjs'; // 手势
 
@@ -8,7 +8,7 @@ import 'hammerjs'; // 手势
   templateUrl: './refresh.component.html',
   styleUrls: ['./refresh.component.less']
 })
-export class RefreshComponent implements OnInit, OnChanges {
+export class RefreshComponent implements OnInit {
   loading = false;
   ajax = false;
   data;
@@ -62,9 +62,5 @@ export class RefreshComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     // this.ajaxData();
-  }
-
-  ngOnChanges() {
-   // this.ajaxData();
   }
 }
