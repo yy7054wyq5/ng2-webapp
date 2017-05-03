@@ -54,8 +54,8 @@ window.onresize = () => {
   <!--method：请求方法-->
   <!--body：请求参数-->
   <!--(onReceive)="receiveTheData($event)"：父组件绑定的事件-->
-  <!--class="loader-content"为组件内嵌tag，不可删除-->
-  <div class="loader-content">
+  <!--class="refresh-content"为组件内嵌tag，不可删除-->
+  <div class="refresh-content">
     <!--在这里放入需加载数据的html结构-->
     <div *ngFor="let item of list;let idx = index"></div>
   </div>
@@ -133,7 +133,7 @@ export class ProductIndexComponent implements OnInit {
 }
 ```
 ### 封装的http请求
-*TS
+* TS
 ```javascript
 export class ProductIndexComponent implements OnInit {
   constructor( 
