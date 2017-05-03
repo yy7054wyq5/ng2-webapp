@@ -13,6 +13,7 @@
 * 7.图片懒加载，使用[ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
 * 8.[storage](#storage)：本地存储
 * 9.使用gulp运行dist内代码，在api.service中设置
+* 10.[返回顶部](#返回顶部)：html插入back-top组件
 
 # 项目结构说明
 >app<br/>
@@ -199,4 +200,11 @@ export class ProductIndexComponent implements OnInit {
   }
 
 }
+```
+
+### 返回顶部
+
+* HTML
+```html
+<app-back-top></app-back-top>
 ```
