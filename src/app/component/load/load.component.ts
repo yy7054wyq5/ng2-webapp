@@ -12,7 +12,6 @@ export class LoadComponent implements OnInit {
   data;
   @Input() url;
   @Input() method;
-  @Input() list;
   @Output() onReceive: EventEmitter<object> = new EventEmitter<object>();
   loadData() {
     this.onReceive.emit(this.data);
