@@ -12,7 +12,7 @@ export class BackTopComponent implements OnInit {
   constructor() { }
 
   backTop(rate) {
-    // http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/
+    // 原文地址：http://www.zhangxinxu.com/wordpress/2017/01/share-a-animation-algorithm-js/
     // 滚动到顶部缓动实现
     // rate表示缓动速率，默认是2
     const doc = this.doc.body.scrollTop ? this.doc.body : this.doc.documentElement;
