@@ -65,6 +65,6 @@ export class RefreshComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.ajaxData();
+   // this.ajaxData();
   }
 }

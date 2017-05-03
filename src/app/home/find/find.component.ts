@@ -10,21 +10,22 @@ import 'hammerjs';
   selector: 'app-find-component',
   templateUrl: './find.component.html',
   styleUrls: ['./find.component.less'],
-  providers: [],
   animations: [flyIn]
 })
 export class FindComponent implements OnInit {
   list; // 产品列表
   topCarousel; // 顶部广告
   defaultImage = 'assets/lazy_default.png';
-  body;
+  body = {
+    page: 1
+  };
   refreshData(action) {
     // 从loader组件返回action
     // console.log(action);
     this.topCarousel = action.locationAds[0].ads;
     this.list = action.hotProducts;
   }
-  loadData(action){
+  loadData(action) {
     console.log(action);
   }
   constructor(
@@ -34,8 +35,17 @@ export class FindComponent implements OnInit {
   ) { };
 
   ngOnInit() {
-    this.body = {
-      page: 1
-    };
+    this.api
+      .ajax({
+        method: 'get',
+        url: '/api/index/index',
+        body: this.body
+      })
+      .subscribe(res => {
+        if (res.success) {
+          this.topCarousel = res.content.locationAds[0].ads;
+          this.list = res.content.hotProducts;
+        }
+      });
   }
 }
