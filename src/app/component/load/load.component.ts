@@ -10,6 +10,9 @@ import 'hammerjs';
 export class LoadComponent implements OnInit {
   loadStatus = 'hide';
   data;
+  noData = false;
+  pageIndex = 1;
+  totalPage = 2;
   @Input() url;
   @Input() method;
   @Output() onReceive: EventEmitter<object> = new EventEmitter<object>();
@@ -21,15 +24,15 @@ export class LoadComponent implements OnInit {
   ) { }
 
   panstart() {
-    this.loadStatus = 'block';
-  }
-
-  panmove() {
-    console.log('panmove');
-  }
-
-  panend() {
-    console.log('panend');
+    const clientHeight = window.innerHeight; // 设备高度
+    const contentHeight = document.body.clientHeight; // 内容高度
+    const scrollMove = contentHeight - clientHeight;
+    const scrollY = window.scrollY; // 滚动高度
+    if (scrollY === scrollMove) {
+      this.loadStatus = 'block';
+      this.pageIndex += 1;
+      this.ajaxData();
+    }
   }
 
   ajaxData() {
@@ -38,7 +41,7 @@ export class LoadComponent implements OnInit {
         method: this.method,
         url: this.url,
         body: {
-          page: 2
+          page: this.pageIndex
         },
         noLoading: true
       })
@@ -46,6 +49,12 @@ export class LoadComponent implements OnInit {
         if (res.success) {
           this.loadStatus = 'hide';
           this.data = res.content.hotProducts;
+          this.pageIndex = res.content.pager.currentPage;
+          this.totalPage = res.content.pager.totalPage;
+          if (res.content.hotProducts.length === 0) {
+            this.noData = true;
+            setTimeout(() => this.noData = false, 1000);
+          }
           this.loadData();
         }
       });
