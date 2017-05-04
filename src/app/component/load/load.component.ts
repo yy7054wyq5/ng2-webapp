@@ -21,13 +21,11 @@ export class LoadComponent implements OnInit {
   ) { }
 
   panstart() {
-    // this.loadStatus = 'block';
-    console.log('panstart');
+    this.loadStatus = 'block';
   }
 
-  swipeup() {
-    console.log('swipeup');
-    this.ajaxData();
+  panmove() {
+    console.log('panmove');
   }
 
   panend() {
