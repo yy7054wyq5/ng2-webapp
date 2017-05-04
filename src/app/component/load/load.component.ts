@@ -1,5 +1,5 @@
 import { ApiService } from './../../service/api.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Injectable } from '@angular/core';
 import 'hammerjs';
 
 @Component({
@@ -11,10 +11,12 @@ export class LoadComponent implements OnInit {
   loadStatus = 'hide';
   data;
   noData = false;
-  pageIndex = 1;
-  totalPage = 2;
+  loadBody = {
+    page: 1
+  };
   @Input() url;
   @Input() method;
+  @Input() body;
   @Output() onReceive: EventEmitter<object> = new EventEmitter<object>();
   loadData() {
     this.onReceive.emit(this.data);
@@ -29,8 +31,10 @@ export class LoadComponent implements OnInit {
     const scrollMove = contentHeight - clientHeight;
     const scrollY = window.scrollY; // 滚动高度
     if (scrollY === scrollMove) {
+      if (this.noData) { this.noData = false; }
       this.loadStatus = 'block';
-      this.pageIndex += 1;
+      Object.assign(this.loadBody, this.body); // 合并到loadBody
+      this.loadBody.page += 1;
       this.ajaxData();
     }
   }
@@ -40,17 +44,14 @@ export class LoadComponent implements OnInit {
       .ajax({
         method: this.method,
         url: this.url,
-        body: {
-          page: this.pageIndex
-        },
+        body: this.loadBody,
         noLoading: true
       })
       .subscribe(res => {
         if (res.success) {
           this.loadStatus = 'hide';
           this.data = res.content.hotProducts;
-          this.pageIndex = res.content.pager.currentPage;
-          this.totalPage = res.content.pager.totalPage;
+          this.loadBody.page = res.content.pager.currentPage;
           if (res.content.hotProducts.length === 0) {
             this.noData = true;
             setTimeout(() => this.noData = false, 1000);

@@ -14,6 +14,7 @@
 * 8.[storage](#storage)：本地存储
 * 9.使用gulp运行dist内代码，在api.service中设置
 * 10.[返回顶部](#返回顶部)：html插入back-top组件
+* 11.[上滑加载](#上滑加载)：在父组件插入load组件,利用output传输数据，父组件需要单独为此多加一个html结构以来显示加载的数据
 
 # 项目结构说明
 >app<br/>
@@ -207,4 +208,45 @@ export class ProductIndexComponent implements OnInit {
 * HTML
 ```html
 <app-back-top></app-back-top>
+```
+
+### 上滑加载
+
+* TS
+```javascript
+export class FindComponent implements OnInit {
+  loadList = []; // 翻页列表
+  loadData(action) {
+    this.loadList = this.loadList.concat(action);
+  }
+}
+```
+
+* HTML
+```html
+<app-load [url]="'api/index/hotproducts'" [method]="'get'" [body]="body" (onReceive)="loadData($event)">
+  <!--url: 请求地址-->
+  <!--method：请求方法-->
+  <!--body：请求的另外的参数-->
+  <!--(onReceive)="loadData($event)"：父组件绑定的事件-->
+  <!--class="load-content"为组件内嵌tag，不可删除-->
+  <div class="load-content">
+    <!--第一页数据-->
+    <div class="list" *ngIf="list">
+      <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]" [queryParams]="{limit: 5}">
+        <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
+        <h2 class="line-camp">{{item.name}}</h2>
+        <p class="line-ellipsis">{{item.summary}}</p>
+      </div>
+    </div>
+    <!--加载的数据-->
+    <div class="list" *ngIf="loadList">
+      <div class="item" *ngFor="let item of loadList" [routerLink]="['/product/detail', item.id]" [queryParams]="{limit: 5}">
+        <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
+        <h2 class="line-camp">{{item.name}}</h2>
+        <p class="line-ellipsis">{{item.summary}}</p>
+      </div>
+    </div>
+  </div>
+</app-load>
 ```

@@ -20,6 +20,10 @@ export class FindComponent implements OnInit {
   body = {
     page: 1
   };
+  loadBody = {
+    a: 1,
+    b: 2
+  };
   refreshData(action) {
     // 从loader组件返回action
     // console.log(action);
