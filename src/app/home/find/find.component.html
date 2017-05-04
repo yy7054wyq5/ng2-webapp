@@ -12,7 +12,7 @@
               <p class="line-ellipsis">{{item.summary}}</p>
             </div>
           </div>
-          <div class="list" *ngIf="list">
+          <div class="list" *ngIf="loadList">
             <div class="item" *ngFor="let item of loadList" [routerLink]="['/product/detail', item.id]" [queryParams]="{limit: 5}">
               <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
               <h2 class="line-camp">{{item.name}}</h2>
