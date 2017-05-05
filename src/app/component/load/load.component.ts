@@ -39,6 +39,10 @@ export class LoadComponent implements OnInit {
     }
   }
 
+  panend() {
+    console.log('panend');
+  }
+
   ajaxData() {
     this.api
       .ajax({
