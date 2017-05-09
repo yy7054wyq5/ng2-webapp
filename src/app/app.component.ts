@@ -20,6 +20,7 @@ export class AppComponent implements OnInit { // 生命周期钩子
   ) { }
 
   ngOnInit() {
+    console.log('根模块加载');
     this.rem.setDpr();
     // 箭头函数会把创建函数时的this传入函数内
     // 如果不用箭头函数，此时的window绑定的函数this指向的会是window

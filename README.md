@@ -12,7 +12,7 @@
 * 6.请求代理配置：项目根目录下proxy.conf.json中配置
 * 7.图片懒加载，使用[ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
 * 8.[storage](#storage)：本地存储
-* 9.使用gulp运行dist内代码，在api.service中设置
+* 9.使用gulp运行dist内代码，在api.service中切换请求地址
 * 10.[返回顶部](#返回顶部)：html插入back-top组件
 * 11.[上滑加载](#上滑加载)：在父组件插入load组件,利用output传输数据，父组件需要单独为此多加一个html结构以来显示加载的数据
 
