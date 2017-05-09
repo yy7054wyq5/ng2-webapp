@@ -1,5 +1,5 @@
+import { ActivateGuard } from './guard/activate.guard';
 import { ResolverService } from './service/resolver.service';
-import { AuthGuard } from './guard/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { ProductDetailComponent } from './product/detail/detail.component';
 const appRoutes: Routes = [
   { path: 'product',
     loadChildren: './product/product.module#ProductModule',
-    // canActivate: [AuthGuard], // 激活
+    canActivate: [ActivateGuard], // 激活
     // canLoad: [AuthGuard] // 加载
   },
   { path: 'mine',
@@ -35,6 +35,6 @@ const appRoutes: Routes = [
   ],
   exports: [RouterModule],
   declarations: [],
-  providers: [ResolverService, AuthGuard],
+  providers: [ResolverService, ActivateGuard],
 })
 export class AppRoutModule { }
