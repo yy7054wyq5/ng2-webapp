@@ -15,6 +15,9 @@ const appRoutes: Routes = [
     // canActivate: [AuthGuard], // 激活
     // canLoad: [AuthGuard] // 加载
   },
+  { path: 'mine',
+    loadChildren: './mine/mine.module#MineModule',
+  },
   { path: '',
     redirectTo: '/index/find', // 重定向
     pathMatch: 'full' },

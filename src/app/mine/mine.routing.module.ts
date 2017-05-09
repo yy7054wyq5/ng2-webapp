@@ -6,7 +6,7 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 const mineRoutes: Routes = [
-  { path: 'mine',
+  { path: '',
     component: IndexComponent
   }
 ];

@@ -27,7 +27,6 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
     FormsModule,
     HttpModule,
     HomeModule,
-    MineModule,
     ServiceModule,
     ComponentModule,
     BrowserAnimationsModule,
