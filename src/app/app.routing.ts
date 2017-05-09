@@ -10,15 +10,10 @@ import { ProductIndexComponent } from './product/index/index.component';
 import { ProductDetailComponent } from './product/detail/detail.component';
 
 const appRoutes: Routes = [
-  { path: 'index',
-    loadChildren: './home/home.module#HomeModule',
-    canActivate: [AuthGuard], // 激活
-    canLoad: [AuthGuard] // 加载
-  },
   { path: 'product',
     loadChildren: './product/product.module#ProductModule',
-    canActivate: [AuthGuard], // 激活
-    canLoad: [AuthGuard] // 加载
+    // canActivate: [AuthGuard], // 激活
+    // canLoad: [AuthGuard] // 加载
   },
   { path: '',
     redirectTo: '/index/find', // 重定向
