@@ -11,6 +11,7 @@ import { ServiceModule } from './service/A.service.module'; // 服务模块
 import { ComponentModule } from './component/component.module'; // 组件模块
 import { HomeModule } from './home/home.module'; // 首页模块
 import { ProductModule } from './product/product.module'; // 产品模块
+import { MineModule } from './mine/mine.module'; // 个人中心
 import { AppComponent } from './app.component'; // 根组件
 
 import { YellowBgDirective } from './directive/yellowbg.directive';
@@ -28,6 +29,7 @@ import { YellowBgDirective } from './directive/yellowbg.directive';
     HttpModule,
     HomeModule,
     ProductModule, // 子模块要在AppRoutModule之前
+    MineModule,
     ServiceModule,
     ComponentModule,
     BrowserAnimationsModule,

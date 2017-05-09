@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('首页模块加载');
     this.router.navigateByUrl('index/find');
   }
 

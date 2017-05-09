@@ -104,7 +104,6 @@ export class ProductIndexComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('产品模块加载');
     this.route.data
       .subscribe(res => {
         this.list = res['content'].products;
