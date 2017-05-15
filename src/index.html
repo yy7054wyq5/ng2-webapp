@@ -9,6 +9,25 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="../node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+  <script>
+    // 通过短字符获取app信息
+    var url = location.href;
+    var httpIndex = url.indexOf('://');
+    url = url.substring(httpIndex + 3, url.length);
+    var appTagIndex = url.indexOf('/');
+    window.appTag = url.substring(appTagIndex + 1, appTagIndex + 7);
+    function reqListener() {
+      res = JSON.parse(this.responseText);
+      if (res.success) {
+        window.appId = res.content.id;
+        localStorage.setItem('appInfo', res.content);
+      }
+    }
+    var oReq = new XMLHttpRequest();
+    oReq.onload = reqListener;
+    oReq.open("get", '/api/app/info/' + window.appTag, true);
+    oReq.send();
+  </script>
 </head>
 
 <body>

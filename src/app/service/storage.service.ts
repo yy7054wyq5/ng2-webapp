@@ -11,19 +11,19 @@ export class StorageService {
     data = typeof data === 'object' ? data = JSON.stringify(data) : data;
     if (type === 'localStorage') {
       localStorage.setItem(key, data);
-    }else {
+    } else {
       sessionStorage.setItem(key, data);
     }
   };
-  get(key: string): Object {
+  get(key: string): any {
     let localData: string = localStorage.getItem(key);
     if (!localData) {
       localData = sessionStorage.getItem(key);
     }
-
+    // 判断是否为json
     if (localData && localData.toString().indexOf('{') > -1) {
       return JSON.parse(localData);
-    }else {
+    } else {
       return localData;
     }
   };

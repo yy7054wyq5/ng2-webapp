@@ -1,3 +1,4 @@
+import { StorageService } from './storage.service';
 import { LoadingService } from './loading.service';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -10,7 +11,8 @@ import 'rxjs/add/operator/timeout';
 export class ApiService {
   constructor(
     public http: Http,
-    public loading: LoadingService
+    public loading: LoadingService,
+    public storage: StorageService
   ) { }
 
   ajax(opt: any): Observable<any> {
@@ -25,7 +27,7 @@ export class ApiService {
     const PROXYHOST = '';
     let url: string = PROXYHOST + opt.url + '?';
     let body: any = opt.body || {};
-    body.appId = 11;
+    body.appId = window['appId'];
     body.sign = 'beb790d872f5b20202c7d4e98119c54d';
     const creatUrlParams = () => {
       // 拼参数
@@ -65,6 +67,7 @@ export class ApiService {
         return res.json(); // 通过json()方法将后台的数据输出
       })
       .catch(err => {
+        this.loading.hide();
         console.log(err);
       });
   };

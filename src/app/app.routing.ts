@@ -10,19 +10,24 @@ import { ProductIndexComponent } from './product/index/index.component';
 import { ProductDetailComponent } from './product/detail/detail.component';
 
 const appRoutes: Routes = [
-  { path: 'product',
+  {
+    path: window['appTag'] + '/product',
     loadChildren: './product/product.module#ProductModule',
     canActivate: [ActivateGuard], // 激活
     // canLoad: [AuthGuard] // 加载
   },
-  { path: 'mine',
+  {
+    path: window['appTag'] + '/mine',
     loadChildren: './mine/mine.module#MineModule',
   },
-  { path: '',
-    redirectTo: '/index/find', // 重定向
-    pathMatch: 'full' },
-  { path: '**',
-    redirectTo: '/index/find',
+  {
+    path: '',
+    redirectTo: window['appTag'] + '/index/find', // 重定向
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: window['appTag'] + '/index/find',
     pathMatch: 'full'
     // component: HomeComponent
   }, // 需要显示404页面或者重定向到其它路由时，该特性非常有用

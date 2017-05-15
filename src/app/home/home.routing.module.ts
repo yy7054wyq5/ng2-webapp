@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 
 const homeRoutes: Routes = [
   {
-    path: 'index',
+    path: window['appTag'] + '/index',
     component: HomeComponent,
     children: [
       {

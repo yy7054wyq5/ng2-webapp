@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.less']
 })
 export class FooterComponent implements OnInit {
-
+  appTag = window['appTag'];
   constructor() { }
 
   ngOnInit() {
