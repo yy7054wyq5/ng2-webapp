@@ -1,19 +1,19 @@
 <div [@flyIn]="list">
   <app-refresh [url]="'/api/index/index'" [method]="'get'" [body]="body" (onReceive)="refreshData($event)">
-    <!--class="loader-content"为组件内嵌tag-->
+    <!--class="refresh-content"为组件内嵌tag-->
     <div class="refresh-content">
       <app-carousel [data]="topCarousel" [interval]="3000" [height]="7.31" [width]="10" *ngIf="topCarousel"></app-carousel>
       <app-load [url]="'api/index/hotproducts'" [method]="'get'" [body]="loadBody" (onReceive)="loadData($event)">
         <div class="load-content">
           <div class="list" *ngIf="list">
-            <div class="item" *ngFor="let item of list" [routerLink]="['/product/detail', item.id]" [queryParams]="{limit: 5}">
+            <div class="item" *ngFor="let item of list" [routerLink]="['/'+appTag+'/product/detail', item.id]" [queryParams]="{limit: 5}">
               <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
               <h2 class="line-camp">{{item.name}}</h2>
               <p class="line-ellipsis">{{item.summary}}</p>
             </div>
           </div>
           <div class="list" *ngIf="loadList">
-            <div class="item" *ngFor="let item of loadList" [routerLink]="['/product/detail', item.id]" [queryParams]="{limit: 5}">
+            <div class="item" *ngFor="let item of loadList" [routerLink]="['/'+appTag+'/product/detail', item.id]" [queryParams]="{limit: 5}">
               <img [defaultImage]="defaultImage" [lazyLoad]="item.imagePath" [offset]="100">
               <h2 class="line-camp">{{item.name}}</h2>
               <p class="line-ellipsis">{{item.summary}}</p>

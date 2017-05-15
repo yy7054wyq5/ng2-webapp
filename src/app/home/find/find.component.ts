@@ -24,6 +24,7 @@ export class FindComponent implements OnInit {
     a: 1,
     b: 2
   };
+  appTag = window['appTag'];
   refreshData(action) {
     // 从loader组件返回action
     // console.log(action);
