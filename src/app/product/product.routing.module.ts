@@ -1,5 +1,5 @@
+import { ActivateGuard } from './../guard/activate.guard';
 import { ResolverService } from './../service/resolver.service';
-import { AuthGuard } from './../guard/auth.guard';
 import { ProductDetailComponent } from './detail/detail.component';
 import { ProductListComponent } from './list/list.component';
 import { ProductIndexComponent } from './index/index.component';
@@ -27,7 +27,7 @@ const productRoutes: Routes = [
   },
   { path: 'detail/:id', // 路由器会用它来匹配浏览器地址栏中的地址，如product。
     component: ProductDetailComponent, // 导航到此路由时，路由器需要创建的组件DetailComponent
-    canActivate: [AuthGuard],
+    canActivate: [ActivateGuard],
     data: { // 用来保存诸如 页标题、面包屑以及其它只读数据
       api: '/api/product/detail/' // 接口地址
     },
