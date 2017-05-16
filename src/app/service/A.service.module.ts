@@ -1,3 +1,4 @@
+import { AppInfoService } from './app-info.service';
 import { LoadingService } from './loading.service';
 import { CacheService } from './cache.service';
 import { RemService } from './rem.service';
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
     ResolverService,
     RemService,
     CacheService,
+    AppInfoService,
     LoadingService
   ],
   declarations: []

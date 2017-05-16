@@ -7,6 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+console.log('pro.routing');
+
 const productRoutes: Routes = [
   {
     path: '',

@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+console.log('mine.routing');
+
 const mineRoutes: Routes = [
   { path: '',
     component: IndexComponent

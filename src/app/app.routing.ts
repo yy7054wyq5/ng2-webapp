@@ -1,3 +1,4 @@
+import { AppInfoService } from './service/app-info.service';
 import { ActivateGuard } from './guard/activate.guard';
 import { ResolverService } from './service/resolver.service';
 import { NgModule } from '@angular/core';
@@ -9,25 +10,28 @@ import { ProductListComponent } from './product/list/list.component';
 import { ProductIndexComponent } from './product/index/index.component';
 import { ProductDetailComponent } from './product/detail/detail.component';
 
+const appInfo = new AppInfoService;
+const appTag = appInfo.tag();
+
 const appRoutes: Routes = [
   {
-    path: window['appTag'] + '/product',
+    path: appTag + '/product',
     loadChildren: './product/product.module#ProductModule',
     canActivate: [ActivateGuard], // 激活
     // canLoad: [AuthGuard] // 加载
   },
   {
-    path: window['appTag'] + '/mine',
+    path: appTag + '/mine',
     loadChildren: './mine/mine.module#MineModule',
   },
   {
     path: '',
-    redirectTo: window['appTag'] + '/index/find', // 重定向
+    redirectTo: appTag + '/index/find', // 重定向
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: window['appTag'] + '/index/find',
+    redirectTo: appTag + '/index/find',
     pathMatch: 'full'
     // component: HomeComponent
   }, // 需要显示404页面或者重定向到其它路由时，该特性非常有用

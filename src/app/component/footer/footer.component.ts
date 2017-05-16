@@ -9,7 +9,6 @@ export class FooterComponent implements OnInit {
   appTag = window['appTag'];
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

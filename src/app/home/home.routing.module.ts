@@ -1,3 +1,4 @@
+import { AppInfoService } from './../service/app-info.service';
 import { SaleComponent } from './sale/sale.component';
 import { FindComponent } from './find/find.component';
 import { HomeComponent } from './home/home.component';
@@ -6,9 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+const appInfo = new AppInfoService;
+const appTag = appInfo.tag();
+
 const homeRoutes: Routes = [
   {
-    path: window['appTag'] + '/index',
+    path: appTag + '/index',
     component: HomeComponent,
     children: [
       {
