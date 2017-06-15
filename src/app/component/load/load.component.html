@@ -1,6 +1,0 @@
-<div class="load-wrap" (panstart)="panstart()" [style.touch-action]="'pan-y'" (panend)="panend()">
-  <ng-content select=".load-content"></ng-content>
-  <img src="assets/loading.gif" [class]="loadStatus">
-  <p [class]="loadStatus">正在载入......</p>
-  <p *ngIf="noData">没有数据了.....</p>
-</div>
