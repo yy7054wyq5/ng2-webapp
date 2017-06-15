@@ -1,0 +1,127 @@
+.community-edit {
+    .header {
+        text-align: center;
+        .header-content {
+            display: block;
+            line-height: 1.2rem;
+            font-size: 0.45rem;
+            a {
+                width: 1.1rem;
+                height: 1.1rem;
+                position: absolute;
+                right: .2rem;
+                top: 0;
+                text-align: center;
+                line-height: 1.1rem;
+            }
+        }
+    }
+}
+
+.community-edit .edit-con {
+    margin-top: .12rem;
+    width: 100%;
+    height: auto;
+    >div.title {
+        width: 10rem;
+        height: auto;
+        border-bottom: .01rem solid #dbdbdb;
+        padding-left: .3rem;
+        padding-right: .3rem;
+        overflow-y: visible;
+        >textarea {
+            width: 100%;
+            overflow-y: visible;
+            min-height: 2rem;
+            border: 0px;
+        }
+        >textarea:focus {
+            border: 1px solid #fa7541;
+        }
+    }
+    >div.des {
+        width: 100%;
+        height: auto;
+        padding-left: .3rem;
+        padding-right: .3rem;
+        margin: 0.1rem;
+        overflow-y: visible;
+        border-bottom: .01rem solid #dbdbdb;
+        >textarea {
+            width: 100%;
+            overflow-y: visible;
+            min-height: 4.8rem;
+            border: 0px;
+        }
+        >textarea:focus {
+            border: 1px solid #fa7541;
+        }
+    }
+}
+
+.community-edit .edit-con .photo {
+    width: 100%;
+    height: auto;
+    padding-bottom: 1rem;
+    overflow: hidden;
+    >ul {
+        padding-left: 0.48rem;
+        padding-right: 0.48rem;
+        >.img {
+            float: left;
+            position: relative;
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 0.5rem;
+            >img {
+                position: absolute;
+                width: 2.16rem;
+                height: 2.16rem;
+                top: 0.34rem;
+            }
+            >i {
+                width: 0.6rem;
+                height: 0.6rem;
+                position: absolute;
+                background: url(/assets/img/forum_posts_button_delete_nor.png) no-repeat;
+                background-size: 0.6rem 0.6rem;
+                top: 0.2rem;
+                right: 0.2rem;
+            }
+        }
+        >.add {
+            float: left;
+            position: relative;
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 0.5rem;
+            >.bg {
+                position: absolute;
+                width: 2.16rem;
+                height: 2.16rem;
+                background: url(/assets/img/forum_posts_button_upload_nor.png) center left no-repeat;
+                background-size: 2.16rem 2.16rem;
+                top: 0.34rem;
+            }
+            >input {
+                position: absolute;
+                overflow: hidden;
+                width: 2.16rem;
+                height: 2.16rem;
+                top: 0.48rem;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+
+/**
+*横着的线条
+**/
+
+.across-the-line {
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid #e1e1e1;
+}

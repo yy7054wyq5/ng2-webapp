@@ -1,0 +1,15 @@
+<app-header [hasBack]="1" [headerTitle]="'title_activity_my_member'|translate"></app-header>
+<app-load-and-refresh [url]="'/api/account/users'" [body]="body" (onLoad)="loadData($event)" [dataKey]="'users'" (onRefresh)="refreshData($event)">
+  <div class="load-and-refresh-content">
+    <h3>{{'member_count_before'|translate}}<span>{{membersTotal}}</span>{{'member_count_after'|translate}}</h3>
+    <ul class="list">
+      <li *ngFor="let item of members">
+        <img src="{{item.imagePath}}">
+        <div class="info">
+          <span class="name">{{item.nickname}}</span>
+          <span class="phone" appMobileDis>{{item.mobile}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</app-load-and-refresh>

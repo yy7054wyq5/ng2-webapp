@@ -1,0 +1,45 @@
+// 横线滑动菜单
+.swipemenu-box{
+	width: 10rem;
+	overflow: hidden;
+	background: #fff;
+	height: 1.12rem;
+	position: relative;
+	.swipemenu,
+	.swipenavmenu{
+		border-top: 0.02rem solid #dbdbdb;
+		background: #fff;
+		height: 1.1rem;
+		min-width: 100%;
+		position: absolute;
+		top: 0;
+		transition: all 1s;
+		li{
+			float: left;
+			font-size: 0.45rem;
+			// width: 2.3rem;
+			height: 1.1rem;
+			line-height: 1.1rem;
+			text-align: center;
+			margin: 0 .25rem;
+			// padding-top: .25rem;
+			// padding-left: .25rem;
+			// padding-right: .25rem;
+		}
+		li.active{
+			color: #ed4f44;
+			border-bottom: 0.02rem solid #ed4f44; 
+		}
+	}
+	.swipemenu.fixed{
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 9;
+	}
+	.swipemenu:after{
+		clear: both;
+		content: '';
+		display: table;
+	}
+}

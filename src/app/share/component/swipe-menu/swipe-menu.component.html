@@ -1,0 +1,7 @@
+<div class="swipemenu-box">
+    <ul class="swipemenu" [ngStyle]="{'width': widthNum,'left': leftPosi}" (swipeleft)='swipeLeft()' (swiperight)='swipeRight()'>
+        <li *ngFor="let category of productList;let $index = index" (click)="fireChildEvent({index:$index,id:category.id})" [ngClass]="{active:$index==indexActive}">
+            {{category.name}}
+        </li>
+    </ul>
+</div>

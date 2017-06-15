@@ -1,0 +1,39 @@
+<div class="bar" (click)="showSize()">
+    <span>{{'aready_checked' | translate}}</span>
+    <span class="chosed">白色,{{count}}{{'stock_num_after' | translate}}</span>
+    <i></i>
+</div>
+<div class="size" [ngStyle]="{'left':leftPosi+'rem'}">
+    <div class="content">
+        <img src="{{detail.imagePath}}">
+        <div class="size-top">
+            <i (click)="closeSize()"></i>
+            <span class="price" *ngIf="!needcredit">&yen;{{detail.price}}</span>
+            <span class="price" *ngIf="needcredit"><i></i>&yen;{{detail.price}}</span>
+            <span class="max-count">
+                {{'stock_num_before' | translate}}
+                <span>{{detail.inventory}}</span>
+                {{'stock_num_after' | translate}}
+                <span *ngIf="limitnum">&nbsp;{{'purchase_quantity_before' | translate}}{{limitnum}}{{'stock_num_after' | translate}}</span>
+            </span>
+        </div>
+        <div class="size-container">
+            <div class="size-box" *ngFor="let spec of detail.specInfo;let $index=index">
+                <p>{{spec.specName}}</p>
+                <a *ngFor="let values of spec.specValues" [ngClass]="{active:values.specValueId==detail.specValues}">
+									{{values.specValueName}}</a>
+            </div>
+            <div class="count-box">
+                <p>{{'number' | translate}}</p>
+                <!-- 加减按钮 -->
+                <app-addcut [maxInventory]="detail.promotionLimitInventory" [limitNum]="detail.promotionLimitNum"  (childEvent)="getChildEvent($event)"></app-addcut>
+                <!--<addcut maxcount="{{maxcount}}" limitnum="{{limitnum}}" count="{{count||1}}"></addcut>-->
+                <!-- 加减按钮 -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-btn">
+    <a class="add-bus" (click)="addCar(detail.id)">{{'add_shop_car' | translate}}</a>
+    <a class="buy-now" (click)="buyNow(detail.id,count)">{{'buy_immediately' | translate}}</a>
+</div>

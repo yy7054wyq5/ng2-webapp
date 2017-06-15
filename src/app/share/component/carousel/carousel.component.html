@@ -1,0 +1,15 @@
+<div class="pan-wrap" [style.height.rem]="height" [style.width.rem]="width">
+  <div class="pan-box" [style.width.rem]="data.length*10" [style.transform]="translateLeft" [style.height.rem]="height" [ngClass]="{slideTransition: slideTransitionClass}">
+    <div class="img-box" *ngFor="let avatar of data; let idx = index" (panmove)="panmove(idx,$event)" (panend)="panend(idx,$event)" (panstart)="panstart()" [style.height.rem]="height" (swipeleft)="swipeleft(idx,$event)" (swiperight)="swiperight(idx,$event)" (click)="toDetail(avatar)">
+      <img [style.height.rem]="height" [style.width.rem]="width" src="{{avatar.imagePath || avatar.url}}">
+    </div>
+  </div>
+  <div class="pointer">
+    <ul>
+      <li *ngFor="let point of data;let id = index" [ngClass]="{active: pointer===id}"></li>
+    </ul>
+  </div>
+</div>
+<!--<p>目前样式距离：{{translateLeft}}</p>
+<p>移动距离：{{distance}}</p>
+<p>移动后初始距离：{{initTranslateLeft}}</p>-->

@@ -1,0 +1,161 @@
+.suggest-main {
+    >ul {
+        padding-top: 0.2rem;
+        >li.mine::after {
+            clear: both;
+            content: '';
+            display: table;
+        }
+        >li.mine {
+            padding: 0.2rem;
+            >img {
+                width: 1.2rem;
+                height: 1.2rem;
+                display: block;
+                border-radius: 1.2rem;
+                float: right;
+            }
+            >.msg {
+                position: relative;
+                margin-right: .2rem;
+                z-index: 1;
+                margin-bottom: 1rem;
+                max-width: 6.8rem;
+                color: #555;
+                float: right;
+                box-sizing: border-box;
+                font-size: .45rem;
+                >.content {
+                    border: .01rem solid #dbdbdb;
+                    border-radius: .1rem;
+                    background: #f1f1f1;
+                    padding: .2rem;
+                }
+                >.date {
+                    position: absolute;
+                    z-index: 2;
+                    right: 0;
+                    float: left;
+                    background: #dbdbdb;
+                    color: #fff;
+                    font-size: .35rem;
+                    width: 3.5rem;
+                    border-radius: .1rem;
+                    text-align: center;
+                    margin-top: .2rem;
+                }
+            }
+            >.msg::after {
+                clear: both;
+                content: '';
+                display: table;
+            }
+        }
+        >li.other::after {
+            clear: both;
+            content: '';
+            display: table;
+        }
+        >li.other {
+            margin-top: .4rem;
+            padding: 0.2rem;
+            >img {
+                float: left;
+                width: 1.2rem;
+                height: 1.2rem;
+                display: block;
+                border-radius: 1.2rem;
+            }
+            >.msg {
+                margin-left: .2rem;
+                float: left;
+                max-width: 6.8rem;
+                color: #555;
+                font-size: .45rem;
+                >.content {
+                    border: .01rem solid #dbdbdb;
+                    border-radius: .1rem;
+                    background: #ffe4ec;
+                    padding: .2rem;
+                    box-sizing: border-box;
+                }
+                >.date {
+                    float: left;
+                    background: #dbdbdb;
+                    color: #fff;
+                    font-size: .35rem;
+                    width: 3.5rem;
+                    border-radius: .1rem;
+                    text-align: center;
+                    margin-top: .2rem;
+                }
+            }
+            >.msg::after {
+                clear: both;
+                content: '';
+                display: table;
+            }
+        }
+    }
+    >.suggest-input::after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+    >.suggest-input {
+        position: fixed;
+        z-index: 2;
+        width: 10rem;
+        height: 1.15rem;
+        border-top: .01rem solid #dbdbdb;
+        padding-top: .15rem;
+        background: #fff;
+        bottom: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+        >textarea {
+            border: 0;
+            border-bottom: .01rem solid #dbdbdb;
+            width: 7.33rem;
+            height: .83rem;
+            resize: none;
+            margin-left: .6rem;
+            float: left;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+        >button {
+            background: #ed4f44;
+            width: 1.33rem;
+            height: .83rem;
+            border-radius: .2rem;
+            text-align: center;
+            font-size: .4rem;
+            color: #fff;
+            margin-left: .2rem;
+            float: left;
+        }
+    }
+}
+
+.suggest-main {
+    width: 100%;
+    height: auto;
+    background: white;
+    background-size: 100% 100%;
+    .header {
+        z-index: 999;
+        text-align: center;
+        position: relative;
+        .header-content {
+            display: block;
+            line-height: 1.2rem;
+            font-size: 0.45rem;
+        }
+    }
+}

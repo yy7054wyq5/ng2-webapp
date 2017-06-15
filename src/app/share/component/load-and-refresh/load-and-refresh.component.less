@@ -1,0 +1,48 @@
+@keyframes rotate
+{
+0% {transform: rotate(0deg);}
+100% {transform: rotate(359deg);}
+}
+
+.load-and-refresh-wrap{
+  .refresh{
+    width: .8rem;
+    border-radius: .8rem;
+    height: .8rem;
+    position: fixed;
+    background-color: #fff;
+    top: -1;
+    left: 4.5rem;
+    z-index: 999999;
+    padding-top: .12rem;
+    box-shadow: 1px 1px 1px;
+    transition: top .2s;
+    i{
+      align-self: center;
+      font-size: .6rem;
+      color:olive;
+      &.rotateLoader{
+        animation-name: rotate;
+        animation-duration: .5s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+	button{
+		height: .8rem;
+		line-height: .8rem;
+		font-size: 12px;
+	}
+	div{
+		text-align: center;
+		img{
+			width: .8rem;
+			height: .8rem;
+		}
+	}
+	p{
+		text-align: center;
+	}
+}

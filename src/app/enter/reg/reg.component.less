@@ -1,0 +1,31 @@
+input{
+  padding-left: .4rem;
+}
+.pass{
+  position: relative;
+  z-index: 1;
+  a{
+    position: absolute;
+    width: 1.07rem;
+    height: 1.07rem;
+    right: .4rem;
+    top: 0;
+    background-image: url(../../../assets/img/registered_button_display_nor.png);
+    background-position: right center;
+    background-size: 100%;
+    &.active{
+      background-image: url(../../../assets/img/registered_button_display_sel.png);
+    }
+  }
+}
+.code{
+  position: relative;
+  z-index: 1;
+  a{
+    position: absolute;
+    right: .6rem;
+    top: .2rem;
+    color: #ed4f44;
+    font-size: .45rem;
+  }
+}

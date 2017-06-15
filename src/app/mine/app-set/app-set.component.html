@@ -1,0 +1,13 @@
+<app-header [hasBack]="1" [headerTitle]="'title_activity_userSetting'|translate" [hasBottom]="1"></app-header>
+<ul class="list">
+  <li [routerLink]="['/'+appTag+'/mine/about-us']">
+    <span>{{'about_store'|translate}}</span>
+    <i></i>
+  </li>
+</ul>
+<div class="hack"></div>
+<div class="code-con" *ngIf="app.qrcodePath">
+  <img src="{{app.qrcodePath}}">
+  <span><span>{{'current_version' | translate}}</span>{{app.versionName}}</span>
+  <a>{{'share_to_download'|translate}}</a>
+</div>

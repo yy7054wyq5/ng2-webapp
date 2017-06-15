@@ -1,0 +1,140 @@
+  .refresh-content {
+      background: #f1f1f1;
+      ul {
+          width: 100%;
+          li {
+              width: 100%;
+              margin-top: 0.224rem;
+              background: white;
+          }
+      }
+  }
+
+  .item-topic {
+      width: 100%;
+      height: auto;
+      padding: 0.48rem;
+      >div.top {
+          width: 100%;
+          height: 0.96rem;
+          >img.headerImage {
+              width: 0.96rem;
+              height: 0.96rem;
+              border-radius: 50%;
+              float: left;
+          }
+          >div.userName {
+              color: #999999;
+              font-size: 0.384rem;
+              line-height: 0.96rem;
+              float: left;
+              margin-left: 5px;
+              margin-right: 5px;
+          }
+          >img.levelImg {
+              width: 30px;
+              height: 22px;
+              margin-top: 0.2rem;
+          }
+      }
+      >div.detail {
+          width: 100%;
+          height: auto;
+          margin-top: 0.48rem;
+          >div {
+              width: 0.5rem;
+              height: 0.5rem;
+              background: url(/assets/img/forum_icon_sticky_dis.png) no-repeat;
+              background-size: 0.5rem 0.5rem;
+              margin-right: 0.1rem;
+              float: left;
+          }
+          >span {
+              color: #15528d;
+              font-size: 0.4rem;
+          }
+          >p {
+              margin-top: 0.32rem;
+              color: #555555;
+              font-size: 0.4rem;
+          }
+      }
+      >div.bottom {
+          margin-top: 0.48rem;
+          font-size: 0.288rem;
+          position: relative;
+          bottom: 0.2rem;
+          >span {
+              font-size: .4rem;
+              color: #999;
+              float: left;
+          }
+          >div.right {
+              float: right;
+              font-size: .4rem;
+              color: #999;
+              position: relative;
+              bottom: 0.05rem;
+              >i:nth-child(1) {
+                  width: .75rem;
+                  height: .75rem;
+                  display: block;
+                  float: left;
+              } //已经点赞
+              >.zanSel {
+                  background: url(/assets/img/forum_icon_like_sel.png) no-repeat left center;
+                  background-size: .75rem;
+              } //还没有点赞 
+              >.zanNor {
+                  background: url(/assets/img/forum_icon_like_nor.png) no-repeat left center;
+                  background-size: .75rem;
+              }
+              >span:nth-child(2) {
+                  display: block;
+                  float: left;
+                  margin-top: .1rem;
+                  min-width: 1rem;
+                  margin-right: 0.05rem;
+                  margin-left: 0.05rem;
+              }
+              >i:nth-child(3) {
+                  width: .75rem;
+                  height: .75rem;
+                  display: block;
+                  float: left;
+                  background: url(/assets/img/forum_icon_comment_nor.png) no-repeat left center;
+                  background-size: .75rem;
+              }
+              >span:nth-child(4) {
+                  display: block;
+                  float: left;
+                  margin-top: .1rem;
+                  min-width: 1rem;
+                  margin-left: 0.05rem;
+              }
+          }
+      }
+      >div.images {
+          width: 100%;
+          height: 2.88rem;
+          margin-top: .18rem;
+          img {
+              z-index: 100;
+              display: block;
+              float: left;
+              width: 2.8rem;
+              height: 2.8rem;
+              margin-right: .18rem;
+          }
+      }
+  }
+
+  app-big-view {
+      width: 100%;
+      position: fixed;
+      left: 0rem;
+      top: 0rem;
+      z-index: 999;
+      bottom: 0rem;
+      background: black;
+  }

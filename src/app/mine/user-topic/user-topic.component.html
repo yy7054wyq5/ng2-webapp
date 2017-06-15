@@ -1,0 +1,20 @@
+<div class="my-post">
+  <app-header class="header" [hasBack]="true" [hasBottom]="1">
+    <div class="header-content">
+      {{'my_post'|translate}}
+    </div>
+  </app-header>
+
+  <ul class="nav">
+    <li [ngClass]="{sel:selectPosition==0,nor:selectPosition!=0}" (click)="changeUrl(0)" class="community">{{'publish_hint'|translate}}</li>
+    <li [ngClass]="{sel:selectPosition==1,nor:selectPosition!=1}" (click)="changeUrl(1)" class="comment">{{'comment'|translate}}</li>
+  </ul>
+
+  <div class="line"></div>
+
+  <app-topic-list *ngIf="selectPosition==0" [setTag]="2"></app-topic-list>
+
+  <app-topic-comment-list *ngIf="selectPosition==1"></app-topic-comment-list>
+
+
+</div>

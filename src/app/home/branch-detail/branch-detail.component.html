@@ -1,0 +1,12 @@
+<app-header [hasBack]="true" [hasCar]="true" [headerTitle]="detail.name"></app-header>
+<div class="detail" [style.height.rem]="detailHeight">
+	<dl *ngIf="detailHeight">
+		<dd class="part">{{detail.province}}</dd>
+		<dd class="name">{{detail.name}}</dd>
+		<dd class="address">{{detail.province}}{{detail.city}}{{detail.area}}{{detail.address}}</dd>
+	</dl>
+	<a class="tel" href="tel:{{detail.telephone}}" *ngIf="detailHeight">{{detail.telephone}}</a>
+</div>
+<div (click)="setMapHeight()" class="arrow"><i [ngClass]="{up: !arrowDown,down: arrowDown}"></i></div>
+<div id="map" [style.height.px]="mapHeight"></div>
+<div class="geo" (click)="toBranchLine()"></div>

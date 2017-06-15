@@ -1,0 +1,92 @@
+.user-info {
+  padding: .2rem;
+  &::after{
+    clear: both;
+    content: '';
+    display: table;
+  }
+  >img{
+    float: left;
+    display: block;
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: 1.65rem;
+  }
+  >.content{
+    float: left;
+    margin-left: .2rem;
+    >span{
+      display: block;
+    }
+    >span.nickname{
+      width: 100%;
+      text-align: left;
+      font-size: .5rem;
+      color: #555555;
+      margin-top: .1rem;
+    }
+    >span.point{
+      width: 100%;
+      text-align: left;
+      background: url(../../../assets/img/my_integral_icon_1.png) no-repeat left center;
+      padding-left: .6rem;
+      background-size: .5rem .4rem;
+      color: #ffb14c;
+      font-size: .45rem;
+    }
+  }
+}
+h5{
+  font-size: .45rem;
+  color: #999999;
+  line-height: 1rem;
+  padding-left: .2rem;
+  height: 1rem;
+}
+.list{
+  border-top: 0.05rem solid #dbdbdb;
+  >li{
+    border-bottom: 0.05rem solid #dbdbdb;
+    height: 1.5rem;
+    padding-left: .4rem;
+    &::after{
+      clear: both;
+      content: '';
+      display: table;
+    }
+    >.point-detail{
+      float: left;
+      padding-top: .2rem;
+      >p{
+        font-size: .45rem;
+        color: #555555;
+        margin: 0;
+        height: .6rem;
+        display: block;
+        width: 7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      >span{
+        font-size: .4rem;
+        color: #999999;
+      }
+    }
+    >.point-change{
+      float: right;
+      display: block;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      margin-right: .3rem;
+      background: url(../../../assets/img/my_integral_icon_2.png) left 0.55rem no-repeat;
+      background-size: .5rem .4rem;
+      padding-left: .6rem;
+      >span{
+        display: block;
+        color: #ed4f44;
+        font-size: .5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.star-bg{
+  width: 3rem;
+  float: right;
+  margin-top: .28rem;
+  margin-right: .2rem;
+  height: .6rem;
+  background: url(/assets/img/star_nor.png) repeat-x left center;
+  background-size: .6rem;
+  position: relative;
+  z-index: 1;
+  >div.star{
+    position: absolute;
+    z-index: 2;
+    height: .6rem;
+    background: url(/assets/img/star_sel.png) repeat-x left center;
+    background-size: .6rem;
+  }
+  >ul:after{
+    clear: both;
+    content: '';
+    display: table;
+  }
+  >ul{
+    position: absolute;
+    z-index: 3;
+    >li{
+      float: left;
+      width: .6rem;
+      height: .6rem;
+    }
+  }
+}

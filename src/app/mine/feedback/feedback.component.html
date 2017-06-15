@@ -1,0 +1,33 @@
+<div class="suggest-main">
+  <app-header class="header" [hasBack]="true" [hasBottom]="1">
+    <div class="header-content">
+      {{'complaints_and_suggestions'|translate}}
+    </div>
+  </app-header>
+  <div style="height:1rem; width:10rem;"></div>
+  <ul class="msg-con" *ngFor="let suggest of msg">
+    <li class="mine">
+      <img src="{{imagePath}}">
+      <div class="msg">
+        <div class="content">{{suggest.content}}</div>
+        <div class="date">{{suggest.updateTime}}</div>
+      </div>
+    </li>
+    <li class="other" *ngIf="suggest.reply.content">
+      <img src="/assets/img/photo_2.png">
+      <div class="msg">
+        <div class="content">{{suggest.reply.content}}</div>
+        <div class="date">{{suggest.reply.updateTime}}</div>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="msg.length===0" class="no-content">
+    {{'no_data' | translate}}
+  </div>
+  <div style="height:1.15rem; width:10rem; "></div>
+  <div class="suggest-input">
+    <textarea placeholder="{{'please_input_what_you_feedback'|translate}}" [(ngModel)]="content" maxlength="200" minlength="2">
+		</textarea>
+    <button (click)="suggest()">{{'send'|translate}}</button>
+  </div>
+</div>

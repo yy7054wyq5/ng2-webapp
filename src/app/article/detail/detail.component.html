@@ -1,0 +1,47 @@
+<div class="article-detail">
+  <app-header class="header" [hasBack]="true">
+    <div class="header-content">
+      {{'title_activity_articleDetails'|translate}}
+    </div>
+  </app-header>
+
+  <div class="content">
+    <h3>{{detail.name}}</h3>
+    <span class="date">{{detail.createTime}}</span>
+    <div class="con" [innerHtml]="trust(detail.detail)"></div>
+  </div>
+
+  <div class="no-content no-conment" *ngIf="comments===undefined||comments.length==0">{{'no_data' | translate}}</div>
+
+
+  <div class="conment" *ngIf="comments.length>0">
+    <div class="tag">{{'all_comments'|translate}}</div>
+    <div *ngIf="discomment==0" class="loading-comment"><img src="/assets/img/loading.gif"></div>
+
+    <app-load-and-refresh [url]="'/api/comment/list'" [disabledRefresh]="false" [body]="loadBody" (onRefresh)="loadData($event)"
+      (onLoad)="loadData($event)">
+
+      <ul class="load-and-refresh-content">
+        <li *ngFor="let conment of comments">
+          <img [src]="conment.userImagePath">
+          <span class="name">{{conment.nickname}}</span>
+          <span class="date pull-right">{{conment.updateTime}}</span>
+          <div class="des">{{conment.content}}</div>
+          <div class="seller" *ngIf="conment.reply">
+            <span class="name" translate="merchantReply"></span>
+            <span class="date">{{conment.reply.updateTime}}</span>
+            <div>{{conment.reply.content}}</div>
+          </div>
+        </li>
+      </ul>
+
+    </app-load-and-refresh>
+  </div>
+  <div style="height:1.5rem; background:#fff;">
+  </div>
+  <div class="send">
+    <input placeholder="{{ 'comment_hint'|translate}}" [(ngModel)]="articleConment" maxlength="200" ng-focus="tips()">
+    <a (click)="sendConment(detail.id)" translate="sendOut">{{'send'|translate}}</a>
+  </div>
+
+</div>

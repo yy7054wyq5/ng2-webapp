@@ -1,0 +1,17 @@
+<app-header [hasBack]="1" [headerTitle]="branchInfo.branchName" [hasBottom]="1"></app-header>
+<div class="banner">
+  <a href="tel:{{branchInfo.mobile}}"><img src="{{branchInfo.guideImagePath || branchInfo.imagePath}}"></a>
+  <i></i>
+  <div class="guide-info">
+    <div class="name">{{branchInfo.nickname}}</div>
+    <div class="txt">{{'click_header_can_meet_me'|translate}}</div>
+  </div>
+  <a (click)="setGuide(branchInfo.branchId)" class="change-guide">{{'change_guide'|translate}}</a>
+</div>
+<ul class="list">
+  <li *ngFor="let item of list" [routerLink]="['/'+appTag+'/mine/problem', item.id]">
+    <span>{{item.name}}</span>
+    <i></i>
+  </li>
+</ul>
+<app-guide-list [guides]="guides" [toggle]="toggle" (outGuideToggleValue)="outGuideToggleValue($event)"></app-guide-list>

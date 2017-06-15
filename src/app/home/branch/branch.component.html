@@ -1,0 +1,15 @@
+<div class="branch-main">
+  <app-header [hasCar]="true" [autoNav]="true"></app-header>
+  <app-load-and-refresh [url]="'/api/branch/list'" [body]="loadBody" (onRefresh)="refreshData($event)" (onLoad)="loadData($event)" [dataKey]="'branches'">
+    <div class="load-and-refresh-content">
+      <div class="list">
+        <dl [routerLink]="['/'+appTag+'/index/branch/detail', item.id]" *ngFor="let item of list">
+          <dd class="part">{{item.province}}</dd>
+          <dd class="name">{{item.name}}</dd>
+          <dd class="address">{{item.province}}{{item.city}}{{item.area}}{{item.address}}</dd>
+          <dd class="arrow"></dd>
+        </dl>
+      </div>
+    </div>
+  </app-load-and-refresh>
+</div>
