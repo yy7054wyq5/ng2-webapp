@@ -1,5 +1,0 @@
-<div class="addcut">
-    <span class="cut" (click)="cutNum()">-</span>
-    <input type="number" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" [(ngModel)]="count" required (blur)="inputNum()" value="{{count}}">
-    <span class="add" (click)="addNum()">+</span>
-</div>
