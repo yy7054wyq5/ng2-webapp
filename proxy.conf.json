@@ -1,0 +1,14 @@
+{
+  "/api/*": {
+    "target": "http://appbuilder.doboyu.com",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/image/*": {
+    "target": "http://appbuilder.doboyu.com",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

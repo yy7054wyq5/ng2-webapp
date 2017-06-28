@@ -1,0 +1,31 @@
+<ul class="list2">
+  <li><span>{{'local_area' | translate}}</span>
+    <div class="input-div" (click)="set(true)">
+      <span>{{proName || '请选择省市'}}</span>
+      <span>{{cityName}}</span>
+      <span >{{areaName}}</span>
+    </div>
+  </li>
+</ul>
+
+<div class="chose-bg" [ngClass]="{active:flagPart}">
+  <div class="chose-part">
+    <p><span>{{'please_pull_up_down_to_select_area' | translate}}</span>
+    <button (click)="set(false)">{{'sure' | translate}}</button></p>
+    <div class="pro" id="pro">
+      <ul>
+        <li *ngFor="let pro of prodata;let $index=index" (click)="chosePro(pro.value,pro.id,$index)" [ngClass]="{active:proindex==$index}">{{pro.value}}</li>
+      </ul>
+    </div>
+    <div class="city" id="city">
+      <ul>
+        <li *ngFor="let city of citydata;let $index=index" (click)="choseCity(city.value,city.id,$index)" [ngClass]="{active:cityindex==$index}">{{city.value}}</li>
+      </ul>
+    </div>
+    <div class="area" id="area">
+      <ul>
+        <li *ngFor="let area of areadata;let $index=index" (click)="choseArea(area.value,area.id,$index)" [ngClass]="{active:areaindex==$index}">{{area.value}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

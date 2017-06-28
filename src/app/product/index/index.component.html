@@ -1,0 +1,50 @@
+<div class="product-main">
+	<app-header class="header" [hasCar]="true">
+		<div class="header-content">
+			{{'category' | translate}}
+		</div>
+	</app-header>
+	<!-- 一级分类 -->
+	<div class="list" *ngIf="productLevel==1">
+		<app-swipe-menu [productList]="productList" [url]="'/api/product/list'" (childEvent)="getChildEvent($event)"></app-swipe-menu>
+		<app-load-and-refresh [url]="'/api/product/list/'+categoryId" [body]="body" (onRefresh)="refreshData($event)">
+			<div class="load-and-refresh-content">
+				<app-product-list [productList]="products" [disBlock]="true"></app-product-list>
+			</div>
+		</app-load-and-refresh>
+	</div>
+
+	<!-- 二级分类 -->
+	<div class="list3" *ngIf="productLevel==2">
+		<div class="list-left">
+			<ul class="menu">
+				<li *ngFor="let category of productList;let $index = index" [ngClass]="{active:indexActive==$index}" (click)="navActive($index,category.id)">{{category.name}}</li>
+			</ul>
+		</div>
+		<div class="list-right">
+			<dl *ngFor="let subcategory of products;let $index = index" [routerLink]="['list']" [queryParams]="{name:subcategory.name, categoryId:subcategory.id}">
+				<dt><img src="{{subcategory.imagePath}}"></dt>
+				<dd>{{subcategory.name}}</dd>
+			</dl>
+		</div>
+	</div>
+
+	<!-- 三级分类 -->
+	<div class="list3" *ngIf="productLevel==3">
+		<ul class="menu list-left">
+			<li *ngFor="let category of productList;let $index = index" [ngClass]="{active:indexActive==$index}" (click)="menuActive($index,category.id)">{{category.name}}</li>
+		</ul>
+		<div class="list-right">
+			<div class="dl-body">
+				<div *ngFor="let subcategory of products;let $index = index">
+					<h3>{{subcategory.name}}</h3>
+					<dl *ngFor="let product of subcategory.children;let $index = index" [routerLink]="['list']" [queryParams]="{name:product.name, categoryId:subcategory.id}">
+						<dt><img src="{{product.imagePath}}"></dt>
+						<dd>{{product.name}}</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

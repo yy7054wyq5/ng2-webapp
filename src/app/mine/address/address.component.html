@@ -1,0 +1,20 @@
+<app-header [hasBack]="true" [headerTitle]="'title_activity_user_address'|translate" [hasBottom]="1"></app-header>
+<div class="address-main">
+    <ul class="list">
+        <li *ngFor="let add of address;let $index=index" data-id="{{add.id}}" (swipeleft)="scrollleft(add)" (swiperight)="scrollright(add)"
+            [ngClass]="{'delete':add.deleteShow}">
+            <p (click)="handleAddress($index,add.id)">
+                <span class="name">{{add.consignee}}</span>
+                <span class="mobile">{{add.mobile}}</span>
+                <span class="address">{{add.province}}{{add.city}}{{add.area}}{{add.detail}}</span>
+            </p>
+            <i (click)="handleAddress($index,add.id)"></i>
+            <button (click)="deleteAdd(add.id,$index)">{{'delete' | translate}}</button>
+        </li>
+    </ul>
+    <!-- <div style="height:2rem;width:10rem;"></div> -->
+    <div class="place">
+        <button [routerLink]="['/mine/plus-address']">{{'new_address' | translate}}</button>
+    </div>
+    <!-- ui-sref="plus-address" -->
+</div>

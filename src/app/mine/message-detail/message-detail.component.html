@@ -1,0 +1,17 @@
+<div class="message-detail" [style.min-height.px]="minHeight">
+  <app-header [hasBack]="true" [headerTitle]="headerTitle" [hasBottom]="1"></app-header>
+  <ul class="detail">
+    <li *ngFor="let item of messageDetail">
+      <p class="time">{{item.updateTime}}</p>
+      <img *ngIf="item.imagePath" src="{{item.imagePath}}">
+      <div class="product" *ngIf="item.resourceType!==3" (click)="jumpView(item.resourceId, item.resourceType)">
+        <h3>{{item.title}}</h3>
+        <p class="line-camp content">{{item.content}}</p>
+      </div>
+      <div *ngIf="item.resourceType===3">
+        <h3>{{item.title}}</h3>
+        <p class="content">{{item.content}}</p>
+      </div>
+    </li>
+  </ul>
+</div>

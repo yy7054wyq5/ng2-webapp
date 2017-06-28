@@ -1,0 +1,107 @@
+<div [@flyIn]="detail" class="main">
+	<div class="detail-main">
+		<app-header [hasBack]="1" [hasCar]="1">
+			<div class="header-content">
+				<h2>{{'title_activity_product_detail' | translate}}</h2>
+			</div>
+		</app-header>
+		<app-carousel [width]="10" [height]="7.31" [interval]="3000" [data]="carousel"></app-carousel>
+		<!--<slideimg imgdata="{{detail.albumImages}}"></slideimg>-->
+		<div class="detail-info">
+			<h2>{{detail.name}}</h2>
+			<p>{{detail.summary}}</p>
+			<span class="price" *ngIf="detail.needCredit"><i></i>{{detail.needCredit}}</span>
+			<span class="price" *ngIf="!detail.needCredit">&yen;{{detail.promotionPrice ||detail.price}}</span>
+			<span class="old" *ngIf="detail.type==2&&detail.promotionType!==3">&yen;{{detail.price}}</span>
+			<span class="point" *ngIf="detail.type==3">
+			{{detail.timeStart.substring(0,10)}}&nbsp;-&nbsp;
+			{{detail.timeEnd.substring(0,10)}}*{{'single_user_restriction' | translate}}
+			{{detail.creditLimitNum}}{{'has_sale_num_after' | translate}}</span>
+		</div>
+		<div class="big-sale" *ngIf="detail.type==2&&detail.promotionType==1">
+			{{'promotions' | translate}}
+			<span class="discount">
+					{{detail.promotionValue}}{{'zhe' | translate}}
+			</span>
+			<span>&nbsp;
+			{{'purchase_quantity_before' | translate}}{{detail.promotionLimitNum}}
+			{{'has_sale_num_after' | translate}}
+      </span>
+		</div>
+		<div class="big-sale" *ngIf="detail.type==2&&detail.promotionType==2">
+			{{'promotions' | translate}}
+			<span class="discount">{{'reduce_price' | translate}}{{detail.promotionValue}}</span>
+			<span>&nbsp;
+                {{'purchase_quantity_before' | translate}}{{detail.promotionLimitNum}}{{'purchase_quantity_after' | translate}}
+            </span>
+		</div>
+		<div class="big-sale send" *ngIf="detail.type==2&&detail.promotionType==3" showsendproduct>
+			<span>{{'promotions' | translate}}</span>
+			<span class="discount send">
+                {{'man' | translate}}{{detail.promotionConditionNumber}}{{'purchase_quantity_after' | translate}}{{'song' | translate}}{{detail.promotionValueNum}}{{'purchase_quantity_after' | translate}}</span>
+			<span>{{detail.valueName.length>10 ? detail.valueName.substring(0,10)+'...' : detail.valueName.length}}</span>
+		</div>
+		<!-- 浮动层展示被赠送产品明细 -->
+		<div class="show-send-product" *ngIf="detail.type==2&&detail.promotionType==3">
+			<div class="content">
+				<h2>{{'promotions' | translate}}<i (click)="hidesendproduct()"></i></h2>
+				<span>{{'song' | translate}}</span>
+				<ul>
+					<li ui-sref="product-detail({id: detail.relateId,reurl: 'product-detail?id='+detail.id+''})">
+						<span class="product-name">{{detail.valueName}}</span>
+						<span>x{{detail.promotionValueNum}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 规格 -->
+		<app-size [detail]="detail"></app-size>
+
+		<div class="conmment">
+			<h3>{{'product_detail_all_comment_before' | translate}}{{detail.comments.total}}
+				{{'product_detail_all_comment_after' | translate}}</h3>
+			<div class="conmment-box">
+				<p *ngIf="detail.comments.comments.length<=0">{{'no_comment' | translate}}</p>
+				<dl class="user-conmment" *ngIf="detail.comments.comments.length>0">
+					<dd class="user-info">
+						<div class="user-img"><img src="{{detail.comments.comments[0].userImagePath}}"></div>
+						<span class="user-name">
+                            {{detail.comments.comments[0].nickname}}
+                            <img src="/phoneweb/app/img/forum_icon_grade_1_dis.png">
+                        </span>
+						<span class="star">
+								<i class="yellow"></i>
+								<!--<i class="yellow" [ngStyle]="{'width': detail.comments.comments[0].score*.4'rem'}"></i>-->
+								<i class="gray"></i>
+								<!--<i class="gray"  [ngStyle]="{'width': detail.comments.comments[0].score*.4'rem'}"></i>-->
+						</span>
+					</dd>
+					<dd class="user-des">{{detail.comments.comments[0].content}}</dd>
+					<dd class="conmment-date">{{detail.comments.comments[0].updateTime}} {{detail.comments.comments[0].spec}}</dd>
+				</dl>
+				<a class="see-all-conmment" *ngIf="detail.comments.comments.length>0" ui-sref="allComment( {id:detail.id} )">{{'view_all_evaluations' | translate}}</a>
+			</div>
+		</div>
+		<div class="detail-center">
+            <div class="line">
+                <div class="txt">{{'pull_to_look_for_detail' | translate}}</div>
+            </div>
+        </div> 
+		<div class="img-detail-box">
+			<div class="detail-btn">
+				<a [ngClass]="{active:!flag}" (click)="flag=!flag">{{'graphic_details' | translate}}</a>
+				<i></i>
+				<a [ngClass]="{active:flag}" (click)="flag=!flag">{{'product_spec' | translate}} </a>
+			</div>
+			<div class="img-detail" *ngIf="!flag" [innerHtml]="detail.detail"></div>
+			<div class="product-size" *ngIf="flag">
+				<table>
+					<tr *ngFor="let attr of detail.attributes;let $index=index">
+						<td>{{attr.attrKey}}</td>
+						<td>{{attr.attrValue}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

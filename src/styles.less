@@ -1,0 +1,328 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+	border: 0 none;
+	font-size: inherit;
+	color: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+	max-height: 100000px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+}
+
+em,
+strong {
+	font-style: normal;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
+	line-height: 1.5;
+	color: #333; // background-color: #f2f2f2;
+	background-color: #fff;
+	font-size: 0.24rem;
+	overflow: auto;
+}
+
+a {
+	text-decoration: none;
+	&:hover,
+	&:active {
+		text-decoration: none;
+	}
+}
+.wrap {
+	width: 10rem;
+	margin: 0 auto;
+}
+
+img {
+	max-width: 100%;
+}
+
+.zindex1 {
+  z-index: 1;
+}
+
+.zindex2 {
+  z-index: 2;
+}
+
+.zindex3 {
+  z-index: 3;
+}
+
+.zindex4 {
+  z-index: 4;
+}
+
+.zindex5 {
+  z-index: 5;
+}
+
+.zindex6 {
+  z-index: 6;
+}
+
+.zindex7 {
+  z-index: 7;
+}
+
+.zindex8 {
+  z-index: 8;
+}
+
+.zindex9 {
+  z-index: 9;
+}
+
+.clear {
+	clear: both;
+	content: '';
+	display: table;
+}
+
+.nopadding {
+  padding: 0;
+}
+
+.line-ellipsis {
+	/*单行省略号*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.line-camp {
+	/**显示多行后省略号**/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	outline: none;
+}
+
+.hide {
+	display: none;
+	&.show {
+		display: inline-block;
+	}
+}
+
+.ajax-loading-wrap {
+	position: fixed;
+	z-index: 9;
+	width: 10rem;
+	height: 50rem;
+	top: 0;
+	left: 0;
+	.ajax-loading {
+		width: 1.8rem;
+		height: 1.8rem;
+		margin: 0 auto;
+		margin-top: 6rem;
+		background: rgba(0, 0, 0, 0.5) url("./assets/appLoading.gif") no-repeat center;
+		border-radius: .2rem;
+		background-size: 1.5rem 1.5rem;
+		p {
+			text-align: center;
+			font-size: .3rem;
+			line-height: .8rem;
+		}
+	}
+}
+
+// 百度地图步行规划，防制起点终点图标展示全部雪碧图
+.BMap_Marker:nth-child(2),
+.BMap_Marker:nth-child(3){
+  img{
+    max-width: none;
+  }
+}
+
+// 通用按钮样式
+.btn{
+	padding: 6px 12px;
+	display: block;
+  margin: 0 auto;
+	font-size: .45rem;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	background: #ED4F56;
+}
+
+// 登录注册的输入框按钮样式
+.enter{
+	input,button{
+		border-radius: 3px;
+		border: .05rem solid #dbdbdb;
+		width: 9.19rem;
+		height: 1.09rem;
+		font-size: .45rem;
+		display: block;
+		margin: 0 auto;
+	}
+	button{
+		color: #fff;
+		border: 0;
+	}
+	.error-box{
+		width: 9.19rem;
+		height: .6rem;
+		padding: .1rem 0;
+		margin: 0 auto;
+		color: red;
+	}
+}
+
+// 提示框
+#dialog{
+	position: fixed;
+	z-index: 9;
+	width: 10rem;
+	bottom: 4rem;
+	left: 0;
+	text-align: center;
+	opacity: 1;
+	transition: opacity .3s;
+	&.disappear{
+		opacity: 0;
+	}
+	div{
+		display: inline-block;
+		padding: .2rem .4rem;
+		background-color: rgba(0, 0, 0, 0.5);
+		margin: 0 auto;
+		color: #fff;
+		border-radius: 0.1rem;
+		font-size: 0.4rem;
+	}
+}
+
+// 无内容专用背景
+.no-content{
+	width: 10rem;
+	height: 6.92rem;
+	background: url(./assets/img/prompt_icon.png) no-repeat center;
+	background-size: 1.3rem;
+	padding-top: 4.4rem;
+	text-align: center;
+	font-size: .45rem;
+}
+
+// 该样式必须保留在最后，否则会导致disabled的样式失效
+*{
+	&[disabled]{
+		cursor: not-allowed;
+		opacity: .65;
+		background-color: #ddd;
+	}
+}
+
+button{
+	border: 0;
+}
+
+.hack{
+	height: 0.2rem;
+	width: 10rem;
+	background: #f1f1f1;
+}

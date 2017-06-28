@@ -1,0 +1,48 @@
+<app-header [hasBack]="1" [headerTitle]="'my_order'|translate"></app-header>
+<!--<app-swipe-menu product=></app-swipe-menu>-->
+<app-swipe-menu [productList]="orderMenuData" [inputId]="'true'" (childEvent)="getChildEvent($event)"></app-swipe-menu>
+<ul class="list" *ngIf="myOrder.length>0">
+  <li *ngFor="let order of myOrder">
+    <div class="title" [routerLink]="['/product/order-detail/',order.id]">{{'order_number' | translate}}：{{order.id}}
+      <span class="status" *ngIf="order.payState==0">{{'not_paid' | translate}}</span>
+      <span class="status" *ngIf="order.payState==1">{{'already_paid' | translate}}</span>
+      <span class="status" *ngIf="order.payState==2">{{'payment_failure' | translate}}</span>
+      <span class="status" *ngIf="order.payState==3">{{'already_shipped' | translate}}</span>
+      <span class="status" *ngIf="order.payState==4">{{'cash_on_delivery' | translate}}</span>
+      <span class="status" *ngIf="order.payState==5">{{'has_been_canceled' | translate}}</span>
+      <span class="status" *ngIf="order.payState==6">{{'has_been_completed' | translate}}</span>
+    </div>
+    <div class="detail" *ngFor="let detail of order.detail" [routerLink]="['/product/order-detail/',order.id]">
+      <img src="{{detail.imagePath}}">
+      <dl class="product">
+        <dd class="product-title">{{detail.name}}</dd>
+        <dd class="product-size">{{detail.spec}}</dd>
+        <dd class="product-count" *ngIf="order.type==1"><span>&yen;{{detail.price}}</span>x{{detail.number}}</dd>
+        <dd class="product-count" *ngIf="order.type==2"><img src="assets/img/integral_product_icon.png"><span>{{detail.price}}</span>x{{detail.number}}</dd>
+      </dl>
+    </div>
+    <div class="total" *ngIf="order.type==1">
+      {{'a_total_of_items_a_total_of_before' |translate}}{{order.totalNum}}{{'a_total_of_items_a_total_of_after' |translate}}：&yen;
+      <span>{{order.factPrice}}</span>（{{'freight' |translate}}&yen;{{order.shippingPrice}}）
+    </div>
+    <div class="total" *ngIf="order.type==2">
+      {{'a_total_of_items_a_total_of_before' |translate}}{{order.totalNum}}{{'a_total_of_items_a_total_of_after' |translate}}：
+      <img src="assets/img/integral_product_icon.png">
+      <span>{{order.factPrice}}</span>（{{'freight' |translate}}&yen;{{order.shippingPrice}}）
+    </div>
+    <!--确认收货-->
+    <button class="get" *ngIf="order.payState==3" (click)="takeGoods(order.id,'/api/order/updatestate',6)">{{'confirm_receipt' | translate}}</button>
+    <!--删除-->
+    <button class="discuz" *ngIf="order.payState==5" (click)="takeGoods(order.id,'/api/order/delete',5)">{{'delete' | translate}}</button>
+    <!--立即评价-->
+    <button class="discuz" *ngIf="order.payState==6&&order.haveComment=='false'" [routerLink]="['/mine/takecomments/',order.id]">{{'immediate_evaluation' | translate}}</button>
+    <!--重新支付-->
+    <button class="get" *ngIf="order.payState==2" (click)="goConfirm(order.id,order.payType)">{{'re_payment' | translate}}</button>
+    <!--去支付-->
+    <button class="get" *ngIf="order.payState==0||order.payState==2" (click)="goConfirm(order.id,order.payType)">
+      {{'go_pay' | translate}}</button>
+    <!--取消订单-->
+    <button class="discuz" *ngIf="order.payState==0" (click)="takeGoods(order.id,'/api/order/updatestate',5)">{{'cancellation_of_order' | translate}}</button>
+  </li>
+</ul>
+<div class="no-content" *ngIf="myOrder.length==0">{{'no_order' | translate}}~~~</div>

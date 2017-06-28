@@ -1,0 +1,25 @@
+<div class="mine-main">
+  <div class="setting">
+    <app-header [hasBack]="true" [headerTitle]="'title_activity_account_setting'|translate" [hasBottom]="1"></app-header>
+    <ul class="info">
+      <li>{{'my_info'|translate}}{{'click_to_update'|translate}}</li>
+      <li class="headdraw">
+        <span>{{'head_portrait' | translate}}</span>
+        <div class="img-box">
+          <img src="{{userInfo.imagePath}}">
+          <input type="file" accept="image/*" ng2FileSelect [uploader]="uploader" (change)="upLoad($event)" />
+        </div>
+      </li>
+      <li>
+        {{'nickname' |translate}}
+        <span class="pull-right" (click)="isUpdateNickName=!isUpdateNickName">{{userInfo.nickname}}</span>
+        <input type="text" class="nickname" id="nickname" name="nickname" placeholder="{{'please_input_nick_name' | translate}}"
+          maxlength="10" minlength="2" *ngIf="isUpdateNickName" (blur)="updateNickName(userInfo.nickname)" [(ngModel)]="userInfo.nickname">
+      </li>
+      <li *ngIf="userInfo.roleTag==='AppUser'">{{'current_level'| translate}}<span class="pull-right">{{userInfo.userRankName}}</span></li>
+      <li *ngIf="userInfo.roleTag==='AppUser'" [routerLink]="['/mine/reset-password']"><span>{{'title_activity_update_password'| translate}}</span></li>
+      <li *ngIf="userInfo.roleTag!=='AppUser'">{{'cell_phone_number'|translate}}<span class="pull-right">{{userInfo.mobile}}</span></li>
+      <li (click)="loginOut()" [ngClass]="{button: userInfo.roleTag!=='AppUser'}">{{'login_out' | translate}}</li>
+    </ul>
+  </div>
+</div>

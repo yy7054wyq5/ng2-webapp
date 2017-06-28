@@ -1,0 +1,103 @@
+.list{
+  padding-top: .2rem;
+  background: #f1f1f1;
+  >li{
+    background: #fff;
+    margin-bottom: .2rem;
+    padding-bottom: .2rem;
+    >.title{
+      color: #999999;
+      padding: .2rem .4rem;
+      font-size: 0.35rem;
+      // .border-bottom(@baseborder);
+      >span{
+        color: #ed4f44;
+        float: right;
+      }
+    }
+    >.detail{
+      padding: .2rem .4rem;
+      background: #fcfcfc;
+      padding-top: .2rem;
+      // .border-bottom(@baseborder);
+      >img{
+        width: 2.13rem;
+        height: 2.13rem;
+        display: block;
+        float: left;
+        margin-top: .1rem;
+      }
+      >.product{
+        width: 7rem;
+        padding-left: .2rem;
+        float: left;
+        >.product-title{
+          color: #555555;
+          font-size: 0.4rem;
+        }
+        >.product-size{
+          color: #999999;
+          font-size: 0.4rem;
+          margin-top: .1rem;
+        }
+        >.product-count{
+          font-size: 0.5rem;
+          color: #999999;
+          text-align: right;
+          >img{
+            width: .5rem;
+          }
+          >span{
+            color: #555555;
+          }
+        }
+      }
+    }
+    >.detail:after{
+      clear: both;
+      display: table;
+      content: '';
+    }
+    >.total{
+      float: left;
+      width: 100%;
+      text-align: right;
+      margin-top: .2rem;
+      >img{
+        width: .5rem;
+      }
+      >span{
+        font-size: 0.45rem;
+      }
+    }
+    >button{
+      float: right;
+      margin-top: .2rem;
+      margin-right: .2rem;
+      padding: .2rem .3rem;
+      font-size: 0.4rem;
+      text-align: center;
+      border-radius: .1rem;
+    }
+    >button.get{
+      background: #ed4f44;
+      color: #fff;
+    }
+    >button.discuz{
+      background: #fff;
+      border: 0.02rem solid #dbdbdb;
+      color: #999999;
+    }
+  }
+  >li:after{
+    clear: both;
+    display: table;
+    content: '';
+  }
+}
+
+.tips{
+  text-align: center;
+  font-size: 0.45rem;
+  line-height: 2rem;
+}

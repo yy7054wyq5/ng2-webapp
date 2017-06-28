@@ -1,0 +1,43 @@
+h3{
+  height: 1.1rem;
+  line-height: 1.1rem;
+  color: #999;
+  font-size: .45rem;
+  border-bottom: .05rem solid #dbdbdb;
+  padding-left: .2rem;
+}
+.list li {
+  height: 1.68rem;
+  line-height: 1.68rem;
+  border-bottom: .01rem solid #dbdbdb;
+  padding: 0 .2rem;
+  &::after{
+    clear: both;
+    display: table;
+    content: '';
+  }
+  img {
+    float: left;
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 1.1rem;
+    margin-top: .24rem;
+  }
+  .info{
+    float: left;
+    margin-left: .2rem;
+    span{
+      display: block;
+      font-size: .45rem;
+      height: .6rem;
+      line-height: 1rem;
+      &.name{
+        color: #555;
+      }
+      &.phone{
+        color: #999;
+      }
+    }
+  }
+}

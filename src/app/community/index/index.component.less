@@ -1,0 +1,95 @@
+.community_index {
+    width: 100%;
+    height: auto;
+    background: #f1f1ed;
+    background-size: 100% 100%;
+    .header {
+        text-align: center;
+        .header-content {
+            display: block;
+            line-height: 1.2rem;
+            font-size: 0.45rem;
+        }
+    }
+}
+
+.community_index .load-and-refresh-content {
+    width: 100%;
+    height: auto;
+    ul {
+        width: 100%;
+        height: auto;
+        li {
+            width: 100%;
+            height: 2.9rem;
+            padding-top: 0.27rem;
+            padding-bottom: 0.27rem;
+            margin-top: 0.22rem;
+            padding-left: 0.49rem;
+            padding-right: 0.49rem;
+            background: white;
+            >div:nth-child(1) {
+                >img {
+                    width: 2.36rem;
+                    height: 2.36rem;
+                    margin-right: 0.27rem;
+                    float: left;
+                    background-size: contain;
+                }
+            }
+            >div:nth-child(2) {
+                >div:nth-child(1) {
+                    font-size: 0.48rem;
+                    color: #555555;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                >div:nth-child(2) {
+                    font-size: 0.4rem;
+                    color: #999999;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                >div:nth-child(3) {
+                    margin-top: 0.22rem;
+                    >img {
+                        width: 0.86rem;
+                        height: 0.86rem;
+                        margin-right: 0.16rem;
+                        float: left;
+                    }
+                    >span {
+                        color: #999999;
+                        line-height: 0.86rem;
+                        float: right;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/**
+*横着的线条
+**/
+
+.across-the-line {
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.forumEdit {
+    z-index: 100;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url(http://appbuilder.loongjoy.com/phoneweb/app/img/forum_button_edit_nor.png);
+    background-repeat: no-repeat;
+    background-size: .8rem;
+    background-position: center;
+    position: absolute;
+    right: .2rem;
+    top: 0;
+}

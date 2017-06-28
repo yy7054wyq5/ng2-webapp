@@ -1,0 +1,41 @@
+<app-header [hasBack]="1" [headerTitle]="'current_level'|translate"></app-header>
+<div class="user">
+  <div class="img-box">
+    <img src="{{userInfo.imagePath}}">
+  </div>
+  <i [style.background-image]="userInfo.userRankIconPath"></i>
+</div>
+<p class="num">
+  <span>{{userGrowth}}</span>
+  <span>{{nextLevelGrowth}}</span>
+</p>
+<div class="growth-bar">
+  <div class="bar" [style.width.rem]="growthLength"></div>
+</div>
+<div class="growth-level">
+  <span *ngFor="let rank of growth; index as i " [ngClass]="{active: userLevel===i}">{{rank.name}}</span>
+</div>
+<p class="note">
+  <span>{{'distance_to_the_next_level_before'|translate}}</span>
+  <span>{{nextRankNeedScore}}</span>
+  <span>{{'distance_to_the_next_level_after'|translate}}</span>
+</p>
+<div class="hack"></div>
+<div class="growth-detail">
+  <h3>{{'growth_value_detail'|translate}}</h3>
+  <ul class="list">
+    <li *ngFor="let list of creditRecordList">
+      <div class="round">
+        <div class="round-out">
+          <div class="round-in"></div>
+        </div>
+        <div class="round-line"></div>
+      </div>
+      <div class="growth-record">
+        <p class="des">{{list.actionMsg}}</p>
+        <span class="add-growth">+{{list.increaseCredit}}<span>{{'growth_score_after'|translate}}</span></span>
+        <span class="date">{{list.updateTime}}</span>
+      </div>
+    </li>
+  </ul>
+</div>

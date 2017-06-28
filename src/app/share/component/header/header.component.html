@@ -1,0 +1,13 @@
+<header [style.border-bottom]="headerBottom">
+  <i (click)="goBack()" *ngIf="hasBack"></i>
+  <h2 *ngIf="headerTitle">{{headerTitle}}</h2>
+  <ng-content select=".header-content"></ng-content>
+  <div class="header-nav" *ngIf="autoNav">
+    <a [routerLink]="['/index/find']" routerLinkActive="active">{{'find'|translate}}</a>
+    <a *ngIf="app.isPromotionProduct" [routerLink]="['/index/sale']" routerLinkActive="active">{{'promotion'|translate}}</a>
+    <a *ngIf="app.isBranch" [routerLink]="['/index/branch']" routerLinkActive="active">{{'branch'|translate}}</a>
+    <a *ngIf="app.isCreditProduct" [routerLink]="['/index/pointmall']" routerLinkActive="active">{{'integral_mall'|translate}}</a>
+  </div>
+  <a class="car" *ngIf="hasCar" [routerLink]="['/product/shop-car']" [queryParams]="{ type: 1 }"></a>
+</header>
+<div class="seat"></div>

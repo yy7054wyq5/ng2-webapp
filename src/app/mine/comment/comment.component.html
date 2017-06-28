@@ -1,0 +1,32 @@
+<app-header [hasBack]="1" [headerTitle]="'my_comments'|translate"></app-header>
+<ul class="nav">
+  <li class="product" [routerLinkActive]="'active'" [routerLink]="['/mine/comment']" [queryParams]="{type: 'product'}">{{'product'| translate}}</li>
+  <li class="article" [routerLinkActive]="'active'" [routerLink]="['/mine/comment']" [queryParams]="{type: 'article'}">{{'article'| translate}}</li>
+</ul>
+<div class="hack"></div>
+<ul class="product-list" *ngIf="type==='product'">
+  <li *ngFor="let comment of myProductComment">
+    <h4 class="product-title">
+      <img [defaultImage]="defaultImage" [lazyLoad]="comment.imagePath" [offset]="100">
+      <p [routerLink]="['/product/detail', comment.productId]">{{comment.name}}</p>
+    </h4>
+    <dl class="user-conmment">
+      <dd class="user-info">
+        <div class="user-img"><img src="{{userInfo.imagePath}}"></div>
+        <span class="user-name">{{userInfo.nickname}}<img src="{{userInfo.userRankIconPath}}"></span>
+        <span class="star">
+          <i class="yellow" [style.width.rem]="2*0.4"></i>
+          <i class="gray" [style.width.rem]="(5-2)*.4"></i>
+        </span>
+      </dd>
+      <dd class="user-des">{{comment.content}}</dd>
+      <dd class="conmment-date">{{comment.updateTime}}</dd>
+      <dd class="seller" *ngIf="comment.reply">
+        <span class="name">{{'item_merchent_reply'|translate}}</span>
+        <span class="date">{{comment.reply.updateTime}}</span>
+        <div>{{comment.reply.content}}</div>
+      </dd>
+    </dl>
+  </li>
+</ul>
+<app-topic-comment-list *ngIf="type==='article'"></app-topic-comment-list>

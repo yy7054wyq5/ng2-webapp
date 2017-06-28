@@ -1,0 +1,21 @@
+<div class="sale-main" [style.background]="saleBg">
+  <app-header [hasCar]="true" [autoNav]="true"></app-header>
+  <app-swipe-menu [productList]="swipeList" (childEvent)="getChildEvent($event)" *ngIf="swipeList" [url]="'/api/product/promotionproduct'"></app-swipe-menu>
+  <div class="bar" *ngIf="countDownObj">
+    <i></i>
+    <div>
+      {{countDownObj.summary}}
+      <span *ngIf="countDownObj.status===1">{{'distance_events_start' | translate}}{{countDownTime}}</span>
+      <span *ngIf="countDownObj.status===2">{{'distance_events_end' | translate}}{{countDownTime}}</span>
+      <span *ngIf="countDownObj.status===3">{{'activity_has_not_finish' | translate}}</span>
+    </div>
+  </div>
+  <app-load-and-refresh [url]="url" [body]="body" (onRefresh)="refreshData($event)" (onLoad)="loadData($event)">
+    <div class="load-and-refresh-content">
+      <app-product-list [productList]="products" *ngIf="products" [disBlock]="false" [productType]="'promotion'"></app-product-list>
+      <div class="no-content" *ngIf="(products&&products.length===0)||!products">
+        {{'no_data' | translate}}
+      </div>
+    </div>
+  </app-load-and-refresh>
+</div>

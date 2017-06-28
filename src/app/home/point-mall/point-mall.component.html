@@ -1,0 +1,17 @@
+<div class="point-main">
+  <app-header [autoNav]="true" [hasCar]="true"></app-header>
+  <h2 class="point-bar">
+    <span>{{'current_points'|translate}}</span>：
+    <span>{{userPoints}}</span>
+    <button (click)="convertibleProducts()" [ngClass]="{active: canConvert}">{{'convertible' | translate}}</button>
+  </h2>
+  <app-load-and-refresh [url]="'/api/product/credit'" [body]="body" [dataKey]="'creditProducts'" (onRefresh)="refreshData($event)"
+    (onLoad)="loadData($event)">
+    <div class="load-and-refresh-content">
+      <app-product-list [productList]="list" [disBlock]="true" [productType]="'point'" *ngIf="list.length>0;else elseBlock"></app-product-list>
+      <ng-template #elseBlock>
+        <div class="no-content">{{ noDataTxt | translate}}</div>
+      </ng-template>
+    </div>
+  </app-load-and-refresh>
+</div>

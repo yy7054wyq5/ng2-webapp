@@ -1,0 +1,68 @@
+<div class="topic-detail">
+
+  <app-header class="header" [hasBack]="true">
+    <div class="header-content">
+      {{'title_activity_forumDetails'|translate}}
+    </div>
+  </app-header>
+
+  <div class="con">
+    <div class="author">
+      <img class="author-head" src={{detail.userImagePath}}>
+      <div class="author-detail">
+        <span class="name">{{detail.nickname}}</span>
+        <img class="author-level" src={{detail.iconImagePath}}>
+        <p class="date">{{detail.updateTime}}</p>
+      </div>
+    </div>
+    <h3 *ngIf="detail.top==1"><span class="tag"></span>{{detail.name}}</h3>
+    <div class="word">
+      <p *ngIf="detail.deleted===0">{{detail.detail}}</p>
+      <p *ngIf="detail.deleted==1" style="color:#ddd;"></p>
+      <ul *ngIf="detail.deleted==0">
+        <li *ngFor="let path of detail.albumImages">
+          <img class="image" [src]="path" alt="" width="100%" />
+        </li>
+      </ul>
+    </div>
+    <div class="operation" *ngIf="detail.deleted==0">
+      <span>{{detail.commentNum}}</span>
+      <button class="comment-num"></button>
+      <span>{{detail.thumbNum}}</span>
+      <button [ngClass]="{zan:!detail.haveThumb,zanActive:detail.haveThumb}" class="zan" (click)="clickZan(detail.id)"></button>
+    </div>
+    <div class="tips" *ngIf="detail.thumbs!=undefined&&detail.thumbs.length>0&&detail.deleted===0"><span *ngFor="let thumbs of detail.thumbs">{{thumbs.nickname}}&nbsp;</span></div>
+  </div>
+
+  <div class="no-conment" *ngIf="detail.commentNum==0"></div>
+
+  <div class="conment" *ngIf="detail.commentNum>0">
+    <div class="tag">全部评论</div>
+    <div *ngIf="detail.commentNum==0" class="loading-comment"><img src="http://appbuilder.loongjoy.com/phoneweb/app/img/loading.gif"></div>
+    <app-load-and-refresh [url]="'/api/comment/list'" [disabledRefresh]="false" [body]="loadBody" (onRefresh)="loadData($event)"
+      (onLoad)="loadData($event)">
+      <div class="load-and-refresh-content">
+
+        <ul>
+          <li *ngFor="let conment of comments">
+            <img [src]="conment.userImagePath">
+            <span class="name">{{conment.nickname}}</span>
+            <span class="date pull-right">{{conment.updateTime}}</span>
+            <div class="des">{{conment.content}}</div>
+            <div class="seller" *ngIf="conment.reply">
+              <span class="name" translate="merchantReply"></span>
+              <span class="date">{{conment.reply.updateTime}}</span>
+              <div>{{conment.reply.content}}</div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </app-load-and-refresh>
+  </div>
+  <div style="height:1.5rem;width:10rem;"></div>
+  <div class="send" *ngIf="detail.deleted==0">
+    <textarea placeholder="{{ 'comment_hint'|translate}}" maxlength="200" class="txa" [(ngModel)]="commentContent"></textarea>
+    <a (click)="sendConment(detail.id)" translate="sendOut">{{'send'|translate}}</a>
+  </div>
+</div>

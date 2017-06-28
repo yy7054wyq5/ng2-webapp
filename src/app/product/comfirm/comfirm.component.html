@@ -1,0 +1,88 @@
+<div class="confirm-main">
+  <app-header [hasBack]="1">
+    <div class="header-content">
+      <h2>{{'title_activity_create_order' | translate}}</h2>
+    </div>
+  </app-header>
+  <div class="address" (click)="goAddress()">
+    <p *ngIf="!consignee">
+      <span  class="auto">{{'input_address' | translate}}</span>
+    </p>
+    <p *ngIf="consignee">
+      <span class="name">{{consignee.consignee}}</span>
+      <span class="mobile">{{consignee.mobile}}</span>
+      <span class="detail">
+				{{consignee.province}}{{consignee.city}}{{consignee.area}}{{consignee.detail}}
+			</span>
+    </p>
+    <span class="icon"><i></i></span>
+  </div>
+  <ul class="list">
+    <li *ngFor="let list of order.products;let $index=index">
+      <img src="{{list.imagePath}}">
+      <dl>
+        <dd class="name">{{list.name}}</dd>
+        <dd class="list-size">{{list.specStr}}</dd>
+        <dd class="price" *ngIf="!list.mallNeedCredits">{{list.promotionPrice||list.price}}<span>x{{list.number}}</span></dd>
+        <dd class="price" *ngIf="list.mallNeedCredits"><img src="/phoneweb/app/img/integral_product_icon.png">{{list.mallNeedCredits}}<span>x{{list.number}}</span></dd>
+      </dl>
+    </li>
+    <li *ngFor="let gift of order.gift;let $index=index">
+      <img src="{{gift.imagePath}}">
+      <dl>
+        <dd class="name">{{gift.name}}</dd>
+        <dd class="list-size">{{gift.specStr}}</dd>
+        <dd class="price">{{gift.sourcePrice}}</dd>
+      </dl>
+    </li>
+  </ul>
+  <div class="spend-credit" *ngIf="order.currency=='RMB'&&spendCredits>0">
+    <span>
+      <!--可用积分抵扣-->
+      {{'available_integral_before' | translate}}{{spendCredits}}{{'available_integral_after' | translate}}&yen;{{toMoney}}
+    </span>
+    <span class="button" [ngClass]="{active: tomoneyflag}" (click)="toCash()"><i></i></span>
+  </div>
+  <div class="pay-type" *ngIf="order.currency=='RMB'">
+    <!--支付方式-->
+    <span>{{'pay_meth' | translate}}</span>
+    <span class="icon" (click)="set()"><i></i></span>
+    <span class="chosed">{{payWay}}</span>
+  </div>
+  <div class="send-way">
+    <span class="way">{{'distribution_meth' | translate}}</span>
+    <span class="chosed">{{sendway||'快递'}}</span>
+  </div>
+  <div class="confirm-total">{{'total_product_before' | translate}}{{productNumber}}{{'total_product_after' | translate}}
+    <span>
+			<span *ngIf="order.currency=='RMB'">&yen;</span>
+			<span *ngIf="order.currency!=='RMB'">
+				<img src="../../../assets/img/integral_product_icon.png">
+			</span> 
+			{{totalPrice}}
+    </span>
+    （{{'freight' | translate}}&yen;{{shippingfee||0}}）
+  </div>
+  <div class="msg">
+    <span>{{'message_remarks' | translate}}：<input type="" name="" placeholder="{{'select_input' | translate}}" [(ngModel)]="remark"></span>
+  </div>
+  <div class="hack"></div>
+  <div class="bottom">
+    <span>{{'shop_car_total' | translate}}：
+			<span *ngIf="order.currency=='RMB'">&yen;</span>
+    <span *ngIf="order.currency!=='RMB'"><img src="/phoneweb/app/img/integral_product_icon.png"></span> {{totalPrice}}
+    </span>
+    <button (click)="sendOrder()">{{'title_activity_create_order' | translate}}</button>
+  </div>
+
+  <div class="chose-bg" [ngClass]="{active:flag}" (click)="set()">
+    <div class="con">
+      <div><i (click)="set()"></i><span>{{'select_pay_meth' | translate}}</span></div>
+      <ul>
+         <!--<li class="alipay" [ngClass]="{active:paytype==1}" (click)="pay(1)" ng-hide="wx">{{'ali_pay' | translate}}<i></i></li> -->
+        <li class="wechat" [ngClass]="{active:paytype==2}" (click)="pay(2)">{{'wx_pay' | translate}}<i></i></li>
+        <li class="cash" [ngClass]="{active:paytype==3}" (click)="pay(3)">{{'um_pay' | translate}}<i></i></li>
+      </ul>
+    </div>
+  </div>
+</div>

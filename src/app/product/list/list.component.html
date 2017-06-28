@@ -1,0 +1,13 @@
+<div class="product-main product-list-main">
+  <app-header class="header" [hasBack]="1" [hasCar]="true">
+    <div class="header-content">
+      <span>{{listName}}</span>
+    </div>
+    <a class="car" (click)="goCar()"></a>
+  </app-header>
+  <app-load-and-refresh [url]="'/api/product/list/'+listId" [body]="body" (onRefresh)="refreshData($event)">
+    <div class="load-and-refresh-content">
+      <app-product-list [productList]="products" [disBlock]="true"></app-product-list>
+    </div>
+  </app-load-and-refresh>
+</div>

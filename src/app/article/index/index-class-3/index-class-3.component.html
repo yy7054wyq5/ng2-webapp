@@ -1,0 +1,10 @@
+<div *ngIf="navdata.length===0" class="no-content" translate="noContent"></div>
+<div>
+  <app-swipe-menu class="swipe-menu" [inputId]="true" [productList]="navdata" (childEvent)="getChildEvent($event)"></app-swipe-menu>
+  <div class="third-menu" *ngFor="let thirdmenu of navMenu">
+    <div class="title" [style.background]="addBackgroundImage(thirdmenu.imagePath)"></div>
+    <div class="name">{{thirdmenu.name}}</div>
+    <div class="shade"></div>
+    <span *ngFor="let children of thirdmenu.children" [routerLink]="['/article/articleList', children.id,children.name]">{{children.name}}</span>
+  </div>
+</div>

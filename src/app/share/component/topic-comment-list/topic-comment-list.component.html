@@ -1,0 +1,24 @@
+<!--<div class="no-content" *ngIf="comments===undefined||comments.length<=0">{{'no_data' | translate}}</div>-->
+
+<app-load-and-refresh [url]="'/api/comment/mine'" [body]="loadBody" (onRefresh)="loadData($event)" (onLoad)="loadData($event)">
+  <div class="load-and-refresh-content">
+
+    <ul class="topic-comment-list">
+      <li *ngFor="let conment of comments" [routerLink]="['/community/topicDetail/',conment.resourceId]">
+        <h4>{{conment.resourceName}}</h4>
+        <div class="item">
+          <img [src]="imagePath">
+          <span class="name">{{nickname}}</span>
+          <span class="date pull-right">{{conment.updateTime}}</span>
+          <div class="des">{{conment.content}}</div>
+          <div class="seller" *ngIf="conment.reply">
+            <span class="name" translate="merchantReply"></span>
+            <span class="date">{{conment.reply.updateTime}}</span>
+            <div>{{conment.reply.content}}</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</app-load-and-refresh>
