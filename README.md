@@ -136,7 +136,7 @@ export class FindComponent implements OnInit {
 * 路由配置
 
 ```javascript
-{ 
+{
   path: 'product',
   component: ProductIndexComponent,
   data: {
