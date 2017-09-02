@@ -2,7 +2,7 @@
 
 本项目是以[angular-cli](https://github.com/angular/angular-cli)为基础，适用于移动web的项目。
 
-# 包含的功能
+## 一、包含的功能
 
 * [rem 布局](#rem-布局)：在根组件调用rem.service，动态计算html的font-size
 * [封装http请求](#封装的http请求)：所有的请求都从这里走，以便加公共参数或者做加密操作
@@ -20,49 +20,45 @@
 * [导购列表](#导购列表)
 * [下拉刷新和上滑加载（翻页）](#下拉刷新和上滑加载（翻页）)
 
+## 二、项目特殊说明
 
-# 项目特殊说明
 * 1.因需要在启动app前获取app配置信息，所以在路由路径上手动添加前缀。在组件中routerlink也需要手动加前缀。
 * 2.npm start 启动本地开发环境，地址：http://localhost:4200/#/index?appTag=CcYgnu（改用hash模式以便应对多商户多短链接的问题）
 * 3.在组件内部调用js-cookie的方法，jquery一样
+
 ```javascript
 import * as Cookie from 'js-cookie';
 ```
-* 4.分支说明
->develop 线上正式分支,使用angularjs<br/>
->feature/angular  线上测试分支，使用Angular <br/>
->feature/angular-develop 本地开发分支
 
-* 5.angular-cli命令要求
->在线上分支，使用ng build --prod --aot=false --base-href ./ 推代码<br>
->会生成dist文件夹，是线上代码。代表的意义是：生产模式，关闭aot，设定base-href路径。<br>
->项目采用动态路由，所以不能采用aot编译
+## 三、项目结构说明
 
-# 项目结构说明
->app<br/>
->-- article 文章模块<br/>
->-- community 论坛模块<br/>
->-- enter 登录、注册、找回密码，非模块仅页面，属于主模块<br/>
->&nbsp;&nbsp;-- weixin-login-resolve.service 微信登录的特殊处理<br/>
->-- home 首页模块<br/>
->-- mine 个人中心模块<br/>
->-- product 项目的product模块<br/>
->-- share 项目公共模块，包含组件和服务<br/>
->&nbsp;&nbsp;-- service 公共服务，在根模块引入service.module即可<br/>
->&nbsp;&nbsp;-- animation 转场动画，来自大漠穷秋老师的nicefish<br/>
->&nbsp;&nbsp;-- guard 路由守卫(service)，最新的angular-cli已将此独立出来，可以单独生成,使用前要在模块引入component.mudule<br/>
->&nbsp;&nbsp;-- component 公共组件，使用前要在模块引入component.mudule<br/>
->&nbsp;&nbsp;-- pipe 公共管道，使用前要在模块引入component.mudule<br/>
+* app
+* -- article 文章模块
+* -- community 论坛模块
+* -- enter 登录、注册、找回密码，非模块仅页面，属于主模块
+* &nbsp;&nbsp;-- weixin-login-resolve.service 微信登录的特殊处理
+* -- home 首页模块
+* -- mine 个人中心模块
+* -- product 项目的product模块
+* -- share 项目公共模块，包含组件和服务
+* &nbsp;&nbsp;-- service 公共服务，在根模块引入service.module即可
+* &nbsp;&nbsp;-- animation 转场动画，来自大漠穷秋老师的nicefish
+* &nbsp;&nbsp;-- guard 路由守卫(service)，最新的angular-cli已将此独立出来，可以单独生成,使用前要在模块引入component.mudule
+* &nbsp;&nbsp;-- component 公共组件，使用前要在模块引入component.mudule
+* &nbsp;&nbsp;-- pipe 公共管道，使用前要在模块引入component.mudule
 
-# 使用方法
+## 四、使用方法
 
-> 注意： TS内该引入的引入，不在示例中提及<br/>
-> package.json配置：<br/>
-"start": "ng serve --proxy-config proxy.conf.json --host 192.168.1.29 --port 80"<br/>
-> host 为本机IP,port为端口<br/>
-> npm start 后，手机在同局域网下可访问该IP<br/>
+* package.json配置：
 
-### rem 布局 
+* "start": "ng serve --proxy-config proxy.conf.json --host 192.168.1.29 --port 80"
+
+* host 为本机IP,port为端口
+
+* npm start 后，手机在同局域网下可访问该IP
+
+### 1.rem 布局
+
 在根组件调用一次就行。
 
 ```javascript
@@ -71,9 +67,10 @@ window.onresize = () => {
   this.rem.setDpr();
 };
 ```
+
 [返回文档顶部](#包含的功能)
 
-### 下拉刷新和上滑加载（翻页）
+### 2.下拉刷新和上滑加载（翻页）
 
 * html
 
@@ -118,7 +115,7 @@ export class FindComponent implements OnInit {
 
 [返回文档顶部](#包含的功能)
 
-### 轮播回弹
+### 3.轮播回弹
 
 * html
 
@@ -134,7 +131,7 @@ export class FindComponent implements OnInit {
 
 [返回文档顶部](#包含的功能)
 
-### resolver，就是一个service
+### 4.resolver
 
 * 路由配置
 
@@ -164,7 +161,7 @@ export class FindComponent implements OnInit {
 export class ProductIndexComponent implements OnInit {
   title;
   detail;
-  constructor( 
+  constructor(
     private route: ActivatedRoute,
   ) { }
 
@@ -181,13 +178,13 @@ export class ProductIndexComponent implements OnInit {
 
 [返回文档顶部](#包含的功能)
 
-### 封装的http请求 
+### 5.封装的http请求
 
 * TS
 
 ```javascript
 export class ProductIndexComponent implements OnInit {
-  constructor( 
+  constructor(
     private api: ApiService
   ) { }
 
@@ -211,13 +208,13 @@ export class ProductIndexComponent implements OnInit {
 
 [返回文档顶部](#包含的功能)
 
-### storage
+### 6.storage
 
 * TS
 
 ```javascript
 export class ProductIndexComponent implements OnInit {
-  constructor( 
+  constructor(
     private storage: StorageService
   ) { }
 
@@ -243,16 +240,17 @@ export class ProductIndexComponent implements OnInit {
 
 [返回文档顶部](#包含的功能)
 
-### 返回顶部
- 
+### 7.返回顶部
+
 * HTML
+
 ```html
 <app-back-top></app-back-top>
 ```
 
 [返回文档顶部](#包含的功能)
 
-### 顶部
+### 8.顶部
 
 ```html
 <app-header [hasBack]="true" [hasCar]="true" [autoNav]="true" [headerTitle]="'标题'" [hasBottom]="true">
@@ -268,7 +266,7 @@ export class ProductIndexComponent implements OnInit {
 
 [返回文档顶部](#包含的功能)
 
-### 底部
+### 9.底部
 
 ```html
 <app-footer></app-footer>
@@ -276,44 +274,7 @@ export class ProductIndexComponent implements OnInit {
 
 [返回文档顶部](#包含的功能)
 
-### 接口约定参数说明
-
-```javascript
-//促销信息
-promotionType: "1", //促销类型 1:打折 2减价  3满送
-promotionValue: "7.7", //促销值 指具体的折扣或减价 或具体赠送的产品id
-promotionLimitInventory: "100", //促销库存
-promotionLimitNum: "10", //单用户限购数量
-promotionTimeLeft: 484240, //促销时间剩余
-promotionPrice: 154 //促销价格
-promotionId: "4", //促销id
-productId: "41", //产品id
-value: "7.7", //促销的值 这里是折扣
-valueNum: "1", //当促销为满送时   指具体送多少件
-conditionNumber: "0", //当促销为满送时   指达到多少件送
-limitNum: "10", //单用户限购
-limitInventory: "100", //促销库存
-saleCount: "0", //已销售量
-status: "1", //当前状态 1未开抢  2已开抢  3已抢光
-createTime: "2016-05-18 10:16:09",
-updateTime: "2016-05-18 10:16:09",
-productName: "陕西红苹果10斤装", //产品名
-productImageId: "51", //产品图片id
-price: "200.00", //原价
-inventory: "200", //产品库库存
-timeStart: "2016-05-20 00:00:00",
-timeEnd: "2016-05-31 23:59:59",
-imagePath: "http://www.appbuilder.com/uploads/img/product/2016-05/fc71c4143cf569445215c931e8f27320.jpg", //图片路径
-promotionValue: "7.7",
-promotionLimitInventory: "100",
-promotionLimitNum: "10",
-promotionTimeLeft: 397138, //剩余时间
-promotionPrice: 154 //促销价格
-```
-
-[返回文档顶部](#包含的功能)
-
-### 导购列表
+### 10.导购列表
 
 ```html
 <app-guide-list [guides]="guides" [toggle]="toggle" (outGuideToggleValue)="outGuideToggleValue($event)"></app-guide-list>
@@ -331,7 +292,7 @@ outGuideToggleValue(action) {
 
 [返回文档顶部](#包含的功能)
 
-### 全屏遮罩
+### 11.全屏遮罩
 
 ```html
 <app-full-shadow [show]="toggle" (outShadowToggleValue)="outShadowToggleValue($event)">
@@ -348,9 +309,9 @@ outShadowToggleValue(action) {
 
 [返回文档顶部](#包含的功能)
 
-###  滚动导航
+### 12.滚动导航
 
-  ```html 
+  ```html
   <app-swipe-menu [productList]="productList" [url]="'/api/product/list'" [categoryId]="'categoryId'" (childEvent)="getChildEvent($event)"  [inputId]='true'>
   <!--productList:导航数据数据-->
   <!--categoryId:请求时的分类参数，为字符串；不传默认categoryId-->
@@ -359,7 +320,7 @@ outShadowToggleValue(action) {
   <!--inputId:可以不传，当为true时，返回id-->
 </app-swipe-menu>
   ```
-  
+
   ```Ts
   getChildEvent(content) {
     console.log(content);// 请求对象或者导航id
@@ -368,7 +329,7 @@ outShadowToggleValue(action) {
 
 [返回文档顶部](#包含的功能)
 
-###   产品列表
+### 13.产品列表
 
   ```html
   <app-product-list [productList]="products" [disBlock]="true" [productType]='promotion'>
